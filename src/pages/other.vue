@@ -1,9 +1,19 @@
 <template>
-  <h1>Other page</h1>
+  <div>
+    <h1>Other page</h1>
+    <Header />
+  </div>
 </template>
 
 <script>
-export default {};
+import Header from "@/components/header.vue";
+export default {
+  components: { Header },
+};
 </script>
 
-<style></style>
+<style lang="scss">
+h1 {
+  color: blueviolet;
+}
+</style>
