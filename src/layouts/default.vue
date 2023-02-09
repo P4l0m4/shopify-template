@@ -1,11 +1,16 @@
 <template>
   <div class="container">
-    <nav>
-      <NuxtLink to="/">HOME (index)</NuxtLink> |
-      <NuxtLink to="/other">OTHER PAGE</NuxtLink>
-    </nav>
+    <HeaderComponent />
     <main><slot /></main>
   </div>
 </template>
-
-<script setup></script>
+<script></script>
+<style scoped lang="scss">
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 64px;
+  gap: 128px;
+  align-items: center;
+}
+</style>
