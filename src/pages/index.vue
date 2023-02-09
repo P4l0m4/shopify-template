@@ -17,7 +17,7 @@ const products = await client.product.fetchAll()
         </div>
 
         <button class="button-secondary">Voir plus</button>
-        <button class="button-primary">Ajouter au panier</button>
+        <button @click.prevent class="button-primary">Ajouter au panier</button>
       </nuxt-link>
     </section>
   </main>

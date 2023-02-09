@@ -16,6 +16,7 @@
     "@pinia/nuxt": "^0.4.6",
     "pinia": "^2.0.30",
     "ress": "^5.0.2",
-    "shopify-buy": "^2.18.0"
+    "shopify-buy": "^2.18.0",
+    "swiper": "^9.0.3"
   }
 }

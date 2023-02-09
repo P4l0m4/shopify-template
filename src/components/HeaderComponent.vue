@@ -17,7 +17,7 @@ header {
     display: flex;
     gap: 32px;
 
-    a.nuxt-link-exact-active {
+    .router-link-exact-active {
       color: yellow !important;
     }
   }

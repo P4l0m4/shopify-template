@@ -8,4 +8,14 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
   ],
   css: ['@/styles/global.scss'],
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "@/styles/_variables.scss";',
+        },
+      },
+    },
+  },
 })

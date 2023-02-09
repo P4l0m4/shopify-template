@@ -12,5 +12,6 @@ const product = await client.product.fetchByHandle(productSlug)
   <div>
     <h1>{{ product.title }}</h1>
     <img :src="product.images[0].src" />
+    <SwiperComponent />
   </div>
 </template>
