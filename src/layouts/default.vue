@@ -15,8 +15,8 @@ register()
 .container {
   display: flex;
   flex-direction: column;
-  padding: 32px 64px;
-  gap: 128px;
+  padding: 32px 16px;
+  gap: 64px;
   align-items: center;
 
   @media (min-width: $tablet-screen) {
