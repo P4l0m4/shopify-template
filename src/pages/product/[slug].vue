@@ -3,19 +3,25 @@ import { client } from '@/services/shopify'
 
 const route = useRoute()
 
+let product = useState('product', () => null)
+
 const productSlug = route.params.slug
 
-const product = await client.product.fetchByHandle(productSlug)
+product = await client.product.fetchByHandle(productSlug)
 
-const products = await client.product.fetchAll()
+let productChosen = product.variants[0]
+
+function selectProduct(variant) {
+  productChosen = variant
+}
 </script>
 
 <template>
   <div class="container">
     <section class="product">
       <swiper-container :navigation="true" :pagination="true" class="swiper">
-        <swiper-slide v-for="(image, index) in product.images" :key="index" class="swiper__slide">
-          <img :src="product.images[index].src" class="swiper__slide__img"
+        <swiper-slide v-for="image in product.images" :key="image.id" class="swiper__slide">
+          <img :src="image.src" class="swiper__slide__img"
         /></swiper-slide>
       </swiper-container>
       <div class="product__details">
@@ -24,17 +30,22 @@ const products = await client.product.fetchAll()
           <p class="product__details__txt__description">{{ product.description }}</p>
         </div>
         <div class="product__details__variants">
-          <div v-for="(variant, index) in product.variants" :key="index" class="product__details__variants__variant">
-            <img :src="product.variants[index].image.src" class="product__details__variants__variant__img" />
-            <p class="product__details__variants__variant__title">{{ product.variants[index].title }}</p>
+          <div
+            v-for="variant in product.variants"
+            :key="variant.id"
+            class="product__details__variants__variant"
+            :class="{ 'product__details__variants__variant--selected': productChosen.id === variant.id }"
+            @click="selectProduct(variant)"
+          >
+            <img :src="variant.image.src" class="product__details__variants__variant__img" />
+            <p class="product__details__variants__variant__title">{{ variant.title }}</p>
           </div>
         </div>
         <div class="product__details__price">
           <p>Prix unitaire TTC :</p>
-          <span>{{ product.variants[0].price.amount }} €</span>
+          <span>{{ productChosen.price.amount }} €</span>
         </div>
         <div class="product__details__buttons">
-          <button class="button-secondary">Voir plus</button>
           <button @click.prevent class="button-primary">Ajouter au panier</button>
         </div>
       </div>
@@ -87,6 +98,10 @@ const products = await client.product.fetchAll()
           @media (min-width: $tablet-screen) {
             height: 140px;
           }
+        }
+
+        &--selected {
+          border: $secondary-color 2px solid;
         }
       }
     }
