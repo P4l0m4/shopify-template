@@ -1,51 +1,51 @@
 <script setup>
 import { client } from '@/services/shopify'
+import { useProductStore } from '@/stores/product'
+import { ref } from 'vue'
 
+// Routing
 const route = useRoute()
-
-let product = useState('product', () => null)
-
 const productSlug = route.params.slug
 
-product = await client.product.fetchByHandle(productSlug)
+// Store
+const productStore = useProductStore()
 
-let productChosen = product.variants[0]
+const loading = ref(false)
 
-function selectProduct(variant) {
-  productChosen = variant
-  console.log(variant.id, productChosen.id)
-}
+loading.value = true
+const clientProduct = await client.product.fetchByHandle(productSlug)
+productStore.setProduct(clientProduct)
+loading.value = false
 </script>
 
 <template>
   <div class="container">
-    <section class="product">
+    <section class="product" v-if="!loading">
       <swiper-container :navigation="true" :pagination="true" class="swiper">
-        <swiper-slide v-for="image in product.images" :key="image.id" class="swiper__slide">
+        <swiper-slide v-for="image in productStore.product.images" :key="image.id" class="swiper__slide">
           <img :src="image.src" class="swiper__slide__img"
         /></swiper-slide>
       </swiper-container>
       <div class="product__details">
         <div class="product__details__txt">
-          <h1 class="product__details__txt__title">{{ product.title }}</h1>
-          <p class="product__details__txt__description">{{ product.description }}</p>
+          <h1 class="product__details__txt__title">{{ productStore.product.title }}</h1>
+          <p class="product__details__txt__description">{{ productStore.product.description }}</p>
         </div>
         <div class="product__details__variants">
           <div
-            v-for="variant in product.variants"
+            v-for="variant in productStore.product.variants"
             :key="variant.id"
             class="product__details__variants__variant"
-            :class="{ 'product__details__variants__variant--selected': productChosen.id === variant.id }"
-            @click="selectProduct(variant)"
+            :class="{ 'product__details__variants__variant--selected': productStore.productVariant.id === variant.id }"
+            @click="productStore.setProductVariant(variant)"
           >
-            {{ productChosen.id }}<br />{{ variant.id }}
             <img :src="variant.image.src" class="product__details__variants__variant__img" />
             <p class="product__details__variants__variant__title">{{ variant.title }}</p>
           </div>
         </div>
         <div class="product__details__price">
           <p>Prix unitaire TTC :</p>
-          <span>{{ productChosen.price.amount }} €</span>
+          <span>{{ productStore.productVariant.price.amount }} €</span>
         </div>
         <div class="product__details__buttons">
           <button @click.prevent class="button-primary">Ajouter au panier</button>
