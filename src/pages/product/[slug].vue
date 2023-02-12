@@ -1,6 +1,6 @@
 <script setup>
 import { client } from '@/services/shopify'
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 
 const route = useRoute()
 
@@ -14,9 +14,15 @@ let productChosen = product.variants[0]
 
 function selectProduct(variant) {
   productChosen = variant
-
   console.log(variant.id, productChosen.id)
-  return productChosen
+}
+
+// TESTING
+let sample1 = ref('sample2')
+// let sample1 = reactive('sample2')
+function test(n) {
+  sample1 = n
+  console.log(sample1, n)
 }
 </script>
 
@@ -53,12 +59,32 @@ function selectProduct(variant) {
         <div class="product__details__buttons">
           <button @click.prevent class="button-primary">Ajouter au panier</button>
         </div>
+        <button
+          class="test-button"
+          :class="{ 'test-button--selected': sample1 === 'sample2' }"
+          @click="test('sample2')"
+        >
+          SAMPLE 2
+        </button>
+        <button
+          class="test-button"
+          :class="{ 'test-button--selected': sample1 === 'sample3' }"
+          @click="test('sample3')"
+        >
+          SAMPLE 3
+        </button>
       </div>
     </section>
     <ProductsPropositions />
   </div>
 </template>
 <style scoped lang="scss">
+.test-button {
+  background-color: black;
+  &--selected {
+    border: red solid 5px;
+  }
+}
 .container {
   display: flex;
   flex-direction: column;
