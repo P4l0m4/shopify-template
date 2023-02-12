@@ -40,3 +40,5 @@ npm run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+![Your Repository's Stats](https://github-readme-stats.vercel.app/api?username=P4l0m4&show_icons=true)
