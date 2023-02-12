@@ -1,5 +1,6 @@
 <script setup>
 import { client } from '@/services/shopify'
+import { ref } from 'vue'
 
 const route = useRoute()
 
@@ -13,6 +14,9 @@ let productChosen = product.variants[0]
 
 function selectProduct(variant) {
   productChosen = variant
+
+  console.log(variant.id, productChosen.id)
+  return productChosen
 }
 </script>
 
@@ -37,6 +41,7 @@ function selectProduct(variant) {
             :class="{ 'product__details__variants__variant--selected': productChosen.id === variant.id }"
             @click="selectProduct(variant)"
           >
+            {{ productChosen.id }}<br />{{ variant.id }}
             <img :src="variant.image.src" class="product__details__variants__variant__img" />
             <p class="product__details__variants__variant__title">{{ variant.title }}</p>
           </div>
