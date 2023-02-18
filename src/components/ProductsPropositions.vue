@@ -2,8 +2,6 @@
 import { client } from '@/services/shopify'
 
 const products = await client.product.fetchAll()
-
-console.log(products[2].variants[0].price.amount)
 </script>
 <template>
   <section>
@@ -60,6 +58,7 @@ section {
         opacity: 0.4;
       }
     }
+
     &__description {
       padding-bottom: 16px;
       font-weight: 100;

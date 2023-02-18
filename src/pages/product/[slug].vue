@@ -1,6 +1,7 @@
 <script setup>
 import { client } from '@/services/shopify'
 import { useProductStore } from '@/stores/product'
+import { useCartStore } from '@/stores/cart'
 import { ref } from 'vue'
 
 // Routing
@@ -9,6 +10,7 @@ const productSlug = route.params.slug
 
 // Store
 const productStore = useProductStore()
+const cartStore = useCartStore()
 
 const loading = ref(false)
 
@@ -48,7 +50,12 @@ loading.value = false
           <span>{{ productStore.productVariant.price.amount }} €</span>
         </div>
         <div class="product__details__buttons">
-          <button @click.prevent class="button-primary">Ajouter au panier</button>
+          <button
+            @click.prevent="cartStore.addProductToCart(productStore.product, productStore.productVariant)"
+            class="button-primary"
+          >
+            Ajouter au panier
+          </button>
         </div>
       </div>
     </section>
@@ -56,12 +63,6 @@ loading.value = false
   </div>
 </template>
 <style scoped lang="scss">
-.test-button {
-  background-color: black;
-  &--selected {
-    border: red solid 5px;
-  }
-}
 .container {
   display: flex;
   flex-direction: column;

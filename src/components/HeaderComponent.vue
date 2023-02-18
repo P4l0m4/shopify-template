@@ -1,3 +1,9 @@
+<script setup>
+import { useCartStore } from '@/stores/cart'
+
+const cartStore = useCartStore()
+</script>
+
 <template>
   <header>
     <div class="logo">
@@ -5,7 +11,7 @@
     </div>
     <nav>
       <NuxtLink to="/">Boutique Pokemon</NuxtLink>
-      <NuxtLink to="/cart">Panier</NuxtLink>
+      <NuxtLink to="/cart">Panier ({{ cartStore.cart.length }})</NuxtLink>
     </nav>
   </header>
 </template>
