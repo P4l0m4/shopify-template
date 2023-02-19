@@ -15,8 +15,7 @@ const products = await client.product.fetchAll()
         <h3 class="product-card__txt__description">{{ product.description }}</h3>
       </div>
 
-      <button class="button-secondary">Voir plus</button>
-      <button @click.prevent class="button-primary">Ajouter au panier</button>
+      <button class="button-primary">Voir plus</button>
     </nuxt-link>
   </section>
 </template>

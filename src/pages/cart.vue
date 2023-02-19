@@ -15,25 +15,28 @@ function subTotal(items) {
     <section class="cart">
       <div class="cart__products" v-if="cartStore.cart.length > 0">
         <div class="cart__products__product" v-for="items in cartStore.cartGroupBy" :key="items[0].id">
-          <nuxt-link to="/"><img class="cart__products__product__img" :src="items[0].image.src" alt="" /></nuxt-link>
+          <nuxt-link to="/" class="cart__products__product__card"
+            ><img class="cart__products__product__card__img" :src="items[0].image.src" alt=""
+          /></nuxt-link>
           <div class="cart__products__product__description">
-            <p class="cart__products__product__description__title">{{ items[0].productName }}</p>
-            <p class="cart__products__product__description__variant">{{ items[0].title }}</p>
+            <div class="cart__products__product__description__txt">
+              <p class="cart__products__product__description__txt__title">
+                {{ items[0].productName }} <span>{{ items[0].price.amount * 1 }} €</span>
+              </p>
+              <p class="cart__products__product__description__txt__variant">{{ items[0].title }}</p>
+            </div>
 
-            <div class="cart__products__product__description__price">
-              <p>Prix à l'unité :</p>
-              <span>{{ items[0].price.amount * 1 }} €</span>
-            </div>
-            <div class="cart__products__product__description__price">
-              <p>Prix total :</p>
-              <span>{{ subTotal(items) }} €</span>
-            </div>
-            <div class="cart__products__product__description__price">
+            <div class="cart__products__product__description__quantity">
               <p>Quantité :</p>
               <button class="button-quantity" @click="cartStore.removeOneProductFromCart(items[0].title)">-</button>
               <span>{{ items.length }}</span>
               <button class="button-quantity" @click="cartStore.addProductToCart(items[0])">+</button>
             </div>
+            <div class="cart__products__product__description__price">
+              <p>Prix total :</p>
+              <span>{{ subTotal(items) }} €</span>
+            </div>
+
             <div class="cart__products__product__description__price">
               <button class="button-secondary" @click="cartStore.removeProductFromCart(items[0].title)">
                 Supprimer le produit
@@ -71,6 +74,7 @@ function subTotal(items) {
   display: flex;
   flex-direction: column;
   gap: 64px;
+  align-items: center;
 }
 .cart {
   display: flex;
@@ -88,29 +92,87 @@ function subTotal(items) {
 
     &__product {
       display: flex;
-      width: 100%;
-      justify-content: space-between;
-      gap: 32px;
+      gap: 16px;
       padding: 16px;
       background-color: $primary-color;
       border-radius: 6px;
 
-      &__img {
-        width: clamp(100px, 100%, 200px);
+      @media (min-width: $desktop-screen) {
+        gap: 32px;
+      }
+
+      &__card {
+        display: flex;
+        width: 60px;
+        @media (min-width: $desktop-screen) {
+          width: clamp(100px, 100%, 320px);
+        }
+
+        &__img {
+          width: 60px;
+          height: 60px;
+          object-fit: cover;
+
+          @media (min-width: $desktop-screen) {
+            flex-direction: row;
+            height: 100%;
+            width: 100%;
+          }
+        }
       }
 
       &__description {
         display: flex;
-        gap: 8px;
         flex-direction: column;
+        width: 100%;
+        justify-content: space-between;
+        gap: 8px;
 
-        &__title {
-          font-size: 20px;
+        &__txt {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          @media (min-width: $desktop-screen) {
+            font-size: 20px;
+          }
+
+          &__title {
+            font-size: 16px;
+            display: flex;
+            gap: 16px;
+            justify-content: space-between;
+            width: (100px, 100%, 300px);
+
+            @media (min-width: $desktop-screen) {
+              font-size: 20px;
+            }
+
+            & span {
+              opacity: 0.4;
+            }
+          }
+          &__variant {
+            font-size: 12px;
+            @media (min-width: $desktop-screen) {
+              font-size: 16px;
+            }
+          }
         }
+
         &__price {
           display: flex;
           justify-content: flex-end;
-          gap: 16px;
+          gap: 8px;
+
+          & span {
+            opacity: 4;
+          }
+        }
+        &__quantity {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          gap: 8px;
 
           & span {
             opacity: 4;

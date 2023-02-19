@@ -11,5 +11,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: 64px;
+  align-items: center;
 }
 </style>

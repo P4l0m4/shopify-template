@@ -84,7 +84,7 @@ loading.value = false
 
   &__details {
     display: flex;
-    gap: 32px;
+    gap: 16px;
     flex-direction: column;
     width: 100%;
 
@@ -98,6 +98,7 @@ loading.value = false
         flex-direction: column;
         text-align: center;
         cursor: pointer;
+        border: transparent solid 2px;
 
         &__img {
           width: clamp(60px, 100%, 200px);
@@ -111,6 +112,7 @@ loading.value = false
 
         &--selected {
           border: $secondary-color 2px solid;
+          border-radius: 6px;
         }
       }
     }

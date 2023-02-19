@@ -9,6 +9,7 @@ register()
   <div class="container">
     <HeaderComponent />
     <main><slot /></main>
+    <FooterComponent />
   </div>
 </template>
 <style scoped lang="scss">
