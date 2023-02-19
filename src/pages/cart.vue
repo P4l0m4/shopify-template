@@ -28,9 +28,19 @@ function subTotal(items) {
 
             <div class="cart__products__product__description__quantity">
               <p>Quantité :</p>
-              <button class="button-quantity" @click="cartStore.removeOneProductFromCart(items[0].title)">-</button>
+              <button
+                class="cart__products__product__description__quantity__button"
+                @click="cartStore.removeOneProductFromCart(items[0].title)"
+              >
+                -
+              </button>
               <span>{{ items.length }}</span>
-              <button class="button-quantity" @click="cartStore.addProductToCart(items[0])">+</button>
+              <button
+                class="cart__products__product__description__quantity__button"
+                @click="cartStore.addProductToCart(items[0])"
+              >
+                +
+              </button>
             </div>
             <div class="cart__products__product__description__price">
               <p>Prix total :</p>
@@ -60,16 +70,6 @@ function subTotal(items) {
 </template>
 
 <style lang="scss" scoped>
-.button-quantity {
-  display: flex;
-  justify-content: center;
-  padding: 4px;
-  background-color: transparent;
-  border: none;
-  font-weight: 600;
-  font-size: 20px;
-  cursor: pointer;
-}
 .container {
   display: flex;
   flex-direction: column;
@@ -172,10 +172,21 @@ function subTotal(items) {
           display: flex;
           justify-content: flex-end;
           align-items: center;
-          gap: 8px;
+          gap: 16px;
 
           & span {
             opacity: 4;
+          }
+
+          &__button {
+            display: flex;
+            justify-content: center;
+            padding: 0 8px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            font-weight: 600;
+            font-size: 20px;
+            cursor: pointer;
           }
         }
       }
