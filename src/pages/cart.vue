@@ -54,6 +54,7 @@ function subTotal(items) {
             </div>
           </div>
         </div>
+        <div class="cart__products__shipment"><p>Livraison</p></div>
         <div class="cart__products__total-price">
           <p>Prix total TTC :</p>
           <span>{{ cartStore.cartTotal }} €</span>
