@@ -54,7 +54,7 @@ function subTotal(items) {
             </div>
           </div>
         </div>
-        <div class="cart__products__shipment"><p>Livraison</p></div>
+        <ShipmentComponent />
         <div class="cart__products__total-price">
           <p>Prix total TTC :</p>
           <span>{{ cartStore.cartTotal }} €</span>
@@ -82,7 +82,6 @@ function subTotal(items) {
   flex-direction: column;
   gap: 32px;
   justify-content: center;
-  align-items: center;
 
   &__products {
     display: flex;
