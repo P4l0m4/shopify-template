@@ -20,27 +20,33 @@ function subTotal(items) {
           /></nuxt-link>
           <div class="cart__products__product__description">
             <div class="cart__products__product__description__txt">
-              <p class="cart__products__product__description__txt__title">
-                {{ items[0].productName }} <span>{{ items[0].price.amount * 1 }} €</span>
-              </p>
+              <div class="cart__products__product__description__txt__title">
+                <p>
+                  {{ items[0].productName }}
+                </p>
+                <span>{{ items[0].price.amount * 1 }} €</span>
+              </div>
+
               <p class="cart__products__product__description__txt__variant">{{ items[0].title }}</p>
+              <p class="cart__products__product__description__txt__details">{{ items[0].productDescription }}</p>
             </div>
 
             <div class="cart__products__product__description__quantity">
-              <p>Quantité :</p>
-              <button
-                class="cart__products__product__description__quantity__button"
-                @click="cartStore.removeOneProductFromCart(items[0].title)"
-              >
-                -
-              </button>
-              <span>{{ items.length }}</span>
-              <button
-                class="cart__products__product__description__quantity__button"
-                @click="cartStore.addProductToCart(items[0])"
-              >
-                +
-              </button>
+              <div class="cart__products__product__description__quantity__buttons">
+                <button
+                  class="cart__products__product__description__quantity__buttons__button"
+                  @click="cartStore.removeOneProductFromCart(items[0].title)"
+                >
+                  -
+                </button>
+                <span>{{ items.length }}</span>
+                <button
+                  class="cart__products__product__description__quantity__buttons__button"
+                  @click="cartStore.addProductToCart(items[0])"
+                >
+                  +
+                </button>
+              </div>
             </div>
             <div class="cart__products__product__description__price">
               <p>Prix total :</p>
@@ -82,6 +88,7 @@ function subTotal(items) {
   flex-direction: column;
   gap: 32px;
   justify-content: center;
+  width: clamp(100px, 100%, 1000px);
 
   &__products {
     display: flex;
@@ -91,33 +98,28 @@ function subTotal(items) {
     justify-content: flex-end;
 
     &__product {
+      width: 100%;
       display: flex;
       gap: 16px;
-      padding: 16px;
-      background-color: $primary-color;
       border-radius: 6px;
 
-      @media (min-width: $desktop-screen) {
+      @media (min-width: $tablet-screen) {
         gap: 32px;
+        background-color: $primary-color;
+        padding: 16px;
       }
 
       &__card {
         display: flex;
-        width: 60px;
-        @media (min-width: $desktop-screen) {
-          width: clamp(100px, 100%, 320px);
+        width: 100px;
+        @media (min-width: $tablet-screen) {
+          width: clamp(100px, 100%, 400px);
         }
 
         &__img {
-          width: 60px;
-          height: 60px;
+          width: 100%;
+          height: 100%;
           object-fit: cover;
-
-          @media (min-width: $desktop-screen) {
-            flex-direction: row;
-            height: 100%;
-            width: 100%;
-          }
         }
       }
 
@@ -137,7 +139,7 @@ function subTotal(items) {
           }
 
           &__title {
-            font-size: 16px;
+            font-size: 14px;
             display: flex;
             gap: 16px;
             justify-content: space-between;
@@ -148,13 +150,26 @@ function subTotal(items) {
             }
 
             & span {
-              opacity: 0.4;
+              opacity: 0.4 !important;
+              font-size: 14px;
+              white-space: nowrap;
+              @media (min-width: $desktop-screen) {
+                font-size: 16px;
+              }
             }
           }
-          &__variant {
+          &__variant,
+          &__details {
             font-size: 12px;
+            max-width: 400px;
             @media (min-width: $desktop-screen) {
               font-size: 16px;
+            }
+          }
+          &__details {
+            display: none;
+            @media (min-width: $tablet-screen) {
+              display: block;
             }
           }
         }
@@ -163,30 +178,47 @@ function subTotal(items) {
           display: flex;
           justify-content: flex-end;
           gap: 8px;
-
-          & span {
-            opacity: 4;
+          font-size: 14px;
+          @media (min-width: $desktop-screen) {
+            font-size: 16px;
           }
+        }
+
+        & span {
+          opacity: 4;
         }
         &__quantity {
           display: flex;
-          justify-content: flex-end;
-          align-items: center;
           gap: 16px;
+          font-size: 14px;
+          flex-direction: column;
+          @media (min-width: $tablet-screen) {
+            font-size: 16px;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+          }
 
           & span {
             opacity: 4;
           }
-
-          &__button {
+          &__buttons {
+            width: 100%;
             display: flex;
-            justify-content: center;
-            padding: 0 8px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border: none;
-            font-weight: 600;
-            font-size: 20px;
-            cursor: pointer;
+            gap: 16px;
+            justify-content: flex-end;
+
+            &__button {
+              height: fit-content;
+              display: flex;
+              justify-content: center;
+              padding: 0 8px;
+              background-color: rgba(255, 255, 255, 0.2);
+              border: none;
+              font-weight: 600;
+              font-size: 20px;
+              cursor: pointer;
+            }
           }
         }
       }

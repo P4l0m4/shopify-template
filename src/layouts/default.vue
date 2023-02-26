@@ -17,10 +17,13 @@ register()
   display: flex;
   flex-direction: column;
   padding: 32px 16px;
-  gap: 64px;
+  gap: 32px;
   align-items: center;
 
   @media (min-width: $tablet-screen) {
+    padding: 64px 32px;
+  }
+  @media (min-width: $desktop-screen) {
     padding: 64px;
   }
 }
