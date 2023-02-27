@@ -94,6 +94,7 @@ function subTotal(items) {
   gap: 32px;
   justify-content: center;
   width: clamp(100px, 100%, 1000px);
+  align-items: center;
 
   &__products {
     display: flex;
@@ -192,6 +193,7 @@ function subTotal(items) {
         & span {
           opacity: 4;
         }
+
         &__quantity {
           display: flex;
           gap: 16px;
@@ -207,6 +209,7 @@ function subTotal(items) {
           & span {
             opacity: 4;
           }
+
           &__buttons {
             width: 100%;
             display: flex;
