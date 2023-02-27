@@ -13,11 +13,30 @@ const productStore = useProductStore()
 const cartStore = useCartStore()
 
 const loading = ref(false)
+const updatingCart = ref(false)
 
 loading.value = true
 const clientProduct = await client.product.fetchByHandle(productSlug)
 productStore.setProduct(clientProduct)
+cartStore.createCheckout()
 loading.value = false
+
+// Check if user already have a checkout
+const checkoutId = cartStore.checkoutId
+
+if (checkoutId) {
+  const checkout = await client.checkout.fetch(checkoutId)
+  cartStore.setCheckout(checkout)
+} else {
+  const checkout = await client.checkout.create()
+  cartStore.setCheckout(checkout)
+}
+
+async function updateCart(variant) {
+  this.updatingCart = true
+  await cartStore.addProductToCart(variant)
+  this.updatingCart = false
+}
 </script>
 
 <template>
@@ -51,7 +70,8 @@ loading.value = false
         </div>
         <div class="product__details__buttons">
           <button
-            @click.prevent="cartStore.addProductToCart(productStore.product, productStore.productVariant)"
+            :disabled="updatingCart"
+            @click.prevent="updateCart(productStore.productVariant)"
             class="button-primary"
           >
             Ajouter au panier

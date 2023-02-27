@@ -1,3 +1,12 @@
+<script setup>
+import { useCartStore } from '@/stores/cart'
+
+// Store
+const cartStore = useCartStore()
+
+cartStore.createCheckout()
+</script>
+
 <template>
   <main>
     <h1>Boutique Pokemon</h1>

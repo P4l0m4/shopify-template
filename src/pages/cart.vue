@@ -4,6 +4,12 @@ import { useCartStore } from '@/stores/cart'
 // Store
 const cartStore = useCartStore()
 
+const loading = ref(false)
+
+loading.value = true
+cartStore.createCheckout()
+loading.value = false
+
 function subTotal(items) {
   const price = items.reduce((total, item) => total + item.price.amount * 1, 0)
   return Math.round(price * 100) / 100
@@ -12,37 +18,36 @@ function subTotal(items) {
 <template>
   <div class="container">
     <h1>Votre panier</h1>
-    <section class="cart">
-      <div class="cart__products" v-if="cartStore.cart.length > 0">
-        <div class="cart__products__product" v-for="items in cartStore.cartGroupBy" :key="items[0].id">
+    <section class="cart" v-if="!loading">
+      <div class="cart__products" v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0">
+        <div class="cart__products__product" v-for="item in cartStore.checkout.lineItems" :key="item.id">
           <nuxt-link to="/" class="cart__products__product__card"
-            ><img class="cart__products__product__card__img" :src="items[0].image.src" alt=""
+            ><img class="cart__products__product__card__img" :src="item.variant.image.src" alt=""
           /></nuxt-link>
           <div class="cart__products__product__description">
             <div class="cart__products__product__description__txt">
               <div class="cart__products__product__description__txt__title">
                 <p>
-                  {{ items[0].productName }}
+                  {{ item.title }}
                 </p>
-                <span>{{ items[0].price.amount * 1 }} €</span>
+                <span>{{ item.variant.price.amount * 1 }} €</span>
               </div>
 
-              <p class="cart__products__product__description__txt__variant">{{ items[0].title }}</p>
-              <p class="cart__products__product__description__txt__details">{{ items[0].productDescription }}</p>
+              <p class="cart__products__product__description__txt__variant">{{ item.variant.title }}</p>
             </div>
 
             <div class="cart__products__product__description__quantity">
               <div class="cart__products__product__description__quantity__buttons">
                 <button
                   class="cart__products__product__description__quantity__buttons__button"
-                  @click="cartStore.removeOneProductFromCart(items[0].title)"
+                  @click="cartStore.removeOneProductFromCart(item)"
                 >
                   -
                 </button>
-                <span>{{ items.length }}</span>
+                <span>{{ item.quantity }}</span>
                 <button
                   class="cart__products__product__description__quantity__buttons__button"
-                  @click="cartStore.addProductToCart(items[0])"
+                  @click="cartStore.addProductToCart(item.variant)"
                 >
                   +
                 </button>
@@ -50,11 +55,11 @@ function subTotal(items) {
             </div>
             <div class="cart__products__product__description__price">
               <p>Prix total :</p>
-              <span>{{ subTotal(items) }} €</span>
+              <span>{{ item.quantity * item.variant.price.amount }} €</span>
             </div>
 
             <div class="cart__products__product__description__price">
-              <button class="button-secondary" @click="cartStore.removeProductFromCart(items[0].title)">
+              <button class="button-secondary" @click="cartStore.removeProductFromCart(item)">
                 Supprimer le produit
               </button>
             </div>
@@ -63,9 +68,9 @@ function subTotal(items) {
         <ShipmentComponent />
         <div class="cart__products__total-price">
           <p>Prix total TTC :</p>
-          <span>{{ cartStore.cartTotal }} €</span>
+          <span>{{ cartStore.checkout.paymentDue.amount * 1 }} €</span>
         </div>
-        <button class="button-primary">Passer ma commande</button>
+        <a :href="cartStore.checkout.webUrl" class="button-primary">Passer ma commande</a>
       </div>
       <div class="cart__empty" v-else>
         <span class="cart__empty__txt">Votre panier est vide</span>

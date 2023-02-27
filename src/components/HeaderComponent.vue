@@ -11,16 +11,17 @@ const cartStore = useCartStore()
     </div>
     <nav>
       <NuxtLink to="/">Boutique Pokemon</NuxtLink>
-      <NuxtLink to="/cart" class="link"
-        >Panier
+      <NuxtLink to="/cart" class="link">
+        Panier
         <div class="link__cart">
           <img class="link__cart__img" src="@/assets/icons/shopping-outline.svg" alt="" /><span
             class="link__cart__number"
-            v-if="cartStore.cart.length > 0"
-            >{{ cartStore.cart.length }}</span
+            v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0"
           >
-        </div></NuxtLink
-      >
+            {{ cartStore.checkout.lineItems.length }}
+          </span>
+        </div>
+      </NuxtLink>
     </nav>
   </header>
 </template>
