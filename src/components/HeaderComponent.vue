@@ -18,7 +18,7 @@ const cartStore = useCartStore()
             class="link__cart__number"
             v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0"
           >
-            {{ cartStore.checkout.lineItems.length }}
+            {{ cartStore.itemQuantity }}
           </span>
         </div>
       </NuxtLink>

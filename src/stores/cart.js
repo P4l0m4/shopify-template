@@ -15,7 +15,7 @@ export const useCartStore = defineStore('cart', {
       this.checkout = JSON.parse(JSON.stringify(checkout))
     },
     async removeProductFromCart(variant) {
-      const checkout = await client.checkout.removeLineItems(this.checkoutId, [variant.id])
+      const checkout = await client.checkout.removeLineItems(this.checkoutId, variant.id)
       this.checkout = JSON.parse(JSON.stringify(checkout))
     },
     async removeOneProductFromCart(variant) {
@@ -40,6 +40,11 @@ export const useCartStore = defineStore('cart', {
         const checkout = await client.checkout.create()
         this.setCheckout(checkout)
       }
+    },
+  },
+  getters: {
+    itemQuantity() {
+      return this.checkout.lineItems.reduce((total, item) => total + item.quantity, 0)
     },
   },
 })
