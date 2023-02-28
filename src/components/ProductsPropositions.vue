@@ -4,7 +4,7 @@ import { client } from '@/services/shopify'
 const products = await client.product.fetchAll()
 </script>
 <template>
-  <section>
+  <section class="section">
     <nuxt-link :to="`/product/${product.handle}`" v-for="product in products" :key="product.id" class="product-card">
       <img class="product-card__img" :src="product.images[0].src" />
 
@@ -21,7 +21,7 @@ const products = await client.product.fetchAll()
 </template>
 
 <style scoped lang="scss">
-section {
+.section {
   display: flex;
   gap: 32px;
   flex-wrap: wrap;
