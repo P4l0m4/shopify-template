@@ -270,7 +270,7 @@ $kf-fur-right-patch: (
         @if ($interval == 'all') {
           $all: $transform;
         } @else {
-          #{percentage($interval/$total-kf)} {
+          #{percentage(calc($interval/$total-kf))} {
             @if type-of($transform) == 'map' {
               @each $key, $val in $transform {
                 #{$key}: $val;

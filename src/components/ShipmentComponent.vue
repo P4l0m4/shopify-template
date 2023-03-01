@@ -20,6 +20,7 @@
   gap: 32px;
   font-size: 20px;
   width: 100%;
+  border-radius: 6px;
 
   &__location {
     display: flex;

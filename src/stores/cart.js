@@ -2,6 +2,8 @@ import { defineStore } from 'pinia'
 import { client } from '@/services/shopify'
 import { groupBy } from '@/utils/groupBy.js'
 
+const discountCode = '6193AX310NH5'
+
 export const useCartStore = defineStore('cart', {
   state: () => {
     return {
@@ -39,6 +41,15 @@ export const useCartStore = defineStore('cart', {
       } else {
         const checkout = await client.checkout.create()
         this.setCheckout(checkout)
+      }
+    },
+    addPromoCode(codeToTry) {
+      if (codeToTry === discountCode) {
+        // Add a discount code to the checkout
+        client.checkout.addDiscount(this.checkoutId, discountCode).then(checkout => {
+          // Do something with the updated checkout
+          console.log('code tested')
+        })
       }
     },
   },

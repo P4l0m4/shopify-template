@@ -4524,7 +4524,14 @@ vue-router@^4.1.6:
   dependencies:
     "@vue/devtools-api" "^6.4.5"
 
-vue@^3.2.47:
+vue3-infinite-slide-bar@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/vue3-infinite-slide-bar/-/vue3-infinite-slide-bar-1.0.4.tgz#334dda3412a075d699053c34e152da04145b8b10"
+  integrity sha512-oSNAFUUBm7TqRVhvMteMQEAyemts49YOJIkBkHSM2Huvm9g6+bTFRMjHoHnbuxzHhlRn9FSDgDskTFfGyRda7g==
+  dependencies:
+    vue "^3.2.37"
+
+vue@^3.2.37, vue@^3.2.47:
   version "3.2.47"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.47.tgz#3eb736cbc606fc87038dbba6a154707c8a34cff0"
   integrity sha512-60188y/9Dc9WVrAZeUVSDxRQOZ+z+y5nO2ts9jWXSTkMvayiWxCWOWtBQoYjLeccfXkiiPZWAHcV+WTPhkqJHQ==

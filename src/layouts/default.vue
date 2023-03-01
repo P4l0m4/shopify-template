@@ -8,6 +8,7 @@ register()
 <template>
   <div class="container">
     <HeaderComponent />
+    <SlideBar />
     <main><slot /></main>
     <FooterComponent />
   </div>

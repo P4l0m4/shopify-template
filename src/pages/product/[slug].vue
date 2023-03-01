@@ -79,6 +79,7 @@ async function updateCart(variant) {
         </div>
       </div>
     </section>
+
     <ProductsPropositions />
   </div>
 </template>

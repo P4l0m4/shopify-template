@@ -18,6 +18,7 @@
     "pinia": "^2.0.30",
     "ress": "^5.0.2",
     "shopify-buy": "^2.18.0",
-    "swiper": "^9.0.3"
+    "swiper": "^9.0.3",
+    "vue3-infinite-slide-bar": "^1.0.4"
   }
 }

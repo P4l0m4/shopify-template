@@ -11,7 +11,7 @@ cartStore.createCheckout()
   <section class="index-section">
     <div class="title">
       <h1>Boutique Pokemon</h1>
-      <AnimalComponent />
+      <AnimationsAnimalComponent />
     </div>
     <div>
       <ProductsPropositions />

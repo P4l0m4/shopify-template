@@ -66,6 +66,7 @@ function subTotal(items) {
           </div>
         </div>
         <ShipmentComponent />
+        <PromoCode />
         <div class="cart__products__total-price">
           <p>Prix total TTC :</p>
           <span>{{ cartStore.checkout.paymentDue.amount * 1 }} €</span>
