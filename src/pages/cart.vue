@@ -86,7 +86,7 @@ function subTotal(items) {
 .container {
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: 32px;
   align-items: center;
 }
 .cart {

@@ -7,7 +7,7 @@
     </div>
     <div class="shipment__details">
       <span>Livraison gratuite</span>
-      <span>Date de livraison estimée: <strong>lundi 15 mars</strong></span>
+      <span>Date de livraison estimée: <strong>lundi 20 mars</strong></span>
     </div>
   </div>
 </template>

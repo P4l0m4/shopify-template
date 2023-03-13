@@ -7,8 +7,8 @@ register()
 
 <template>
   <div class="container">
-    <HeaderComponent />
     <SlideBar />
+    <HeaderComponent />
     <main><slot /></main>
     <FooterComponent />
   </div>
@@ -25,7 +25,7 @@ register()
     padding: 64px 32px;
   }
   @media (min-width: $desktop-screen) {
-    padding: 64px;
+    padding: 32px 64px;
   }
 }
 </style>

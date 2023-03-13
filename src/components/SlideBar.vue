@@ -3,9 +3,20 @@ import InfiniteSlideBar from 'vue3-infinite-slide-bar'
 </script>
 
 <template>
-  <div>
-    <infinite-slide-bar :barStyle="{ background: '#42b883', padding: '5px 0' }">
-      <span style="color: #fff">Helo World, I love Vue Infinite Slide Bar</span>
-    </infinite-slide-bar>
-  </div>
+  <infinite-slide-bar :barStyle="{ background: '#1c1a1a', padding: '6px 0' }" class="infinite-slide-bar">
+    <div class="infinite-slide-bar__component">
+      <span style="padding-left: 128px">5€ de réduction dès 40€ d'achats</span
+      ><span>5€ de réduction dès 40€ d'achats</span><span>5€ de réduction dès 40€ d'achats</span
+      ><span>5€ de réduction dès 40€ d'achats</span>
+    </div>
+  </infinite-slide-bar>
 </template>
+<style lang="scss" scoped>
+.infinite-slide-bar {
+  &__component {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+  }
+}
+</style>
