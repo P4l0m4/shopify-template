@@ -17,6 +17,7 @@ import InfiniteSlideBar from 'vue3-infinite-slide-bar'
     display: flex;
     justify-content: space-between;
     font-weight: 700;
+    gap: 8px;
   }
 }
 </style>

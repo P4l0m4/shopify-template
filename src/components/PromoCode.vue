@@ -42,7 +42,7 @@ const cartStore = useCartStore()
 
   &__test {
     display: flex;
-    gap: 8px;
+    gap: 16px;
     flex-wrap: wrap;
     justify-content: space-between;
 

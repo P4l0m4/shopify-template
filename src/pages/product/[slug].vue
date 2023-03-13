@@ -112,7 +112,13 @@ async function updateCart(variant) {
     &__variants {
       display: flex;
       gap: 8px;
-      flex-wrap: wrap;
+      overflow-x: scroll;
+      width: 100%;
+      max-width: 343px;
+      @media (min-width: $tablet-screen) {
+        flex-wrap: wrap;
+        max-width: 1200px;
+      }
 
       &__variant {
         display: flex;
@@ -121,14 +127,16 @@ async function updateCart(variant) {
         text-align: center;
         cursor: pointer;
         border: transparent solid 2px;
+        width: clamp(60px, 100%, 140px);
 
         &__img {
-          width: clamp(60px, 100%, 200px);
+          width: 80px;
           height: 80px;
           object-fit: cover;
 
           @media (min-width: $tablet-screen) {
             height: 140px;
+            width: clamp(60px, 100%, 140px);
           }
         }
 
