@@ -36,7 +36,11 @@ const products = await client.product.fetchAll()
   padding: 16px;
   align-items: center;
   flex-direction: column;
-  width: clamp(100px, 100%, 300px);
+  width: clamp(100px, 100%, 343px);
+
+  @media (min-width: $tablet-screen) {
+    width: clamp(100px, 100%, 300px);
+  }
 
   &__img {
     object-fit: cover;

@@ -50,6 +50,7 @@ const cartStore = useCartStore()
       display: flex;
       gap: 8px;
       max-height: 40px;
+      width: 100%;
 
       &__input {
         padding: 8px;

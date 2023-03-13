@@ -25,11 +25,15 @@ footer {
     display: flex;
     width: 200px;
     position: absolute;
-    bottom: -60px;
+    bottom: -90px;
     left: 0;
     right: 0;
     margin: auto;
     animation: fall 3s ease-in;
+
+    @media (min-width: $tablet-screen) {
+      bottom: -60px;
+    }
 
     &:hover > .pokeball__toaster {
       opacity: 1;
