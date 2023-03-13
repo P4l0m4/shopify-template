@@ -1,16 +1,6 @@
 <script setup>
 import { useCartStore } from '@/stores/cart'
 const cartStore = useCartStore()
-const validCodesTried = []
-const errorsSize = cartStore.checkout.userErrors.length
-
-function pushValidCodes(codeToTry) {
-  if (errorsSize === 0) {
-    validCodesTried.push(codeToTry)
-    console.log(validCodesTried)
-  }
-}
-console.log(cartStore.checkout.userErrors)
 </script>
 <template>
   <div class="promo">
@@ -18,23 +8,22 @@ console.log(cartStore.checkout.userErrors)
     <div class="promo__test">
       <div class="promo__test__wrapper">
         <input placeholder="Code promo" id="code" class="promo__test__wrapper__input" v-model="codeToTry" />
-        <button
-          class="promo__test__wrapper__button"
-          type="submit"
-          @click="cartStore.addPromoCode(codeToTry), pushValidCodes(codeToTry)"
-        >
+        <button class="promo__test__wrapper__button" type="submit" @click="cartStore.addPromoCode(codeToTry)">
           Tester
         </button>
       </div>
-      <div class="promo__test__codes" v-if="validCodesTried.length > 0">
+      <div class="promo__test__codes" v-if="cartStore.checkout.discountApplications?.length > 0">
         Code(s) promo appliqué(s)
-        <span class="promo__test__codes__code" v-for="validCode in validCodesTried" :key="validCode">{{
-          validCode
-        }}</span>
+        <span
+          class="promo__test__codes__code"
+          v-for="discount in cartStore.checkout.discountApplications"
+          :key="discount.code"
+        >
+          {{ discount.code }}
+        </span>
       </div>
     </div>
-    <div class="promo__error" v-if="errorsSize > 0">
-      <!-- {{ cartStore.checkout.userErrors[0].message }}  -->
+    <div class="promo__error" v-if="cartStore.checkout.userErrors?.length > 0">
       Le code <span class="promo__error__code">{{ codeToTry }}</span> est invalide.
     </div>
   </div>
