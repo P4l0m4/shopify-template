@@ -2,12 +2,15 @@
 import { useCartStore } from '@/stores/cart'
 const cartStore = useCartStore()
 const validCodesTried = []
+const errorsSize = cartStore.checkout.userErrors.length
 
 function pushValidCodes(codeToTry) {
-  if (cartStore.checkout?.userErrors.length > 0) {
+  if (errorsSize === 0) {
     validCodesTried.push(codeToTry)
+    console.log(validCodesTried)
   }
 }
+console.log(cartStore.checkout.userErrors)
 </script>
 <template>
   <div class="promo">
@@ -23,15 +26,15 @@ function pushValidCodes(codeToTry) {
           Tester
         </button>
       </div>
-      <div class="promo__test__codes" v-if="codeToTry && validCodesTried.length > 0">
+      <div class="promo__test__codes" v-if="validCodesTried.length > 0">
         Code(s) promo appliqué(s)
         <span class="promo__test__codes__code" v-for="validCode in validCodesTried" :key="validCode">{{
           validCode
         }}</span>
       </div>
     </div>
-    <div class="promo__error" v-if="cartStore.checkout?.userErrors.length > 0">
-      <!-- {{ cartStore.checkout.userErrors[0].message }} -->
+    <div class="promo__error" v-if="errorsSize > 0">
+      <!-- {{ cartStore.checkout.userErrors[0].message }}  -->
       Le code <span class="promo__error__code">{{ codeToTry }}</span> est invalide.
     </div>
   </div>
