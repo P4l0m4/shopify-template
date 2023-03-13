@@ -28,12 +28,13 @@ cartStore.createCheckout()
   & .title {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 64px;
     align-items: center;
     justify-content: center;
 
     @media (min-width: $tablet-screen) {
       flex-direction: row;
+      gap: 32px;
     }
   }
 }

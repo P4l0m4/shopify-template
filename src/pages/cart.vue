@@ -78,6 +78,7 @@ function subTotal(items) {
         <nuxt-link class="button-primary" to="/">Commencer mon shopping</nuxt-link>
       </div>
     </section>
+    <h3>Nos best-sellers</h3>
     <ProductsPropositions />
   </div>
 </template>
@@ -86,7 +87,7 @@ function subTotal(items) {
 .container {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 64px;
   align-items: center;
 }
 .cart {
