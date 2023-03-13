@@ -112,6 +112,7 @@ async function updateCart(variant) {
     &__variants {
       display: flex;
       gap: 8px;
+      flex-wrap: wrap;
 
       &__variant {
         display: flex;
