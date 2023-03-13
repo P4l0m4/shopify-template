@@ -45,12 +45,14 @@ const cartStore = useCartStore()
     gap: 16px;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 100%;
+    align-items: flex-start;
 
     &__wrapper {
       display: flex;
       gap: 8px;
       max-height: 40px;
-      width: 100%;
+      width: clamp(100px, 100%, 444px);
 
       &__input {
         padding: 8px;
