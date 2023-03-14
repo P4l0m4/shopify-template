@@ -33,9 +33,9 @@ if (checkoutId) {
 }
 
 async function updateCart(variant) {
-  this.updatingCart = true
+  updatingCart.value = true
   await cartStore.addProductToCart(variant)
-  this.updatingCart = false
+  updatingCart.value = false
 }
 </script>
 
