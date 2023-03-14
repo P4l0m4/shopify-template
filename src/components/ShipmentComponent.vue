@@ -4,7 +4,6 @@ import 'dayjs/locale/fr'
 dayjs.locale('fr')
 
 let shipmentDate = dayjs().add(4, 'day').format('DD MMMM YYYY')
-// DiscountCodeApplication AutomaticDiscountApplication
 </script>
 
 <template>
