@@ -1,3 +1,12 @@
+<script setup>
+import dayjs from 'dayjs'
+import 'dayjs/locale/fr'
+dayjs.locale('fr')
+
+let shipmentDate = dayjs().add(4, 'day').format('DD MMMM YYYY')
+// DiscountCodeApplication AutomaticDiscountApplication
+</script>
+
 <template>
   <div class="shipment">
     <p>Livraison</p>
@@ -7,7 +16,9 @@
     </div>
     <div class="shipment__details">
       <span>Livraison gratuite</span>
-      <span>Date de livraison estimée: <strong>lundi 20 mars</strong></span>
+      <span
+        >Date de livraison estimée: <strong>{{ shipmentDate }}</strong></span
+      >
     </div>
   </div>
 </template>

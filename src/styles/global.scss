@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
 
-* {
+*,
+:before,
+:after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Quicksand', sans-serif;
-  color: white;
 }
 
 html {
@@ -14,10 +14,13 @@ html {
 
 body {
   background-color: #0f0f0f;
+  font-family: 'Quicksand', sans-serif;
+  color: $text-color;
 }
 
 a {
   text-decoration: none;
+  color: $text-color;
 }
 
 a,
@@ -33,6 +36,7 @@ h1 {
 
 .button-primary,
 .button-secondary {
+  color: $text-color;
   display: flex;
   padding: 8px 32px;
   width: clamp(100px, 100%, 343px);

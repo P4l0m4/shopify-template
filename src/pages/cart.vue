@@ -78,6 +78,7 @@ function subTotal(items) {
         <nuxt-link class="button-primary" to="/">Commencer mon shopping</nuxt-link>
       </div>
     </section>
+
     <h3>Nos best-sellers</h3>
     <ProductsPropositions />
   </div>

@@ -16,10 +16,15 @@ const cartStore = useCartStore()
         Code(s) promo appliqué(s)
         <span
           class="promo__test__codes__code"
-          v-for="discount in cartStore.checkout.discountApplications"
-          :key="discount.code"
+          v-for="(discount, i) in cartStore.checkout.discountApplications"
+          :key="i"
         >
-          {{ discount.code }}
+          <span v-if="discount.__typename === 'DiscountCodeApplication'">
+            {{ discount.code }}
+          </span>
+          <span v-else-if="discount.__typename === 'AutomaticDiscountApplication'">
+            {{ discount.title }}
+          </span>
         </span>
       </div>
     </div>
