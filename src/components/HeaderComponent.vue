@@ -9,6 +9,7 @@ const cartStore = useCartStore()
     <div class="logo">
       <nuxt-link to="/"><img src="@/assets/images/logo.svg" alt="logo pokemon" class="logo__img" /></nuxt-link>
     </div>
+    <SearchBar />
     <nav>
       <NuxtLink to="/">Boutique Pokemon</NuxtLink>
       <NuxtLink to="/cart" class="link">

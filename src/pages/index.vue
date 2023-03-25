@@ -1,8 +1,10 @@
 <script setup>
 import { useCartStore } from '@/stores/cart'
+import { useProductStore } from '@/stores/product'
 
 // Store
 const cartStore = useCartStore()
+const productStore = useProductStore()
 
 cartStore.createCheckout()
 </script>
@@ -13,6 +15,12 @@ cartStore.createCheckout()
       <h1>Boutique Pokemon</h1>
       <AnimationsAnimalComponent />
     </div>
+    <SearchResults
+      v-if="productStore.searchQuery"
+      :products="productStore.productsSearched"
+      :query="productStore.searchQuery"
+    />
+
     <div>
       <ProductsPropositions />
     </div>

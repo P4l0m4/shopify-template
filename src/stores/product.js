@@ -1,10 +1,13 @@
 import { defineStore } from 'pinia'
+import { client } from '@/services/shopify'
 
 export const useProductStore = defineStore('product', {
   state: () => {
     return {
       product: null,
       productVariant: null,
+      productsSearched: [],
+      searchQuery: '',
     }
   },
   actions: {
@@ -14,6 +17,15 @@ export const useProductStore = defineStore('product', {
     },
     setProductVariant(variant) {
       this.productVariant = variant
+    },
+    async searchProducts(query) {
+      this.searchQuery = query
+      if (!query) {
+        this.productsSearched = []
+        return
+      }
+      const products = await client.product.fetchQuery({ first: 20, query })
+      this.productsSearched = JSON.parse(JSON.stringify(products))
     },
   },
 })

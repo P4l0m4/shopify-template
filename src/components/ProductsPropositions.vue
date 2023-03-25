@@ -5,18 +5,7 @@ const products = await client.product.fetchAll()
 </script>
 <template>
   <section class="section">
-    <nuxt-link :to="`/product/${product.handle}`" v-for="product in products" :key="product.id" class="product-card">
-      <img class="product-card__img" :src="product.images[0].src" />
-
-      <div class="product-card__txt">
-        <h2 class="product-card__txt__title">
-          {{ product.title }} <span>{{ product.variants[0].price.amount }} €</span>
-        </h2>
-        <h3 class="product-card__txt__description">{{ product.description }}</h3>
-      </div>
-
-      <button class="button-primary">Voir plus</button>
-    </nuxt-link>
+    <ProductCard v-for="product in products" :product="product" />
   </section>
 </template>
 
