@@ -22,7 +22,16 @@ const search = debounce(async e => {
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  width: 100%;
+  width: clamp(300px, 100%, 1000px);
+  order: 3;
+  margin-top: 2rem;
+  @media (min-width: $tablet-screen) {
+    margin-top: 0;
+  }
+  @media (min-width: $desktop-screen) {
+    order: 0;
+    margin-top: 0;
+  }
 
   &__input {
     width: 100%;
