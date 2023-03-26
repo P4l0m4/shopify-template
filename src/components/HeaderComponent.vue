@@ -9,9 +9,8 @@ const cartStore = useCartStore()
     <div class="logo">
       <nuxt-link to="/"><img src="@/assets/images/logo.svg" alt="logo pokemon" class="logo__img" /></nuxt-link>
     </div>
-    <SearchBar />
     <nav>
-      <NuxtLink to="/">Boutique Pokemon</NuxtLink>
+      <NuxtLink to="/">Boutique</NuxtLink>
       <NuxtLink to="/cart" class="link">
         Panier
         <div class="link__cart">
@@ -33,11 +32,16 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 2rem;
+  background-color: $primary-color;
+  padding: 16px;
+  border-radius: $radius;
   @media (min-width: $tablet-screen) {
     flex-direction: row;
+    justify-content: flex-end;
   }
-  .logo {
+
+  & .logo {
     display: flex;
     width: 80px;
 
@@ -56,7 +60,6 @@ header {
 
   & nav {
     justify-content: center;
-    width: 100%;
     display: flex;
     gap: 32px;
     @media (min-width: $tablet-screen) {

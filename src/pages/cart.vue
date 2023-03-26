@@ -17,7 +17,10 @@ function subTotal(items) {
 </script>
 <template>
   <div class="container">
-    <h1>Votre panier</h1>
+    <div class="title">
+      <AnimationsAnimalComponent />
+      <h1>Votre panier</h1>
+    </div>
     <section class="cart" v-if="!loading">
       <div class="cart__products" v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0">
         <div class="cart__products__product" v-for="item in cartStore.checkout.lineItems" :key="item.id">
@@ -59,8 +62,16 @@ function subTotal(items) {
             </div>
 
             <div class="cart__products__product__description__price">
-              <button class="button-secondary" @click="cartStore.removeProductFromCart(item)">
+              <button
+                class="cart__products__product__description__price__button button-secondary"
+                @click="cartStore.removeProductFromCart(item)"
+              >
                 Supprimer le produit
+                <img
+                  class="cart__products__product__description__price__button__img"
+                  src="@/assets/icons/trash.svg"
+                  alt=""
+                />
               </button>
             </div>
           </div>
@@ -190,6 +201,14 @@ function subTotal(items) {
           font-size: 14px;
           @media (min-width: $desktop-screen) {
             font-size: 16px;
+          }
+
+          &__button {
+            gap: 1rem;
+            align-items: center;
+            &__img {
+              width: 16px;
+            }
           }
         }
 

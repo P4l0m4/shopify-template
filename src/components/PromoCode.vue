@@ -4,7 +4,7 @@ const cartStore = useCartStore()
 </script>
 <template>
   <div class="promo">
-    <label for="code">Code promo</label>
+    <label for="code">Code promo <small>(non-cumulable)</small></label>
     <div class="promo__test">
       <div class="promo__test__wrapper">
         <input placeholder="Code promo" id="code" class="promo__test__wrapper__input" v-model="codeToTry" />
@@ -13,7 +13,7 @@ const cartStore = useCartStore()
         </button>
       </div>
       <div class="promo__test__codes" v-if="cartStore.checkout.discountApplications?.length > 0">
-        Code(s) promo appliqué(s)
+        Code promo appliqué
         <span
           class="promo__test__codes__code"
           v-for="(discount, i) in cartStore.checkout.discountApplications"

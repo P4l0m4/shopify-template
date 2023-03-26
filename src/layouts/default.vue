@@ -7,8 +7,8 @@ register()
 
 <template>
   <div class="container">
-    <SlideBar />
     <HeaderComponent />
+    <SlideBar />
     <main><slot /></main>
     <FooterComponent />
   </div>
@@ -18,7 +18,7 @@ register()
   display: flex;
   flex-direction: column;
   padding: 32px 16px;
-  gap: 32px;
+  gap: 2rem;
   align-items: center;
 
   @media (min-width: $tablet-screen) {

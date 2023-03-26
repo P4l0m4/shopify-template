@@ -12,9 +12,10 @@ cartStore.createCheckout()
 <template>
   <section class="index-section">
     <div class="title">
-      <h1>Boutique Pokemon</h1>
       <AnimationsAnimalComponent />
+      <h1>Boutique Pokemon</h1>
     </div>
+    <SearchBar />
     <SearchResults
       v-if="productStore.searchQuery"
       :products="productStore.productsSearched"
@@ -30,20 +31,7 @@ cartStore.createCheckout()
 .index-section {
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: 2rem;
   align-items: center;
-
-  & .title {
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
-    align-items: center;
-    justify-content: center;
-
-    @media (min-width: $tablet-screen) {
-      flex-direction: row;
-      gap: 32px;
-    }
-  }
 }
 </style>

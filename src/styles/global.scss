@@ -31,7 +31,11 @@ img {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 20px;
+
+  @media (min-width: $tablet-screen) {
+    font-size: 24px;
+  }
 }
 
 .button-primary,
@@ -86,4 +90,11 @@ h1 {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #2b2b2b;
+}
+
+.title {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+  justify-content: center;
 }
