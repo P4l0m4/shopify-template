@@ -1,6 +1,12 @@
 <script setup>
+import { ref } from 'vue'
+let code = ref('6193AX310NH5')
 function copy() {
   navigator.clipboard.writeText('6193AX310NH5')
+  this.code = 'Code copié ✔️'
+  setTimeout(() => {
+    this.code = '6193AX310NH5'
+  }, 1000)
 }
 </script>
 <template>
@@ -9,7 +15,7 @@ function copy() {
     <nuxt-link to="/">Mentions légales</nuxt-link>
     <div class="pokeball">
       <AnimationsPokeballAnimation class="pokeball2" />
-      <div class="pokeball__toaster" @click="copy()">6193AX310NH5</div>
+      <div class="pokeball__toaster" @click="copy()">{{ code }}</div>
     </div>
   </footer>
 </template>

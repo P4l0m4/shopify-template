@@ -22,6 +22,7 @@ const cartStore = useCartStore()
           </span>
         </div>
       </NuxtLink>
+      <NuxtLink to="/contact">Contact</NuxtLink>
     </nav>
   </header>
 </template>
