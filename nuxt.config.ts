@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   ssr: false,
   srcDir: 'src/',
   css: ['@/styles/global.scss'],
-  modules: ['@pinia/nuxt'],
+  modules: ['@pinia/nuxt', 'nuxt-calendly'],
 
   vite: {
     css: {

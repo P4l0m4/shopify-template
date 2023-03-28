@@ -28,28 +28,7 @@ const search = debounce(async e => {
     width: 100%;
     padding: 0.5rem;
     border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: transparent;
     border: 2px solid $text-color;
-    caret-color: $secondary-color;
-    color: $text-color;
-
-    &:focus {
-      border: 2px solid $secondary-color;
-      outline: $secondary-color;
-    }
-  }
-  /* Change the white to any color */
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px $base-color inset !important;
-  }
-
-  /*Change text in autofill textbox*/
-  input:-webkit-autofill {
-    -webkit-text-fill-color: $text-color !important;
   }
 }
 </style>

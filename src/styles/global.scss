@@ -27,7 +27,29 @@ a,
 button,
 input,
 img {
-  border-radius: 6px;
+  border-radius: $radius;
+}
+
+input,
+textarea {
+  caret-color: $secondary-color;
+  background-color: transparent;
+  &:focus {
+    border: 2px solid $secondary-color;
+    outline: $secondary-color;
+  }
+}
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px $base-color inset !important;
+}
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill {
+  -webkit-text-fill-color: $text-color !important;
 }
 
 h1 {
@@ -42,7 +64,7 @@ h1 {
 .button-secondary {
   color: $text-color;
   display: flex;
-  padding: 8px 32px;
+  padding: 0.5rem 2rem;
   width: clamp(100px, 100%, 343px);
   justify-content: center;
   font-weight: 600;

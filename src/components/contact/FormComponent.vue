@@ -47,7 +47,7 @@ async function submit() {
 
   if (valid) {
     if (state.HP === false) {
-      await emailjs.sendForm('service_ewyd8q9', 'template_8v0v4kr', form.value, 'N_c62x-VytInJOnZY')
+      await emailjs.sendForm('service_f0ns79q', 'template_aaumqzn', form.value, 'ZAG2PeOHvH8fTwjpW')
     }
 
     state.sent = true
@@ -128,7 +128,8 @@ async function submit() {
       <div class="form__group__checkbox-container">
         <input id="rgpd" v-model.trim="state.rgpd" type="checkbox" class="form__group__input" />
         <label for="rgpd" class="form__group__checkbox-container__text">
-          Vous acceptez que les informations saisies dans ce formulaire soient transmises par mail à Tekila Web Factory.
+          Vous acceptez que les informations saisies dans ce formulaire soient transmises par mail à (nom de
+          l'entreprise).
         </label>
       </div>
       <div v-if="v$.rgpd.$dirty && v$.rgpd.sameAs.$invalid" class="form__error">Ce champ est requis</div>
@@ -137,7 +138,7 @@ async function submit() {
     <input id="HP" v-model="state.HP" class="HP" type="checkbox" name="not_a_robot" @change="checkIfHP" />
     <label for="HP" class="HP"> Je ne suis pas un robot </label>
 
-    <button class="form__button button-primary-small" type="submit" :disabled="state.isSubmitting">Envoyer</button>
+    <button class="form__button button-primary" type="submit" :disabled="state.isSubmitting">Envoyer</button>
 
     <p v-if="sent" class="form__error">Message envoyé !</p>
   </form>
@@ -153,8 +154,7 @@ async function submit() {
   gap: 16px;
   display: flex;
   flex-direction: column;
-  position: relative;
-  // border-radius: $radius;
+  border-radius: $radius;
   @media (min-width: $tablet-screen) {
     padding: 24px;
     gap: 24px;
@@ -176,7 +176,7 @@ async function submit() {
       padding: 12px;
       color: $text-color;
       // font-weight: $slim-weight;
-      background-color: $base-color;
+      background-color: $primary-color;
 
       &::placeholder {
         color: $text-color;
@@ -187,19 +187,20 @@ async function submit() {
         width: 50px;
         height: 20px;
         cursor: pointer;
-        // accent-color: $base-color;
+        accent-color: $base-color;
       }
     }
     &__textarea {
       resize: none;
       height: 140px;
+      border-radius: $radius;
     }
 
     &__label {
       // font-weight: $medium-weight;
       color: $text-color;
       position: absolute;
-      // background-color: $base-color;
+      background-color: $primary-color;
       padding: 0 6px;
       top: -12px;
       left: 8px;
@@ -221,11 +222,7 @@ async function submit() {
   &__button {
     width: 100%;
     padding: 8px;
-    background: $text-color;
-    // border-radius: $small-radius;
-    // color: $base-color;
-    // font-weight: $medium-weight;
-    position: relative;
+    // background: $text-color;
     cursor: pointer;
 
     // &:hover {
