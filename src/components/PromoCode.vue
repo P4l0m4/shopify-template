@@ -65,6 +65,7 @@ const cartStore = useCartStore()
         outline: none;
         border: white 2px solid;
         width: clamp(100px, 100%, 375px);
+        color: $text-color;
       }
 
       &__button {

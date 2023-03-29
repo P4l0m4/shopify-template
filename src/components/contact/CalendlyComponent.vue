@@ -10,5 +10,7 @@ const options = {
 .calendly-inline-widget {
   height: 100vh !important;
   width: 100% !important;
+  overflow: hidden !important;
+  border-radius: $radius;
 }
 </style>
