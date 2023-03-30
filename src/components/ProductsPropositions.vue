@@ -12,10 +12,10 @@ const products = await client.product.fetchAll()
 <style scoped lang="scss">
 .section {
   display: flex;
-  gap: 32px;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
+  gap: 1rem;
+  width: 100vw;
+  overflow-x: scroll;
+  padding: 0 1rem;
 }
 
 .product-card {

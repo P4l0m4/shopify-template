@@ -13,10 +13,10 @@ function copy() {
   <footer>
     <span>©Pokemon 2023</span>
     <nuxt-link to="/">Mentions légales</nuxt-link>
-    <div class="pokeball">
+    <!-- <div class="pokeball">
       <AnimationsPokeballAnimation class="pokeball2" />
       <div class="pokeball__toaster" @click="copy()">{{ code }}</div>
-    </div>
+    </div> -->
   </footer>
 </template>
 <style lang="scss" scoped>
@@ -26,6 +26,7 @@ footer {
   justify-content: flex-end;
   width: 100%;
   position: relative;
+  padding: 0 1rem;
 
   & .pokeball {
     display: flex;

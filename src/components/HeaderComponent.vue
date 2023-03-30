@@ -23,6 +23,7 @@
   gap: 2rem;
   padding: 1rem;
   background-image: url('@/assets/images/hero-image.png');
+
   &__txt {
     display: flex;
     width: 100%;
@@ -50,7 +51,6 @@
     color: $primary-color;
     border: 2px solid $primary-color;
     border-radius: $radius;
-    width: fit-content;
 
     &__icon {
       width: 22px;

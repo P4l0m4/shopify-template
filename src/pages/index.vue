@@ -12,16 +12,8 @@ cartStore.createCheckout()
 <template>
   <section class="index-section">
     <HeaderComponent />
-    <SearchBar />
-    <SearchResults
-      v-if="productStore.searchQuery"
-      :products="productStore.productsSearched"
-      :query="productStore.searchQuery"
-    />
-
-    <div>
-      <ProductsPropositions />
-    </div>
+    <p class="title">Nos best sellers</p>
+    <ProductsPropositions />
   </section>
 </template>
 <style scoped lang="scss">
@@ -29,6 +21,5 @@ cartStore.createCheckout()
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  align-items: center;
 }
 </style>

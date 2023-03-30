@@ -17,15 +17,8 @@ register()
 .container {
   display: flex;
   flex-direction: column;
-  padding: 5rem 0;
+  padding: 3.5rem 0;
   gap: 2rem;
   align-items: center;
-
-  @media (min-width: $tablet-screen) {
-    padding: 64px 32px;
-  }
-  @media (min-width: $desktop-screen) {
-    padding: 32px 64px;
-  }
 }
 </style>

@@ -7,57 +7,80 @@ const props = defineProps(['product'])
     <img class="product-card__img" :src="product.images[0].src" />
 
     <div class="product-card__txt">
-      <h2 class="product-card__txt__title">
-        {{ product.title }} <span>{{ product.variants[0].price.amount }} €</span>
-      </h2>
-      <h3 class="product-card__txt__description">{{ product.description }}</h3>
-    </div>
+      <h3 class="product-card__txt__title">
+        {{ product.title }}
+      </h3>
+      <div class="product-card__txt__price">
+        <span class="product-card__txt__price__amount"> {{ product.variants[0].price.amount }} €</span>
+        <button class="product-card__txt__price__button">
+          <img class="product-card__txt__price__button__icon" src="@/assets/icons/next-light.svg" alt="" />
+        </button>
+      </div>
 
-    <button class="button-primary">Voir plus</button>
+      <!-- <h3 class="product-card__txt__description">{{ product.description }}</h3> -->
+    </div>
   </nuxt-link>
 </template>
 <style scoped lang="scss">
 .product-card {
   display: flex;
-  gap: 16px;
   background-color: $primary-color;
-  padding: 1rem;
+  border-radius: $radius;
   box-shadow: $shadow;
-  align-items: center;
+  display: flex;
   flex-direction: column;
-  width: clamp(100px, 100%, 343px);
-
-  @media (min-width: $tablet-screen) {
-    width: clamp(100px, 100%, 300px);
-  }
+  align-items: flex-end;
+  padding: 1rem;
+  min-width: 146px;
 
   &__img {
     object-fit: cover;
     width: 100%;
+    height: 210px;
   }
 
   &__txt {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 0.5rem;
 
     &__title {
-      font-size: 16px;
+      height: 1.75rem;
+      overflow: hidden;
+      font-size: 0.75rem;
       display: flex;
       justify-content: space-between;
+      flex-direction: column;
+      font-weight: 300;
+    }
+    &__price {
+      &__amount {
+        font-size: 1rem;
+        font-weight: 800;
+      }
+      &__button {
+        display: flex;
+        border: 2px solid transparent;
+        width: 100%;
+        justify-content: flex-end;
 
-      & span {
-        opacity: 0.4;
+        &__icon {
+          width: 22px;
+          transform: rotate(180deg);
+          background-color: $text-color;
+          border-radius: $radius;
+          padding: 0.2rem;
+        }
       }
     }
 
-    &__description {
-      padding-bottom: 16px;
-      font-weight: 100;
-      font-size: 16px;
-      height: 40px;
-      overflow: hidden;
-    }
+    // &__description {
+    //   padding-bottom: 1rem;
+    //   font-weight: 100;
+    //   font-size: 16px;
+    //   height: 40px;
+    //   overflow: hidden;
+    // }
   }
 }
 </style>

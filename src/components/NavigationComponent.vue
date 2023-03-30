@@ -1,24 +1,30 @@
 <script setup>
 import { useCartStore } from '@/stores/cart'
+import { ref } from 'vue'
 
 const cartStore = useCartStore()
+
+const isMenuOpen = ref(false)
 </script>
 
 <template>
   <nav>
-    <button><img class="icon" src="@/assets/icons/menu.svg" alt="search icon" /></button>
+    <MenuOverlay :isMenuOpen="isMenuOpen" @close="isMenuOpen = false" />
+    <button @click="isMenuOpen = true"><img class="icon" src="@/assets/icons/menu.svg" alt="menu icon" /></button>
     <nuxt-link to="/" class="logo"><img src="@/assets/images/logo.svg" alt="logo" class="logo__img" /></nuxt-link>
-    <NuxtLink to="/search"><img class="icon" src="@/assets/icons/search.svg" alt="search icon" /></NuxtLink>
-    <NuxtLink to="/cart">
-      <div class="link__cart">
-        <img class="link__cart__img" src="@/assets/icons/shopping-outline.svg" alt="" /><span
-          class="link__cart__number"
-          v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0"
-        >
-          {{ cartStore.itemQuantity }}
-        </span>
-      </div>
-    </NuxtLink>
+    <div class="wrapper">
+      <NuxtLink to="/shop"><img class="icon" src="@/assets/icons/search.svg" alt="search icon" /></NuxtLink>
+      <NuxtLink to="/cart">
+        <div class="link__cart">
+          <img class="link__cart__img" src="@/assets/icons/shopping-outline.svg" alt="" /><span
+            class="link__cart__number"
+            v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0"
+          >
+            {{ cartStore.itemQuantity }}
+          </span>
+        </div>
+      </NuxtLink>
+    </div>
   </nav>
 </template>
 
@@ -34,14 +40,19 @@ nav {
   box-shadow: $shadow;
   position: fixed;
   top: 0;
+  z-index: 2;
 
+  .wrapper {
+    display: flex;
+    gap: 1rem;
+  }
   & .logo {
     display: flex;
     width: 80px;
-
-    @media (min-width: $tablet-screen) {
-      width: 100%;
-    }
+    border-radius: 0;
+    position: absolute;
+    inset: 0;
+    margin: auto;
 
     &__img {
       width: 100%;
@@ -76,7 +87,7 @@ nav {
         align-items: center;
         font-size: 12px;
         color: $primary-color;
-        font-weight: 600;
+        font-weight: 300;
         position: absolute;
         right: -4px;
         top: -4px;
