@@ -2,10 +2,13 @@ $tablet-screen: 475px;
 $desktop-screen: 1024px;
 
 //COLORS
-$base-color: #0f0f0f;
-$primary-color: #1c1a1a;
-$secondary-color: #ffe803;
-$text-color: #fff;
+$base-color: #f7f7f7;
+$primary-color: #fffdfa;
+$secondary-color: #333333;
+$text-color: #333333;
 
 //BORDERS
-$radius: 6px;
+$radius: 24px;
+
+//SHADOWS
+$shadow: 0px 0px 10px rgba(0, 0, 0, 0.04);

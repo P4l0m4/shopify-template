@@ -7,8 +7,8 @@ register()
 
 <template>
   <div class="container">
-    <HeaderComponent />
-    <SlideBar />
+    <NavigationComponent />
+    <!-- <SlideBar /> -->
     <main><slot /></main>
     <FooterComponent />
   </div>
@@ -17,7 +17,7 @@ register()
 .container {
   display: flex;
   flex-direction: column;
-  padding: 32px 16px;
+  padding: 5rem 0;
   gap: 2rem;
   align-items: center;
 

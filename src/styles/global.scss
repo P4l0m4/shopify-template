@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;800&display=swap');
 
 *,
 :before,
@@ -14,7 +14,7 @@ html {
 
 body {
   background-color: $base-color;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Rubik', sans-serif;
   color: $text-color;
 }
 
@@ -28,6 +28,11 @@ button,
 input,
 img {
   border-radius: $radius;
+}
+
+button {
+  border: 1px solid transparent;
+  background-color: transparent;
 }
 
 input,
@@ -52,14 +57,6 @@ input:-webkit-autofill {
   -webkit-text-fill-color: $text-color !important;
 }
 
-h1 {
-  font-size: 20px;
-
-  @media (min-width: $tablet-screen) {
-    font-size: 24px;
-  }
-}
-
 .button-primary,
 .button-secondary {
   color: $text-color;
@@ -72,8 +69,8 @@ h1 {
 }
 .button-primary {
   background-color: $secondary-color;
-  color: black;
-  border: $secondary-color solid 2px;
+  color: $primary-color;
+  border: $primary-color solid 2px;
 
   &:hover {
     -webkit-box-shadow: 0px 2px 4px 5px rgba(250, 255, 0, 0);
@@ -88,6 +85,10 @@ h1 {
 .button-secondary {
   background-color: transparent;
   border: white solid 2px;
+}
+
+.icon {
+  width: 20px;
 }
 
 //SCROLLBAR

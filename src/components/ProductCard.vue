@@ -21,7 +21,8 @@ const props = defineProps(['product'])
   display: flex;
   gap: 16px;
   background-color: $primary-color;
-  padding: 16px;
+  padding: 1rem;
+  box-shadow: $shadow;
   align-items: center;
   flex-direction: column;
   width: clamp(100px, 100%, 343px);

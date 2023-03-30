@@ -11,10 +11,7 @@ cartStore.createCheckout()
 
 <template>
   <section class="index-section">
-    <div class="title">
-      <AnimationsAnimalComponent />
-      <h1>Boutique Pokemon</h1>
-    </div>
+    <HeaderComponent />
     <SearchBar />
     <SearchResults
       v-if="productStore.searchQuery"
