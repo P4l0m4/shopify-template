@@ -56,6 +56,9 @@ const props = defineProps(['product'])
       font-weight: 300;
     }
     &__price {
+      display: flex;
+      justify-content: space-between;
+
       &__amount {
         font-size: 1rem;
         font-weight: 800;
@@ -63,7 +66,6 @@ const props = defineProps(['product'])
       &__button {
         display: flex;
         border: 2px solid transparent;
-        width: 100%;
         justify-content: flex-end;
         animation: slide-from-left 0.6s;
 

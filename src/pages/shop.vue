@@ -9,12 +9,22 @@ const productStore = useProductStore()
 cartStore.createCheckout()
 </script>
 <template>
-  <div>
+  <section class="shop">
     <SearchBar />
     <SearchResults
       v-if="productStore.searchQuery"
       :products="productStore.productsSearched"
       :query="productStore.searchQuery"
     />
-  </div>
+
+    <AllProducts />
+  </section>
 </template>
+<style lang="scss" scoped>
+.shop {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+</style>

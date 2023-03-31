@@ -13,8 +13,8 @@ const emit = defineEmits(['close'])
           ><img src="@/assets/icons/shop.svg" alt="" /><span>Boutique</span></NuxtLink
         ><NuxtLink class="menu__grid__link" to="contact"
           ><img src="@/assets/icons/mail.svg" alt="" /><span>Contact</span></NuxtLink
-        ><NuxtLink class="menu__grid__link" to="/shop"
-          ><img src="@/assets/icons/search.svg" alt="" /><span>Chercher</span></NuxtLink
+        ><NuxtLink class="menu__grid__link" to="/blog"
+          ><img src="@/assets/icons/book.svg" alt="" /><span>Blog</span></NuxtLink
         >
       </div>
     </div></Transition

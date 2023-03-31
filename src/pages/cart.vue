@@ -98,11 +98,11 @@ const isMarkerOpen = ref(false)
       </div>
       <div class="cart__empty" v-else>
         <span class="cart__empty__txt">Votre panier est vide</span>
-        <nuxt-link class="button-primary" to="/">Commencer mon shopping</nuxt-link>
+        <nuxt-link class="button-primary" to="/shop">Commencer mon shopping</nuxt-link>
       </div>
     </section>
 
-    <h3>Nos best-sellers</h3>
+    <h3 class="title">Nos best-sellers</h3>
     <ProductsPropositions />
   </div>
 </template>
@@ -112,7 +112,7 @@ const isMarkerOpen = ref(false)
   display: flex;
   flex-direction: column;
   gap: 4rem;
-  align-items: center;
+  // align-items: center;
 }
 .cart {
   display: flex;
