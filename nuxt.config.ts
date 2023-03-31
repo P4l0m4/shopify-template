@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   ssr: false,
   srcDir: 'src/',
   css: ['@/styles/global.scss'],
-  modules: ['@pinia/nuxt', 'nuxt-calendly'],
+  modules: ['@pinia/nuxt', 'nuxt-calendly', 'nuxt-simple-sitemap'],
 
   vite: {
     css: {
@@ -14,5 +14,8 @@ export default defineNuxtConfig({
         },
       },
     },
+  },
+  sitemap: {
+    siteUrl: 'nuxt3-shopify-template.netlify.app',
   },
 })

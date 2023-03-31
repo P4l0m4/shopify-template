@@ -32,11 +32,13 @@ const props = defineProps(['product'])
   align-items: flex-end;
   padding: 1rem;
   min-width: 146px;
+  animation: slide-from-left 0.6s;
 
   &__img {
     object-fit: cover;
     width: 100%;
-    height: 210px;
+    height: 180px;
+    border-radius: $radius;
   }
 
   &__txt {
@@ -63,9 +65,10 @@ const props = defineProps(['product'])
         border: 2px solid transparent;
         width: 100%;
         justify-content: flex-end;
+        animation: slide-from-left 0.6s;
 
         &__icon {
-          width: 22px;
+          width: 20px;
           transform: rotate(180deg);
           background-color: $text-color;
           border-radius: $radius;

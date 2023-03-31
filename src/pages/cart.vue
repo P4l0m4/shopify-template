@@ -1,5 +1,6 @@
 <script setup>
 import { useCartStore } from '@/stores/cart'
+import { ref } from 'vue'
 
 // Store
 const cartStore = useCartStore()
@@ -14,13 +15,11 @@ function subTotal(items) {
   const price = items.reduce((total, item) => total + item.price.amount * 1, 0)
   return Math.round(price * 100) / 100
 }
+
+const isMarkerOpen = ref(false)
 </script>
 <template>
   <div class="container">
-    <div class="title">
-      <AnimationsAnimalComponent />
-      <h1>Votre panier</h1>
-    </div>
     <section class="cart" v-if="!loading">
       <div class="cart__products" v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0">
         <div class="cart__products__product" v-for="item in cartStore.checkout.lineItems" :key="item.id">
@@ -29,58 +28,71 @@ function subTotal(items) {
           /></nuxt-link>
           <div class="cart__products__product__description">
             <div class="cart__products__product__description__txt">
-              <div class="cart__products__product__description__txt__title">
-                <p>
-                  {{ item.title }}
-                </p>
-                <span>{{ item.variant.price.amount * 1 }} €</span>
-              </div>
-
+              <p class="cart__products__product__description__txt__title">
+                {{ item.title }}
+              </p>
               <p class="cart__products__product__description__txt__variant">{{ item.variant.title }}</p>
             </div>
 
             <div class="cart__products__product__description__quantity">
+              <span class="cart__products__product__description__txt__price"
+                >{{ item.variant.price.amount * 1 }} €</span
+              >
+              <!-- <button
+                class="cart__products__product__description__quantity__trash"
+                @click="cartStore.removeProductFromCart(item)"
+              >
+                <img class="icon" src="@/assets/icons/trash.svg" alt="" />
+              </button> -->
               <div class="cart__products__product__description__quantity__buttons">
                 <button
-                  class="cart__products__product__description__quantity__buttons__button"
+                  class="cart__products__product__description__quantity__buttons__button--outline"
                   @click="cartStore.removeOneProductFromCart(item)"
                 >
-                  -
+                  <img class="icon" src="@/assets/icons/minus.svg" alt="" />
                 </button>
                 <span>{{ item.quantity }}</span>
                 <button
-                  class="cart__products__product__description__quantity__buttons__button"
+                  class="cart__products__product__description__quantity__buttons__button--solid"
                   @click="cartStore.addProductToCart(item.variant)"
                 >
-                  +
+                  <img class="icon" src="@/assets/icons/plus.svg" alt="" />
                 </button>
               </div>
             </div>
-            <div class="cart__products__product__description__price">
+            <!-- <div class="cart__products__product__description__price">
               <p>Prix total :</p>
               <span>{{ item.quantity * item.variant.price.amount }} €</span>
-            </div>
-
-            <div class="cart__products__product__description__price">
-              <button
-                class="cart__products__product__description__price__button button-secondary"
-                @click="cartStore.removeProductFromCart(item)"
-              >
-                Supprimer le produit
-                <img
-                  class="cart__products__product__description__price__button__img"
-                  src="@/assets/icons/trash.svg"
-                  alt=""
-                />
-              </button>
-            </div>
+            </div> -->
           </div>
         </div>
-        <ShipmentComponent />
         <PromoCode />
-        <div class="cart__products__total-price">
-          <p>Prix total TTC :</p>
-          <span>{{ cartStore.checkout.paymentDue.amount * 1 }} €</span>
+
+        <div class="cart__products__price">
+          <div class="cart__products__price__amounts">
+            <p>Total TTC:</p>
+            <span>{{ cartStore.checkout.paymentDue.amount * 1 }} €</span>
+          </div>
+          <div class="cart__products__price__amounts">
+            <details>
+              <summary @click="isMarkerOpen = !isMarkerOpen">
+                <div class="wrapper">
+                  Livraison<img
+                    class="icon"
+                    :class="{ 'icon--open': isMarkerOpen }"
+                    src="@/assets/icons/next.svg"
+                    alt=""
+                  />
+                </div>
+                <span>0 €</span>
+              </summary>
+              <ShipmentComponent />
+            </details>
+          </div>
+          <div class="cart__products__price__amounts">
+            <p>Total :</p>
+            <span>{{ cartStore.checkout.paymentDue.amount * 1 }} €</span>
+          </div>
         </div>
         <a :href="cartStore.checkout.webUrl" class="button-primary">Passer ma commande</a>
       </div>
@@ -99,47 +111,40 @@ function subTotal(items) {
 .container {
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: 4rem;
   align-items: center;
 }
 .cart {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 2rem;
   justify-content: center;
-  width: clamp(100px, 100%, 1000px);
+  width: clamp(100px, 100%, 800px);
   align-items: center;
+  padding: 2rem 0;
 
   &__products {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 2rem;
     align-items: flex-end;
     justify-content: flex-end;
 
     &__product {
       width: 100%;
       display: flex;
-      gap: 16px;
-      border-radius: 6px;
-
-      @media (min-width: $tablet-screen) {
-        gap: 32px;
-        background-color: $primary-color;
-        padding: 16px;
-      }
+      gap: 1rem;
+      border-radius: $radius;
 
       &__card {
         display: flex;
         width: 100px;
-        @media (min-width: $tablet-screen) {
-          width: clamp(100px, 100%, 400px);
-        }
 
         &__img {
-          width: 100%;
-          height: 100%;
+          width: 70px;
+          height: 70px;
           object-fit: cover;
+          border-radius: 100%;
         }
       }
 
@@ -148,128 +153,130 @@ function subTotal(items) {
         flex-direction: column;
         width: 100%;
         justify-content: space-between;
-        gap: 8px;
 
         &__txt {
           display: flex;
           flex-direction: column;
           gap: 8px;
-          @media (min-width: $desktop-screen) {
-            font-size: 20px;
-          }
 
           &__title {
-            font-size: 14px;
-            display: flex;
-            gap: 16px;
-            justify-content: space-between;
-            width: (100px, 100%, 300px);
-
-            @media (min-width: $desktop-screen) {
-              font-size: 20px;
-            }
-
-            & span {
-              opacity: 0.4 !important;
-              font-size: 14px;
-              white-space: nowrap;
-              @media (min-width: $desktop-screen) {
-                font-size: 16px;
-              }
-            }
+            font-weight: 600;
           }
-          &__variant,
+
           &__details {
             font-size: 12px;
             max-width: 400px;
-            @media (min-width: $desktop-screen) {
-              font-size: 16px;
-            }
+          }
+          &__price {
+            font-size: 1.5rem;
+            font-weight: 800;
           }
           &__details {
             display: none;
-            @media (min-width: $tablet-screen) {
-              display: block;
-            }
           }
         }
 
         &__price {
           display: flex;
           justify-content: flex-end;
-          gap: 8px;
-          font-size: 14px;
-          @media (min-width: $desktop-screen) {
-            font-size: 16px;
-          }
-
-          &__button {
-            gap: 1rem;
-            align-items: center;
-            &__img {
-              width: 16px;
-            }
-          }
-        }
-
-        & span {
-          opacity: 4;
+          gap: 0.5rem;
+          font-weight: 600;
         }
 
         &__quantity {
           display: flex;
-          gap: 16px;
-          font-size: 14px;
-          flex-direction: column;
-          @media (min-width: $tablet-screen) {
-            font-size: 16px;
-            flex-direction: row;
-            justify-content: flex-end;
-            align-items: center;
-          }
-
-          & span {
-            opacity: 4;
-          }
+          gap: 2rem;
+          width: 100%;
+          align-items: flex-end;
+          justify-content: space-between;
 
           &__buttons {
-            width: 100%;
             display: flex;
-            gap: 16px;
+            gap: 1rem;
             justify-content: flex-end;
+            align-items: center;
 
-            &__button {
-              height: fit-content;
+            &__button--solid {
               display: flex;
               justify-content: center;
-              padding: 0 8px;
-              background-color: rgba(255, 255, 255, 0.2);
+              align-items: center;
               border: none;
-              font-weight: 600;
-              font-size: 20px;
-              cursor: pointer;
+              width: 30px;
+              height: 30px;
+              background-color: $text-color;
+              border-radius: $radius;
+              padding: 0.2rem;
+            }
+            &__button--outline {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: 2px solid $text-color;
+              width: 30px;
+              height: 30px;
+              background-color: transparent;
+              border-radius: $radius;
+              padding: 0.2rem;
             }
           }
         }
       }
     }
 
-    &__total-price {
+    &__price {
       display: flex;
-      justify-content: flex-end;
-      gap: 16px;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+
+      &__amounts {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-weight: 600;
+        font-size: 0.75rem;
+        &:nth-last-of-type(1) {
+          font-size: 1rem;
+        }
+
+        & details {
+          display: flex;
+          width: 100%;
+          gap: 1rem;
+
+          & summary {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            .wrapper {
+              display: flex;
+              align-items: center;
+
+              .icon {
+                transform: rotate(270deg);
+                display: flex;
+                width: 16px;
+
+                &--open {
+                  transform: rotate(90deg);
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 
   &__empty {
-    width: fit-content;
-    padding: 16px;
+    padding: 1rem;
     background-color: $primary-color;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
     flex-direction: column;
-    border-radius: 6px;
+    border-radius: $radius;
   }
 }
 </style>

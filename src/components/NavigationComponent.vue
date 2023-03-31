@@ -16,7 +16,7 @@ const isMenuOpen = ref(false)
       <NuxtLink to="/shop"><img class="icon" src="@/assets/icons/search.svg" alt="search icon" /></NuxtLink>
       <NuxtLink to="/cart">
         <div class="link__cart">
-          <img class="link__cart__img" src="@/assets/icons/shopping-outline.svg" alt="" /><span
+          <img class="link__cart__img" src="@/assets/icons/bag.svg" alt="" /><span
             class="link__cart__number"
             v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0"
           >
@@ -53,6 +53,7 @@ nav {
     position: absolute;
     inset: 0;
     margin: auto;
+    animation: slide-from-top 0.6s;
 
     &__img {
       width: 100%;

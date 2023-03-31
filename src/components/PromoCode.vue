@@ -4,7 +4,6 @@ const cartStore = useCartStore()
 </script>
 <template>
   <div class="promo">
-    <label for="code">Code promo <small>(non-cumulable)</small></label>
     <div class="promo__test">
       <div class="promo__test__wrapper">
         <input placeholder="Code promo" id="code" class="promo__test__wrapper__input" v-model="codeToTry" />
@@ -13,7 +12,6 @@ const cartStore = useCartStore()
         </button>
       </div>
       <div class="promo__test__codes" v-if="cartStore.checkout.discountApplications?.length > 0">
-        Code promo appliqué
         <span
           class="promo__test__codes__code"
           v-for="(discount, i) in cartStore.checkout.discountApplications"
@@ -37,33 +35,31 @@ const cartStore = useCartStore()
 <style lang="scss" scoped>
 .promo {
   display: flex;
-  background-color: $primary-color;
-  padding: 16px;
   flex-direction: column;
-  gap: 32px;
-  font-size: 20px;
+  gap: 2rem;
   width: 100%;
-  border-radius: 6px;
 
   &__test {
     display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+    gap: 1rem;
+    flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    align-items: flex-start;
 
     &__wrapper {
       display: flex;
-      gap: 8px;
-      max-height: 40px;
+      gap: 0.5rem;
+      padding: 0.5rem;
       width: clamp(100px, 100%, 444px);
+      background-color: $primary-color;
+      box-shadow: $shadow;
+      border-radius: $radius;
 
       &__input {
         padding: 8px;
-        background-color: $primary-color;
+        // background-color: $primary-color;
         outline: none;
-        border: white 2px solid;
+        border: transparent 2px solid;
         width: clamp(100px, 100%, 375px);
         color: $text-color;
       }
@@ -73,29 +69,28 @@ const cartStore = useCartStore()
         justify-content: center;
         align-items: center;
         padding: 8px;
-        cursor: pointer;
         background-color: $secondary-color;
-        color: black;
+        color: $primary-color;
         font-weight: 600;
         border: $secondary-color solid 2px;
+        font-weight: 500;
       }
     }
 
     &__codes {
       display: flex;
-      gap: 8px;
+      gap: 0.5rem;
       flex-direction: column;
-      font-size: 16px;
 
       &__code {
         font-size: 16px;
         display: flex;
         padding: 8px 16px;
-        border: #006400 solid 2px;
-        border-radius: 6px;
-        color: #006400;
-        font-weight: 700;
+        border: $promo-code-color solid 2px;
+        color: $promo-code-color;
+        font-weight: 500;
         justify-content: center;
+        border-radius: $radius;
       }
     }
   }

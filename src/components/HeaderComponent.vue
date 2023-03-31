@@ -51,12 +51,14 @@
     color: $primary-color;
     border: 2px solid $primary-color;
     border-radius: $radius;
+    animation: slide-from-left 0.6s;
 
     &__icon {
       width: 22px;
       background-color: $primary-color;
       transform: rotate(180deg);
       padding: 0.25rem;
+      border-radius: $radius;
     }
   }
 }

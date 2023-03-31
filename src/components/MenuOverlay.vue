@@ -6,11 +6,15 @@ const emit = defineEmits(['close'])
   <Transition name="fade">
     <div v-show="isMenuOpen" class="menu" @click="emit('close')">
       <div class="menu__grid">
-        <NuxtLink class="menu__grid__link"><img src="@/assets/icons/home.svg" alt="" /><span>Accueil</span></NuxtLink>
-        <NuxtLink class="menu__grid__link"><img src="@/assets/icons/shop.svg" alt="" /><span>Boutique</span></NuxtLink
-        ><NuxtLink class="menu__grid__link"><img src="@/assets/icons/mail.svg" alt="" /><span>Contact</span></NuxtLink
-        ><NuxtLink class="menu__grid__link"
-          ><img src="@/assets/icons/search.svg" alt="" /><span>Contact</span></NuxtLink
+        <NuxtLink class="menu__grid__link" to="/"
+          ><img src="@/assets/icons/home.svg" alt="" /><span>Accueil</span></NuxtLink
+        >
+        <NuxtLink class="menu__grid__link" to="/shop"
+          ><img src="@/assets/icons/shop.svg" alt="" /><span>Boutique</span></NuxtLink
+        ><NuxtLink class="menu__grid__link" to="contact"
+          ><img src="@/assets/icons/mail.svg" alt="" /><span>Contact</span></NuxtLink
+        ><NuxtLink class="menu__grid__link" to="/shop"
+          ><img src="@/assets/icons/search.svg" alt="" /><span>Chercher</span></NuxtLink
         >
       </div>
     </div></Transition
@@ -35,12 +39,16 @@ const emit = defineEmits(['close'])
     align-items: center;
     &__link {
       align-items: center;
+      justify-content: center;
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
       padding: 1rem;
       background-color: $primary-color;
       border-radius: $radius;
+      width: 90px;
+      height: 90px;
+      animation: slide-from-top 0.6s;
     }
   }
 }

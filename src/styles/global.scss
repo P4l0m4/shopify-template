@@ -25,8 +25,7 @@ a {
 }
 
 button,
-input,
-img {
+input {
   border-radius: $radius;
 }
 
@@ -49,7 +48,9 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px $base-color inset !important;
+  -webkit-box-shadow: 0 0 0 30px $primary-color inset !important;
+  border: 2px solid $primary-color !important;
+  outline: $primary-color;
 }
 
 /*Change text in autofill textbox*/
@@ -61,11 +62,11 @@ input:-webkit-autofill {
 .button-secondary {
   color: $text-color;
   display: flex;
-  padding: 0.5rem 2rem;
+  padding: 1rem 2rem;
   width: clamp(100px, 100%, 343px);
   justify-content: center;
-  font-weight: 600;
   cursor: pointer;
+  border-radius: $radius;
 }
 .button-primary {
   background-color: $secondary-color;
@@ -119,4 +120,30 @@ input:-webkit-autofill {
   font-size: 1.5rem;
   font-weight: 500;
   padding: 0 1rem;
+}
+
+//ANIMATIONS
+@keyframes slide-from-left {
+  from {
+    transform: translate(-20px);
+  }
+  to {
+    transform: translate(0px);
+  }
+}
+@keyframes slide-from-top {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@keyframes slide-from-bottom {
+  from {
+    transform: translate(20px);
+  }
+  to {
+    transform: translate(0px);
+  }
 }

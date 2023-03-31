@@ -8,39 +8,31 @@ let shipmentDate = dayjs().add(4, 'day').format('DD MMMM YYYY')
 
 <template>
   <div class="shipment">
-    <p>Livraison</p>
+    <span class="shipment__date"
+      >Livraison estimée le <strong>{{ shipmentDate }}</strong></span
+    >
     <div class="shipment__location">
-      <img class="shipment__location__icon" src="@/assets/icons/map-marker-outline.svg" />Livré en France avec
+      <img class="icon" src="@/assets/icons/map-marker-outline.svg" />Livré en France avec
       <a class="shipment__location__link" href="https://www.chronopost.fr/fr/particulier#/step-home">Chronopost</a>
     </div>
-    <div class="shipment__details">
+    <!-- <div class="shipment__details">
       <span>Livraison gratuite</span>
-      <span
-        >Date de livraison estimée: <strong>{{ shipmentDate }}</strong></span
-      >
-    </div>
+    </div> -->
   </div>
 </template>
 <style lang="scss" scoped>
 .shipment {
   display: flex;
-  background-color: $primary-color;
-  padding: 16px;
   flex-direction: column;
-  gap: 32px;
-  font-size: 20px;
+  gap: 1rem;
   width: 100%;
-  border-radius: 6px;
+  font-weight: 100;
+  padding: 1rem 0;
 
   &__location {
     display: flex;
-    gap: 4px;
+    gap: 0.25rem;
     align-items: center;
-    font-size: 16px;
-
-    &__icon {
-      width: 24px;
-    }
 
     &__link {
       text-decoration: underline !important;
@@ -48,8 +40,7 @@ let shipmentDate = dayjs().add(4, 'day').format('DD MMMM YYYY')
   }
 
   &__details {
-    gap: 16px;
-    font-size: 16px;
+    gap: 1rem;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
