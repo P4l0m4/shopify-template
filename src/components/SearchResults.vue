@@ -3,18 +3,28 @@ const props = defineProps(['products', 'query'])
 </script>
 
 <template>
-  <section class="section">
-    <ProductCard v-for="product in products" :product="product" />
+  <section class="results">
     <span v-if="products.length === 0 && query">Aucun produit trouvé pour "{{ query }}"</span>
+    <section class="results__products">
+      <ProductCard v-for="product in products" :product="product" />
+    </section>
   </section>
 </template>
 <style scoped lang="scss">
-.section {
+.results {
   display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: clamp(100px, 100%, 343px);
+  gap: 1rem;
+  width: 100vw;
+  overflow-x: scroll;
+  padding: 0 1rem;
+  flex-direction: column;
+  align-items: center;
+
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }
 
 .product-card {
@@ -44,10 +54,6 @@ const props = defineProps(['products', 'query'])
       font-size: 16px;
       display: flex;
       justify-content: space-between;
-
-      & span {
-        opacity: 0.4;
-      }
     }
 
     &__description {

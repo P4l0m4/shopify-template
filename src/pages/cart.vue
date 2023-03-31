@@ -111,7 +111,7 @@ const isMarkerOpen = ref(false)
 .container {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 2rem;
   // align-items: center;
 }
 .cart {

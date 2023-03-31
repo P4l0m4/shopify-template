@@ -42,16 +42,8 @@ async function updateCart(variant) {
 <template>
   <div class="container">
     <section class="product" v-if="!loading">
-      <swiper-container :navigation="true" :pagination="true" class="swiper">
-        <swiper-slide v-for="image in productStore.product.images" :key="image.id" class="swiper__slide">
-          <img :src="image.src" class="swiper__slide__img"
-        /></swiper-slide>
-      </swiper-container>
+      <SwiperComponent />
       <div class="product__details">
-        <div class="product__details__txt">
-          <h1 class="product__details__txt__title">{{ productStore.product.title }}</h1>
-          <p class="product__details__txt__description">{{ productStore.product.description }}</p>
-        </div>
         <div class="product__details__variants">
           <div
             v-for="variant in productStore.product.variants"
@@ -64,22 +56,28 @@ async function updateCart(variant) {
             <p class="product__details__variants__variant__title">{{ variant.title }}</p>
           </div>
         </div>
-        <div class="product__details__price">
-          <p>Prix unitaire TTC :</p>
-          <span>{{ productStore.productVariant.price.amount }} €</span>
-        </div>
-        <div class="product__details__buttons">
-          <button
-            :disabled="updatingCart"
-            @click.prevent="updateCart(productStore.productVariant)"
-            class="button-primary"
-          >
-            Ajouter au panier
-          </button>
+
+        <div class="product__details__add-to-cart">
+          <div class="product__details__add-to-cart__txt">
+            <h1 class="product__details__add-to-cart__txt__title">{{ productStore.product.title }}</h1>
+            <p class="product__details__add-to-cart__txt__description">{{ productStore.product.description }}</p>
+          </div>
+          <div class="product__details__add-to-cart__price">
+            <span class="product__details__add-to-cart__price__number"
+              >{{ productStore.productVariant.price.amount }} €</span
+            >
+            <button
+              :disabled="updatingCart"
+              @click.prevent="updateCart(productStore.productVariant)"
+              class="button-primary"
+            >
+              <img class="icon" src="@/assets/icons/add-to-cart.svg" alt="" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
-
+    <p class="title">Nos best sellers</p>
     <ProductsPropositions />
   </div>
 </template>
@@ -87,112 +85,98 @@ async function updateCart(variant) {
 .container {
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: 1rem;
 }
 .product {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 32px;
-  background-color: $primary-color;
-  padding: 16px;
-  border-radius: 6px;
-
-  @media (min-width: $desktop-screen) {
-    flex-direction: row;
-  }
+  padding: 1rem;
 
   &__details {
     display: flex;
-    gap: 16px;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
 
     &__variants {
       display: flex;
-      gap: 8px;
+      gap: 0.5rem;
       overflow-x: scroll;
-      width: 100%;
-      max-width: 343px;
-      @media (min-width: $tablet-screen) {
-        flex-wrap: wrap;
-        max-width: 1200px;
-      }
+      width: 100vw;
+      padding: 1rem;
 
       &__variant {
         display: flex;
-        gap: 4px;
+        gap: 0.25rem;
         flex-direction: column;
-        text-align: center;
+        justify-content: center;
+        align-items: center;
         cursor: pointer;
         border: transparent solid 2px;
         width: clamp(60px, 100%, 140px);
+        padding: 1rem;
+        background-color: $primary-color;
+        box-shadow: $shadow;
+        border-radius: $radius;
+        font-size: 0.75rem;
 
         &__img {
-          width: 80px;
-          height: 80px;
+          width: 72px;
+          height: 72px;
           object-fit: cover;
-
-          @media (min-width: $tablet-screen) {
-            height: 140px;
-            width: clamp(60px, 100%, 140px);
-          }
+          border-radius: 100%;
         }
 
         &--selected {
-          border: $secondary-color 2px solid;
-          border-radius: 6px;
+          border: $variant-selected-color 2px solid;
+          border-radius: $radius;
         }
       }
     }
 
-    &__price {
-      display: flex;
-      gap: 32px;
-      justify-content: flex-end;
-    }
+    // &__price {
+    //   display: flex;
+    //   gap: 32px;
+    //   justify-content: flex-end;
+    //   border: red solid 2px;
+    // }
 
-    &__buttons {
+    &__add-to-cart {
+      padding: 1rem;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      justify-content: flex-end;
-
-      @media (min-width: $tablet-screen) {
-        flex-direction: row;
-      }
-    }
-  }
-}
-.swiper {
-  margin: 0;
-  display: flex;
-  width: clamp(100px, 100%, 600px) !important;
-
-  &__slide {
-    width: 100% !important;
-
-    &__img {
+      gap: 1rem;
       width: 100%;
-      height: 300px;
-      object-fit: cover;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: $shadow;
+      border-radius: $radius;
+      background-color: $primary-color;
 
-      @media (min-width: $tablet-screen) {
-        height: 500px;
+      &__txt {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        &__title {
+          font-size: 1rem;
+        }
+        &__description {
+          font-weight: 100;
+          font-size: 0.75rem;
+        }
+      }
+
+      &__price {
+        font-size: 1.5rem;
+        font-weight: 800;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
       }
     }
-  }
-
-  .swiper-button-prev,
-  .swiper-button-next {
-    color: white !important;
-    background-color: white !important;
-  }
-
-  .swiper-pagination-bullet-active {
-    color: white !important;
-    background-color: white !important;
   }
 }
 </style>

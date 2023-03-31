@@ -62,8 +62,7 @@ input:-webkit-autofill {
 .button-secondary {
   color: $text-color;
   display: flex;
-  padding: 1rem 2rem;
-  width: clamp(100px, 100%, 343px);
+  padding: 1rem;
   justify-content: center;
   cursor: pointer;
   border-radius: $radius;
