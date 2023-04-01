@@ -33,7 +33,6 @@ const search = debounce(async e => {
   display: flex;
   align-items: center;
   width: clamp(200px, 100%, 600px);
-  box-shadow: $shadow;
   border-radius: $radius;
   padding: 0 1rem;
 
