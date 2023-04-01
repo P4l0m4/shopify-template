@@ -1,4 +1,22 @@
-<script setup>
+<template>
+  <div class="calendly">
+    <a class="calendly__link button-secondary" href="https://calendly.com/tekilawebfactory/30min">
+      Prendre RDV en ligne
+    </a>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.calendly {
+  width: 100%;
+  padding: 0 1rem;
+  &__link {
+    width: 100%;
+  }
+}
+</style>
+
+<!-- <script setup>
 const options = {
   url: 'https://calendly.com/tekilawebfactory/30min',
 }
@@ -13,4 +31,16 @@ const options = {
   overflow: hidden !important;
   border-radius: $radius;
 }
-</style>
+</style> -->
+<!-- <script lang="ts" setup>
+const rootElement = ref()
+const options = {
+  url: 'https://calendly.com/tekilawebfactory/30min',
+  text: 'Schedule time with me',
+}
+</script> -->
+<!-- <template>
+  <CalendlyPopupButton v-bind="options" :root-element="rootElement" /> -->
+<!-- Can be any element -->
+<!-- <div ref="rootElement" />
+</template> -->

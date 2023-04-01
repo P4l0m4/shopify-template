@@ -163,6 +163,10 @@ const isMarkerOpen = ref(false)
             font-weight: 600;
           }
 
+          &__variant {
+            font-size: 0.75rem;
+          }
+
           &__details {
             font-size: 12px;
             max-width: 400px;
