@@ -8,11 +8,10 @@ let toggleCollection = ref(false)
 //   // Do something with the collection
 //   console.log(collection)
 // })
-const collections = client.collection.fetchAll()
-// client.collection.fetchAll().then(collections => {
-//   // Do something with the collections
-//   console.log(client.collection.fetchAll())
-// })
+const collections = []
+
+collections.push(client.collection.fetchAll())
+
 console.log(collections)
 </script>
 <template>
@@ -24,7 +23,7 @@ console.log(collections)
       :class="{ 'sort__button--selected': toggleCollection === true }"
       class="sort__button"
     >
-      <img class="icon" src="@/assets/icons/lightning-bolt.svg" alt="" />Filter
+      <img class="icon" src="@/assets/icons/lightning-bolt.svg" alt="" />{{ collection.title }}
     </button>
   </section>
 </template>
