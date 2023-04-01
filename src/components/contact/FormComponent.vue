@@ -187,6 +187,8 @@ async function submit() {
         height: 40px;
         cursor: pointer;
         accent-color: $text-color;
+        appearance: none;
+        -webkit-appearance: none;
       }
     }
     &__textarea {

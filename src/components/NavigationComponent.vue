@@ -53,7 +53,6 @@ nav {
     position: absolute;
     inset: 0;
     margin: auto;
-    animation: slide-from-top 0.6s;
 
     &__img {
       width: 100%;
