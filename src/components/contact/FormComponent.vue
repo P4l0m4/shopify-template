@@ -183,10 +183,10 @@ async function submit() {
         opacity: 0.4;
       }
       &[type='checkbox'] {
-        width: 50px;
-        height: 20px;
+        width: 60px;
+        height: 40px;
         cursor: pointer;
-        accent-color: $base-color;
+        accent-color: $text-color;
       }
     }
     &__textarea {
@@ -207,7 +207,7 @@ async function submit() {
     &__checkbox-container {
       color: $text-color;
       display: flex;
-      gap: 8px;
+      gap: 0.5rem;
       justify-content: space-between;
       width: 100%;
       flex-direction: row;
@@ -220,7 +220,6 @@ async function submit() {
   }
   &__button {
     width: 100%;
-    padding: 8px;
     // background: $text-color;
     cursor: pointer;
 

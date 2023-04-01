@@ -52,7 +52,7 @@ input:-webkit-autofill:active {
   border: 2px solid $primary-color !important;
   outline: $primary-color;
 }
-input {
+input[type='search'] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
