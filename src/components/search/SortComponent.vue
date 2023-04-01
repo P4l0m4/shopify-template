@@ -2,25 +2,24 @@
 import { ref } from 'vue'
 import { client } from '@/services/shopify'
 
-let toggleCollection = ref(false)
+let selectedCollections = ref([])
 
-// client.collection.fetchWithProducts('gid://shopify/Collection/489838543115').then(collection => {
-//   // Do something with the collection
-//   console.log(collection)
-// })
-const collections = []
-
-collections.push(client.collection.fetchAll())
+const collections = await client.collection.fetchAll()
 
 console.log(collections)
+
+function selectCollections(collection) {
+  selectedCollections.value.push(collection)
+  console.log(selectedCollections.value)
+}
 </script>
 <template>
   <section class="sort">
     <button
       v-for="collection in collections"
       :key="collection"
-      @click="toggleCollection = !toggleCollection"
-      :class="{ 'sort__button--selected': toggleCollection === true }"
+      @click="selectCollections(collection)"
+      :class="{ 'sort__button--selected': selectedCollections.collection }"
       class="sort__button"
     >
       <img class="icon" src="@/assets/icons/lightning-bolt.svg" alt="" />{{ collection.title }}
@@ -31,7 +30,8 @@ console.log(collections)
 .sort {
   display: flex;
   gap: 0.5rem;
-  border: red solid 2px;
+  width: 100%;
+  overflow: scroll;
 
   &__button {
     display: flex;
