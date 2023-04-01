@@ -157,7 +157,7 @@ const isMarkerOpen = ref(false)
         &__txt {
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 0.25rem;
 
           &__title {
             font-weight: 600;
