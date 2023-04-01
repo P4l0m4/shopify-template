@@ -1,5 +1,5 @@
 <script setup>
-import { debounce } from '../utils/debounce'
+import { debounce } from '../../utils/debounce'
 import { useProductStore } from '@/stores/product'
 
 // Store
@@ -26,15 +26,17 @@ const search = debounce(async e => {
         autofocus
       />
     </div>
+    <searchSortComponent />
   </div>
 </template>
 <style lang="scss" scoped>
 .search {
   display: flex;
-  align-items: center;
   width: clamp(200px, 100%, 600px);
   border-radius: $radius;
   padding: 0 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
 
   &__field {
     display: flex;
@@ -43,6 +45,7 @@ const search = debounce(async e => {
     box-shadow: $shadow;
     border-radius: $radius;
     padding: 0.25rem 0.5rem;
+    background-color: $primary-color;
 
     &__icon {
       width: 20px;

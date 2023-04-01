@@ -128,7 +128,7 @@ async function updateCart(variant) {
         }
 
         &--selected {
-          border: $variant-selected-color 2px solid;
+          border: $selected-color 2px solid;
           border-radius: $radius;
         }
       }

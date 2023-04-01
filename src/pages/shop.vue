@@ -11,6 +11,7 @@ cartStore.createCheckout()
 <template>
   <section class="shop">
     <SearchBar />
+
     <SearchResults
       v-if="productStore.searchQuery"
       :products="productStore.productsSearched"
