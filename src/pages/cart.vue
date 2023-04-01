@@ -94,7 +94,7 @@ const isMarkerOpen = ref(false)
             <span>{{ cartStore.checkout.paymentDue.amount * 1 }} €</span>
           </div>
         </div>
-        <a :href="cartStore.checkout.webUrl" class="button-primary">Passer ma commande</a>
+        <a :href="cartStore.checkout.webUrl" class="cart__products__button button-primary">Passer ma commande</a>
       </div>
       <div class="cart__empty" v-else>
         <span class="cart__empty__txt">Votre panier est vide</span>
@@ -270,6 +270,10 @@ const isMarkerOpen = ref(false)
           }
         }
       }
+    }
+
+    &__button {
+      width: 100%;
     }
   }
 
