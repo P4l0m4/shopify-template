@@ -121,6 +121,16 @@ input:-webkit-autofill {
   padding: 0 1rem;
 }
 
+//DETAILS
+details > summary {
+  list-style: none;
+}
+
+details > summary::marker, /* Latest Chrome, Edge, Firefox */ 
+details > summary::-webkit-details-marker /* Safari */ {
+  display: none;
+}
+
 //ANIMATIONS
 @keyframes slide-from-left {
   from {
