@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps(['products', 'query'])
+const props = defineProps({ products: Array, query: String })
 </script>
 
 <template>

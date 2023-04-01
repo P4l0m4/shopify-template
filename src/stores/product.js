@@ -8,6 +8,7 @@ export const useProductStore = defineStore('product', {
       productVariant: null,
       productsSearched: [],
       searchQuery: '',
+      collections: [],
     }
   },
   actions: {
@@ -20,12 +21,16 @@ export const useProductStore = defineStore('product', {
     },
     async searchProducts(query) {
       this.searchQuery = query
-      if (!query) {
-        this.productsSearched = []
-        return
-      }
       const products = await client.product.fetchQuery({ first: 20, query })
       this.productsSearched = JSON.parse(JSON.stringify(products))
+    },
+    async getCollectionsAndProducts() {
+      const collectionsAndProducts = await client.collection.fetchAllWithProducts()
+      this.collections = JSON.parse(JSON.stringify(collectionsAndProducts))
+      this.productsSearched = this.collections.reduce((products, collection) => {
+        products.push(...collection.products)
+        return products
+      }, [])
     },
   },
 })

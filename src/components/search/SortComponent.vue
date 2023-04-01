@@ -1,37 +1,45 @@
 <script setup>
 import { ref } from 'vue'
-import { client } from '@/services/shopify'
+
+defineProps({ collections: Array })
+const emit = defineEmits(['collectionSelected'])
 
 let selectedCollections = ref([])
 
-const collections = await client.collection.fetchAll()
+const isCollectionSelected = collection => {
+  return selectedCollections.value.findIndex(c => c === collection.handle) !== -1
+}
 
-console.log(collections)
-
-function selectCollections(collection) {
-  selectedCollections.value.push(collection)
-  console.log(selectedCollections.value)
+function selectCollection(collection) {
+  if (isCollectionSelected(collection)) {
+    selectedCollections.value = selectedCollections.value.filter(c => c !== collection.handle)
+  } else {
+    selectedCollections.value.push(collection.handle)
+  }
+  emit('collectionSelected', selectedCollections.value)
 }
 </script>
 <template>
   <section class="sort">
     <button
       v-for="collection in collections"
-      :key="collection"
-      @click="selectCollections(collection)"
-      :class="{ 'sort__button--selected': selectedCollections.collection }"
+      :key="collection.id"
+      :class="{ 'sort__button--selected': isCollectionSelected(collection) }"
       class="sort__button"
+      @click="selectCollection(collection)"
     >
-      <img class="icon" src="@/assets/icons/lightning-bolt.svg" alt="" />{{ collection.title }}
+      {{ collection.title }}
     </button>
   </section>
 </template>
+// il faudrait savoir l'élément collection est contenu dans le tableau
 <style lang="scss" scoped>
 .sort {
   display: flex;
   gap: 0.5rem;
   width: 100%;
   overflow: scroll;
+  padding: 0 1rem;
 
   &__button {
     display: flex;

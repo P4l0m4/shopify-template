@@ -13,10 +13,10 @@ const products = await client.product.fetchAll()
 .section {
   display: grid;
   gap: 1rem;
-  width: 100vw;
   overflow-x: scroll;
   padding: 0 1rem;
   grid-template-columns: repeat(2, 1fr);
+  place-items: center;
 }
 
 .product-card {

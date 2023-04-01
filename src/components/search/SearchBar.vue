@@ -1,15 +1,13 @@
 <script setup>
 import { debounce } from '../../utils/debounce'
-import { useProductStore } from '@/stores/product'
-
-// Store
-const productStore = useProductStore()
 
 const search = debounce(async e => {
   const query = e.target.value
 
-  await productStore.searchProducts(query)
+  emit('search', query)
 }, 500)
+
+const emit = defineEmits(['search'])
 </script>
 
 <template>
@@ -26,7 +24,6 @@ const search = debounce(async e => {
         autofocus
       />
     </div>
-    <searchSortComponent />
   </div>
 </template>
 <style lang="scss" scoped>

@@ -20,5 +20,9 @@ register()
   padding: 3.5rem 0;
   gap: 2rem;
   align-items: center;
+
+  & main {
+    width: 100%;
+  }
 }
 </style>
