@@ -52,10 +52,11 @@ input:-webkit-autofill:active {
   border: 2px solid $primary-color !important;
   outline: $primary-color;
 }
-
-/*Change text in autofill textbox*/
-input:-webkit-autofill {
-  -webkit-text-fill-color: $text-color !important;
+input {
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .button-primary,
