@@ -19,7 +19,7 @@ const likedStore = useLikedStore()
 .liked {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 2rem 1rem;
 
   &__products {
     display: grid;
