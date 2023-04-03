@@ -32,7 +32,7 @@ function selectCollection(collection) {
     </button>
   </section>
 </template>
-// il faudrait savoir l'élément collection est contenu dans le tableau
+
 <style lang="scss" scoped>
 .sort {
   display: flex;

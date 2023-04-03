@@ -1,7 +1,8 @@
 <script setup>
 import { client } from '@/services/shopify'
 
-const products = await client.product.fetchAll()
+let products = await client.product.fetchAll()
+products = JSON.parse(JSON.stringify(products))
 </script>
 <template>
   <section class="section">
@@ -20,9 +21,9 @@ const products = await client.product.fetchAll()
 
 .product-card {
   display: flex;
-  gap: 16px;
+  gap: 1rem;
   background-color: $primary-color;
-  padding: 16px;
+  padding: 1rem;
   align-items: center;
   flex-direction: column;
   width: clamp(100px, 100%, 343px);
@@ -39,10 +40,10 @@ const products = await client.product.fetchAll()
   &__txt {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 1rem;
 
     &__title {
-      font-size: 16px;
+      font-size: 1rem;
       display: flex;
       justify-content: space-between;
 

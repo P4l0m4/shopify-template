@@ -1,5 +1,9 @@
 <script setup>
-const props = defineProps(['product'])
+import { useLikedStore } from '@/stores/liked'
+
+const likedStore = useLikedStore()
+
+const props = defineProps({ product: Object })
 </script>
 
 <template>
@@ -12,12 +16,16 @@ const props = defineProps(['product'])
       </h3>
       <div class="product-card__txt__price">
         <span class="product-card__txt__price__amount"> {{ product.variants[0].price.amount }} €</span>
-        <button class="product-card__txt__price__button">
-          <img class="product-card__txt__price__button__icon" src="@/assets/icons/next-light.svg" alt="" />
+        <button class="product-card__txt__price__button" @click.prevent="likedStore.addProductToLiked(product)">
+          <img
+            v-if="likedStore.isProductLiked(product)"
+            class="product-card__txt__price__button__icon"
+            src="@/assets/icons/heart-light-solid.svg"
+            alt=""
+          />
+          <img v-else class="product-card__txt__price__button__icon" src="@/assets/icons/heart-light.svg" alt="" />
         </button>
       </div>
-
-      <!-- <h3 class="product-card__txt__description">{{ product.description }}</h3> -->
     </div>
   </nuxt-link>
 </template>
@@ -30,6 +38,7 @@ const props = defineProps(['product'])
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  gap: 1rem;
   padding: 1rem;
   min-width: 146px;
   animation: slide-from-left 0.6s;
@@ -71,21 +80,12 @@ const props = defineProps(['product'])
 
         &__icon {
           width: 20px;
-          transform: rotate(180deg);
           background-color: $text-color;
           border-radius: $radius;
           padding: 0.2rem;
         }
       }
     }
-
-    // &__description {
-    //   padding-bottom: 1rem;
-    //   font-weight: 100;
-    //   font-size: 16px;
-    //   height: 40px;
-    //   overflow: hidden;
-    // }
   }
 }
 </style>
