@@ -67,6 +67,7 @@ const props = defineProps({ product: Object })
     &__price {
       display: flex;
       justify-content: space-between;
+      align-items: center;
 
       &__amount {
         font-size: 1rem;
