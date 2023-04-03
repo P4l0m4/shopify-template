@@ -65,7 +65,7 @@ nav {
 
   .link {
     display: flex;
-    gap: 4px;
+    gap: 0.25rem;
     align-items: flex-start;
 
     &__cart {
@@ -85,12 +85,12 @@ nav {
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 12px;
         color: $primary-color;
         font-weight: 300;
         position: absolute;
         right: -4px;
         top: -4px;
+        font-size: 0.75rem;
       }
     }
 

@@ -79,7 +79,7 @@ const props = defineProps({ product: Object })
         animation: slide-from-left 0.6s;
 
         &__icon {
-          width: 20px;
+          width: 24px;
           background-color: $text-color;
           border-radius: $radius;
           padding: 0.2rem;
