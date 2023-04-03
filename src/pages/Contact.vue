@@ -8,6 +8,7 @@
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
     ></iframe>
+    <FooterComponent />
   </main>
 </template>
 

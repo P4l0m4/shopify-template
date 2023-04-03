@@ -10,7 +10,6 @@ register()
     <NavigationComponent />
     <!-- <SlideBar /> -->
     <main><slot /></main>
-    <FooterComponent />
   </div>
 </template>
 <style scoped lang="scss">

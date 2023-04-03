@@ -12,6 +12,7 @@ cartStore.createCheckout()
     <HeaderComponent />
     <p class="title">Nos best sellers</p>
     <ProductsPropositions />
+    <FooterComponent />
   </section>
 </template>
 <style scoped lang="scss">

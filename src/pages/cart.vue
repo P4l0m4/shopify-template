@@ -104,6 +104,7 @@ const isMarkerOpen = ref(false)
 
     <h3 class="title">Nos best-sellers</h3>
     <ProductsPropositions />
+    <FooterComponent />
   </div>
 </template>
 
