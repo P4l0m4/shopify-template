@@ -11,7 +11,7 @@ function copy() {
 </script>
 <template>
   <footer>
-    <span>©Pokemon 2023</span>
+    <span>©nomdushop 2023</span>
     <nuxt-link to="/">Mentions légales</nuxt-link>
     <!-- <div class="pokeball">
       <AnimationsPokeballAnimation class="pokeball2" />
@@ -27,6 +27,7 @@ footer {
   width: 100%;
   position: relative;
   padding: 0 1rem;
+  font-size: 0.75rem;
 
   & .pokeball {
     display: flex;
