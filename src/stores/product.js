@@ -12,7 +12,8 @@ export const useProductStore = defineStore('product', {
     }
   },
   actions: {
-    setProduct(product) {
+    async getProduct(productSlug) {
+      const product = await client.product.fetchByHandle(productSlug)
       this.product = JSON.parse(JSON.stringify(product))
       this.setProductVariant(this.product.variants[0])
     },

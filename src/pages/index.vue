@@ -1,11 +1,4 @@
-<script setup>
-import { useCartStore } from '@/stores/cart'
-
-// Store
-const cartStore = useCartStore()
-
-cartStore.createCheckout()
-</script>
+<script setup></script>
 
 <template>
   <section class="index-section">

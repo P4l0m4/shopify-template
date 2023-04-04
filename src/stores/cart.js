@@ -47,7 +47,7 @@ export const useCartStore = defineStore('cart', {
   },
   getters: {
     itemQuantity() {
-      return this.checkout.lineItems.reduce((total, item) => total + item.quantity, 0)
+      return this.checkout?.lineItems.reduce((total, item) => total + item.quantity, 0)
     },
   },
 })

@@ -1,5 +1,4 @@
 <script setup>
-import { client } from '@/services/shopify'
 import { useProductStore } from '@/stores/product'
 import { useCartStore } from '@/stores/cart'
 import { ref } from 'vue'
@@ -16,20 +15,14 @@ const loading = ref(false)
 const updatingCart = ref(false)
 
 loading.value = true
-const clientProduct = await client.product.fetchByHandle(productSlug)
-productStore.setProduct(clientProduct)
-cartStore.createCheckout()
+await productStore.getProduct(productSlug)
 loading.value = false
 
-// Check if user already have a checkout
-const checkoutId = cartStore.checkoutId
+const currentSlideIndex = ref(0)
 
-if (checkoutId) {
-  const checkout = await client.checkout.fetch(checkoutId)
-  cartStore.setCheckout(checkout)
-} else {
-  const checkout = await client.checkout.create()
-  cartStore.setCheckout(checkout)
+function selectProductVariant(variant) {
+  productStore.setProductVariant(variant)
+  currentSlideIndex.value = productStore.product.images.findIndex(image => image.id === variant.image.id)
 }
 
 async function updateCart(variant) {
@@ -42,7 +35,7 @@ async function updateCart(variant) {
 <template>
   <div class="container">
     <section class="product" v-if="!loading">
-      <SwiperComponent />
+      <SwiperComponent :images="productStore.product.images" :currentSlideIndex="currentSlideIndex" />
       <div class="product__details">
         <div class="product__details__variants">
           <div
@@ -50,7 +43,7 @@ async function updateCart(variant) {
             :key="variant.id"
             class="product__details__variants__variant"
             :class="{ 'product__details__variants__variant--selected': productStore.productVariant.id === variant.id }"
-            @click="productStore.setProductVariant(variant)"
+            @click="selectProductVariant(variant)"
           >
             <img :src="variant.image.src" class="product__details__variants__variant__img" />
             <p class="product__details__variants__variant__title">{{ variant.title }}</p>

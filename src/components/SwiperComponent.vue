@@ -1,47 +1,44 @@
 <script setup>
-import { client } from '@/services/shopify'
-import { useProductStore } from '@/stores/product'
-import { useCartStore } from '@/stores/cart'
+import { ref, watch } from 'vue'
 
-// Routing
-const route = useRoute()
-const productSlug = route.params.slug
+const props = defineProps({
+  images: Array,
+  currentSlideIndex: Number,
+})
+const swiper = ref()
 
-// Store
-const productStore = useProductStore()
-const cartStore = useCartStore()
-
-const loading = ref(false)
-// const updatingCart = ref(false)
-
-loading.value = true
-const clientProduct = await client.product.fetchByHandle(productSlug)
-productStore.setProduct(clientProduct)
-cartStore.createCheckout()
-loading.value = false
+watch(
+  () => props.currentSlideIndex,
+  newIndex => {
+    swiper.value.swiper.slideTo(newIndex)
+  }
+)
 </script>
 
 <template>
-  <swiper-container
-    :grabCursor="true"
-    :cssMode="true"
-    :pagination="{
-      clickable: true,
-    }"
-    :mousewheel="true"
-    class="mySwiper swiper"
-    keyboard="true"
-  >
-    <swiper-slide v-for="image in productStore.product.images" :key="image.id" class="swiper__slide">
-      <img :src="image.src" class="swiper__slide__img"
-    /></swiper-slide>
-  </swiper-container>
+  <div>
+    <swiper-container
+      :grabCursor="true"
+      :cssMode="true"
+      :pagination="{
+        clickable: true,
+      }"
+      :mousewheel="true"
+      class="swiper"
+      keyboard="true"
+      ref="swiper"
+    >
+      <swiper-slide v-for="image in images" :key="image.id" class="swiper__slide">
+        <img :src="image.src" class="swiper__slide__img"
+      /></swiper-slide>
+    </swiper-container>
+  </div>
 </template>
 <style lang="scss">
 .swiper {
   margin: 0;
   display: flex;
-  width: clamp(100px, 100%, 600px) !important;
+  justify-content: center;
   --swiper-pagination-color: #{$text-color};
 
   &__slide {

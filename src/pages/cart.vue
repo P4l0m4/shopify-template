@@ -1,15 +1,8 @@
 <script setup>
 import { useCartStore } from '@/stores/cart'
-import { ref } from 'vue'
 
 // Store
 const cartStore = useCartStore()
-
-const loading = ref(false)
-
-loading.value = true
-cartStore.createCheckout()
-loading.value = false
 
 function subTotal(items) {
   const price = items.reduce((total, item) => total + item.price.amount * 1, 0)
@@ -20,7 +13,7 @@ const isMarkerOpen = ref(false)
 </script>
 <template>
   <div class="container">
-    <section class="cart" v-if="!loading">
+    <section class="cart">
       <div class="cart__products" v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0">
         <div class="cart__products__product" v-for="item in cartStore.checkout.lineItems" :key="item.id">
           <nuxt-link to="/" class="cart__products__product__card"
@@ -145,8 +138,7 @@ const isMarkerOpen = ref(false)
         &__img {
           width: 70px;
           height: 70px;
-          object-fit: cover;
-          border-radius: 100%;
+          object-fit: contain;
         }
       }
 
@@ -201,6 +193,7 @@ const isMarkerOpen = ref(false)
             gap: 1rem;
             justify-content: flex-end;
             align-items: center;
+            cursor: pointer;
 
             &__button--solid {
               display: flex;
