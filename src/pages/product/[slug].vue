@@ -105,9 +105,6 @@ async function updateCart(variant) {
       overflow-x: scroll;
       width: clamp(300px, 100%, 800px);
       padding: 1rem;
-      @media (min-width: $laptop-screen) {
-        justify-content: center;
-      }
 
       &__variant {
         display: flex;
@@ -160,6 +157,7 @@ async function updateCart(variant) {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        width: 100%;
 
         &__title {
           font-size: 1rem;

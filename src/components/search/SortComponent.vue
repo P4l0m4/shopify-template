@@ -53,6 +53,7 @@ function selectCollection(collection) {
     font-size: 0.75rem;
     border: transparent 2px solid;
     color: $text-color;
+    cursor: pointer;
 
     &--selected {
       border: $selected-color 2px solid;
