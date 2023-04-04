@@ -113,7 +113,7 @@ const isMarkerOpen = ref(false)
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  // align-items: center;
+  align-items: center;
 }
 .cart {
   display: flex;
@@ -123,6 +123,7 @@ const isMarkerOpen = ref(false)
   width: clamp(100px, 100%, 800px);
   align-items: center;
   padding: 2rem 0;
+  align-items: center;
 
   &__products {
     display: flex;
