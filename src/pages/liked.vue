@@ -18,15 +18,26 @@ const likedStore = useLikedStore()
 <style lang="scss" scoped>
 .liked {
   display: flex;
-  flex-direction: column;
+  gap: 1rem;
+  width: 100vw;
+  overflow-x: scroll;
   padding: 2rem 1rem;
-
+  flex-direction: column;
+  align-items: center;
   &__products {
     display: grid;
-    gap: 1rem;
-    overflow-x: scroll;
     grid-template-columns: repeat(2, 1fr);
-    place-items: center;
+    gap: 1rem;
+
+    @media (min-width: $tablet-screen) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: $laptop-screen) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media (min-width: $desktop-screen) {
+      grid-template-columns: repeat(5, 1fr);
+    }
   }
 
   &__empty {

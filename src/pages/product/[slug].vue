@@ -100,12 +100,14 @@ async function updateCart(variant) {
     width: clamp(300px, 100%, 800px);
 
     &__variants {
-      justify-content: center;
       display: flex;
       gap: 0.5rem;
       overflow-x: scroll;
       width: clamp(300px, 100%, 800px);
       padding: 1rem;
+      @media (min-width: $laptop-screen) {
+        justify-content: center;
+      }
 
       &__variant {
         display: flex;
