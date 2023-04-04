@@ -29,7 +29,7 @@ const emit = defineEmits(['search'])
 <style lang="scss" scoped>
 .search {
   display: flex;
-  width: clamp(200px, 100%, 600px);
+  width: clamp(200px, 100%, 800px);
   border-radius: $radius;
   padding: 0 1rem;
   flex-direction: column;
@@ -38,7 +38,7 @@ const emit = defineEmits(['search'])
   &__field {
     display: flex;
     align-items: center;
-    width: clamp(200px, 100%, 600px);
+    width: clamp(200px, 100%, 800px);
     box-shadow: $shadow;
     border-radius: $radius;
     padding: 0.25rem 0.5rem;

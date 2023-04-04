@@ -86,23 +86,25 @@ async function updateCart(variant) {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 1rem 0;
 }
 .product {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 
   &__details {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: clamp(300px, 100%, 800px);
 
     &__variants {
+      justify-content: center;
       display: flex;
       gap: 0.5rem;
       overflow-x: scroll;
-      width: 100vw;
+      width: clamp(300px, 100%, 800px);
       padding: 1rem;
 
       &__variant {
@@ -123,8 +125,7 @@ async function updateCart(variant) {
         &__img {
           width: 72px;
           height: 72px;
-          object-fit: cover;
-          border-radius: 100%;
+          object-fit: contain;
         }
 
         &--selected {

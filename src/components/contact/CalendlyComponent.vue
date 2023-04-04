@@ -8,8 +8,7 @@
 
 <style lang="scss" scoped>
 .calendly {
-  width: 100%;
-  padding: 0 1rem;
+  width: clamp(300px, 100%, 660px);
   &__link {
     width: 100%;
   }

@@ -41,8 +41,12 @@ loading.value = false
       padding: 0 1rem;
       width: 100%;
       height: 230px;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: $radius;
+
+      @media (min-width: $laptop-screen) {
+        height: 320px;
+      }
     }
   }
 

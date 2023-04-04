@@ -24,6 +24,16 @@ const props = defineProps({ products: Array, query: String })
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+
+    @media (min-width: $tablet-screen) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: $laptop-screen) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media (min-width: $desktop-screen) {
+      grid-template-columns: repeat(5, 1fr);
+    }
   }
 }
 

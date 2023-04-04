@@ -37,7 +37,7 @@ function selectCollection(collection) {
 .sort {
   display: flex;
   gap: 0.5rem;
-  width: 100%;
+  width: clamp(300px, 100%, 800px);
   overflow: scroll;
   padding: 0 1rem;
 

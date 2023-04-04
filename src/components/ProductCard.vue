@@ -44,7 +44,7 @@ const props = defineProps({ product: Object })
   animation: slide-from-left 0.6s;
 
   &__img {
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
     height: 180px;
     border-radius: $radius;
