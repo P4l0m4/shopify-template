@@ -57,6 +57,15 @@ input[type='search'] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px $primary-color inset !important;
+    border: 2px solid $primary-color !important;
+    outline: $primary-color !important;
+  }
 }
 
 .button-primary,
