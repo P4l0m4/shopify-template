@@ -30,6 +30,9 @@ async function updateCart(variant) {
   await cartStore.addProductToCart(variant)
   updatingCart.value = false
 }
+
+console.log(JSON.parse(JSON.stringify(productStore.product)))
+console.log(productStore.product.images[0].src)
 </script>
 
 <template>
@@ -69,6 +72,18 @@ async function updateCart(variant) {
           </div>
         </div>
       </div>
+    </section>
+    <section class="reviews">
+      <div
+        class="yotpo yotpo-main-widget"
+        data-product-id="{{productStore.product.id}}"
+        data-price="{{productStore.product.variants[0].priceV2.amount}}"
+        data-currency="{{productStore.product.variants[0].priceV2.currencyCode}}"
+        data-name="{{productStore.product.title}}"
+        data-url="https://nuxt3-shopify-template.netlify.app/product/{{productStore.product.handle}}"
+        data-image-url="{{productStore.product.images[0].src}}"
+      ></div>
+      <div class="yotpo bottomLine" data-yotpo-product-id="{{productStore.product.id}}"></div>
     </section>
     <p class="title">Nos best sellers</p>
     <ProductsPropositions />
@@ -171,5 +186,10 @@ async function updateCart(variant) {
       }
     }
   }
+}
+.reviews {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 </style>
