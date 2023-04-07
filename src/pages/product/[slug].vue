@@ -73,7 +73,7 @@ console.log(productStore.product.images[0].src)
         </div>
       </div>
     </section>
-    <section class="reviews">
+    <!-- <section class="reviews">
       <div
         class="yotpo yotpo-main-widget"
         data-product-id="{{productStore.product.id}}"
@@ -84,7 +84,7 @@ console.log(productStore.product.images[0].src)
         data-image-url="{{productStore.product.images[0].src}}"
       ></div>
       <div class="yotpo bottomLine" data-yotpo-product-id="{{productStore.product.id}}"></div>
-    </section>
+    </section> -->
     <p class="title">Nos best sellers</p>
     <ProductsPropositions />
   </div>
