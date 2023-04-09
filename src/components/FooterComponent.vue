@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 let code = ref('6193AX310NH5')
 function copy() {
-  navigator.clipboard.writeText('6193AX310NH5')
+  navigator.clipboard.writeText(code)
   this.code = 'Code copié ✔️'
   setTimeout(() => {
     this.code = '6193AX310NH5'

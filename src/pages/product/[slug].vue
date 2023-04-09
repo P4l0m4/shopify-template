@@ -31,8 +31,8 @@ async function updateCart(variant) {
   updatingCart.value = false
 }
 
-console.log(JSON.parse(JSON.stringify(productStore.product)))
-console.log(productStore.product.images[0].src)
+// console.log(JSON.parse(JSON.stringify(productStore.product)))
+// console.log(productStore.product.images[0].src)
 </script>
 
 <template>

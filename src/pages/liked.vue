@@ -10,7 +10,7 @@ const likedStore = useLikedStore()
       <ProductCard v-for="product in likedStore.productsLiked" :product="product" />
     </div>
     <div class="liked__empty" v-else>
-      <span class="cart__empty__txt">Votre panier est vide</span>
+      <span class="cart__empty__txt">Vous n'avez pas de favoris</span>
       <nuxt-link class="button-primary" to="/shop">Commencer mon shopping</nuxt-link>
     </div>
   </section>
