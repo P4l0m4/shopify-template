@@ -50,10 +50,11 @@ const cartStore = useCartStore()
       display: flex;
       gap: 0.5rem;
       padding: 0.5rem;
-      width: clamp(100px, 100%, 444px);
+      width: 100%;
       background-color: $primary-color;
       box-shadow: $shadow;
       border-radius: $radius;
+      justify-content: space-between;
 
       &__input {
         padding: 8px;
