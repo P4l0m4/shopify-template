@@ -37,6 +37,7 @@ const emit = defineEmits(['close'])
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     align-items: center;
+
     &__link {
       align-items: center;
       justify-content: center;

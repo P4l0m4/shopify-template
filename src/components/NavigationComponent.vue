@@ -10,11 +10,15 @@ const isMenuOpen = ref(false)
 <template>
   <nav>
     <MenuOverlay :isMenuOpen="isMenuOpen" @close="isMenuOpen = false" />
-    <button @click="isMenuOpen = true"><img class="icon" src="@/assets/icons/menu.svg" alt="menu icon" /></button>
+    <button @click="isMenuOpen = true" class="link">
+      <img class="icon" src="@/assets/icons/menu.svg" alt="menu icon" />
+    </button>
     <nuxt-link to="/" class="logo"><img src="@/assets/images/logo.svg" alt="logo" class="logo__img" /></nuxt-link>
     <div class="wrapper">
-      <NuxtLink to="/shop"><img class="icon" src="@/assets/icons/search.svg" alt="search icon" /></NuxtLink>
-      <NuxtLink to="/cart">
+      <NuxtLink to="/shop" class="link"
+        ><img class="icon" src="@/assets/icons/search.svg" alt="search icon"
+      /></NuxtLink>
+      <NuxtLink to="/cart" class="link">
         <div class="link__cart">
           <img class="link__cart__img" src="@/assets/icons/bag.svg" alt="" /><span
             class="link__cart__number"
@@ -36,7 +40,7 @@ nav {
   justify-content: space-between;
   gap: 2rem;
   background-color: $primary-color;
-  padding: 1rem;
+  padding: 0.5rem;
   box-shadow: $shadow;
   position: fixed;
   top: 0;
@@ -66,7 +70,7 @@ nav {
   .link {
     display: flex;
     gap: 0.25rem;
-    align-items: flex-start;
+    padding: 0.5rem;
 
     &__cart {
       display: flex;
@@ -78,18 +82,18 @@ nav {
       }
 
       &__number {
-        height: 14px;
-        width: 14px;
+        height: 16px;
+        width: 16px;
         background-color: $secondary-color;
-        border-radius: 100%;
+        border-radius: 8px;
         display: flex;
         justify-content: center;
         align-items: center;
         color: $primary-color;
         font-weight: 300;
         position: absolute;
-        right: -4px;
-        top: -4px;
+        right: -6px;
+        top: -6px;
         font-size: 0.75rem;
       }
     }
