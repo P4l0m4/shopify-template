@@ -60,10 +60,9 @@ nav {
 
     &__img {
       width: 100%;
-
-      @media (min-width: $tablet-screen) {
-        width: 160px;
-      }
+    }
+    @media (min-width: $tablet-screen) {
+      width: 160px;
     }
   }
 
