@@ -246,7 +246,7 @@ const isMarkerOpen = ref(false)
                 height: 30px;
                 border-radius: $radius;
                 padding: 0.2rem;
-
+                transition: opacity 0.2s;
                 &:disabled {
                   opacity: 0.5;
                 }
