@@ -29,16 +29,24 @@ export const useCartStore = defineStore('cart', {
       this.checkoutId = checkout.id
       this.checkout = JSON.parse(JSON.stringify(checkout))
     },
-    async createCheckout() {
-      const checkoutId = this.checkoutId
-
-      if (checkoutId) {
-        const checkout = await client.checkout.fetch(checkoutId)
-        this.setCheckout(checkout)
+    initCheckout() {
+      if (this.checkoutId) {
+        this.fetchCheckout()
       } else {
-        const checkout = await client.checkout.create()
+        this.createCheckout()
+      }
+    },
+    async fetchCheckout() {
+      const checkout = await client.checkout.fetch(this.checkoutId)
+      if (!checkout) {
+        this.createCheckout()
+      } else {
         this.setCheckout(checkout)
       }
+    },
+    async createCheckout() {
+      const checkout = await client.checkout.create()
+      this.setCheckout(checkout)
     },
     async addPromoCode(codeToTry) {
       const checkout = await client.checkout.addDiscount(this.checkoutId, codeToTry)

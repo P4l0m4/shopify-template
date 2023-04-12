@@ -6,7 +6,7 @@ import { register } from 'swiper/element/bundle'
 register()
 
 const cartStore = useCartStore()
-await cartStore.createCheckout()
+await cartStore.initCheckout()
 </script>
 
 <template>

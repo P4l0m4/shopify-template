@@ -55,8 +55,13 @@ async function updateCart(variant) {
 
         <div class="product__details__add-to-cart">
           <div class="product__details__add-to-cart__txt">
-            <h1 class="product__details__add-to-cart__txt__title">{{ productStore.product.title }}</h1>
-            <p class="product__details__add-to-cart__txt__description">{{ productStore.product.description }}</p>
+            <h1 class="product__details__add-to-cart__txt__title">
+              {{ productStore.product.title }} - {{ productStore.productVariant.title }}
+            </h1>
+            <p
+              class="product__details__add-to-cart__txt__description"
+              v-html="productStore.product.descriptionHtml"
+            ></p>
           </div>
           <div class="product__details__add-to-cart__price">
             <span class="product__details__add-to-cart__price__number"

@@ -4,9 +4,28 @@ import { useCartStore } from '@/stores/cart'
 // Store
 const cartStore = useCartStore()
 
-function subTotal(items) {
-  const price = items.reduce((total, item) => total + item.price.amount * 1, 0)
-  return Math.round(price * 100) / 100
+// function subTotal(items) {
+//   const price = items.reduce((total, item) => total + item.price.amount * 1, 0)
+//   return Math.round(price * 100) / 100
+// }
+const loading = ref({})
+
+async function addProductToCart(product) {
+  loading.value = {
+    id: product.id,
+    action: 'add',
+  }
+  await cartStore.addProductToCart(product)
+  loading.value = {}
+}
+
+async function removeOneProductFromCart(item) {
+  loading.value = {
+    id: item.id,
+    action: 'remove',
+  }
+  await cartStore.removeOneProductFromCart(item)
+  loading.value = {}
 }
 
 const isMarkerOpen = ref(false)
@@ -39,15 +58,17 @@ const isMarkerOpen = ref(false)
               </button> -->
               <div class="cart__products__product__description__quantity__buttons">
                 <button
-                  class="cart__products__product__description__quantity__buttons__button--outline"
-                  @click="cartStore.removeOneProductFromCart(item)"
+                  class="cart__products__product__description__quantity__buttons__button cart__products__product__description__quantity__buttons__button--outline"
+                  :disabled="loading.action === 'remove' && loading.id === item.id"
+                  @click="removeOneProductFromCart(item)"
                 >
                   <img class="icon" src="@/assets/icons/minus.svg" alt="" />
                 </button>
                 <span>{{ item.quantity }}</span>
                 <button
-                  class="cart__products__product__description__quantity__buttons__button--solid"
-                  @click="cartStore.addProductToCart(item.variant)"
+                  class="cart__products__product__description__quantity__buttons__button cart__products__product__description__quantity__buttons__button--solid"
+                  :disabled="loading.action === 'add' && loading.id === item.variant.id"
+                  @click="addProductToCart(item.variant)"
                 >
                   <img class="icon" src="@/assets/icons/plus.svg" alt="" />
                 </button>
@@ -195,27 +216,26 @@ const isMarkerOpen = ref(false)
             align-items: center;
             cursor: pointer;
 
-            &__button--solid {
+            &__button {
               display: flex;
               justify-content: center;
               align-items: center;
-              border: none;
               width: 30px;
               height: 30px;
-              background-color: $text-color;
               border-radius: $radius;
               padding: 0.2rem;
-            }
-            &__button--outline {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              border: 2px solid $text-color;
-              width: 30px;
-              height: 30px;
-              background-color: transparent;
-              border-radius: $radius;
-              padding: 0.2rem;
+
+              &:disabled {
+                opacity: 0.5;
+              }
+
+              &--solid {
+                background-color: $text-color;
+              }
+
+              &--outline {
+                border: 2px solid $text-color;
+              }
             }
           }
         }
