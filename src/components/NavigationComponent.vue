@@ -83,12 +83,12 @@ nav {
 
       &__number {
         height: 16px;
-        width: 16px;
         background-color: $secondary-color;
         border-radius: 8px;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 0 4px;
         color: $primary-color;
         font-weight: 300;
         position: absolute;

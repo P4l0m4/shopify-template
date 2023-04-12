@@ -11,6 +11,7 @@
 
 html {
   scroll-behavior: smooth;
+  line-height: $line-height;
 }
 
 body {
@@ -88,8 +89,7 @@ input[type='search'] {
   }
 
   &:disabled {
-    border-color: lightgray;
-    background-color: lightgray;
+    opacity: 0.4;
   }
 }
 .button-secondary {

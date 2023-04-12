@@ -136,7 +136,7 @@ const isMarkerOpen = ref(false)
   justify-content: center;
   width: clamp(100px, 100%, 800px);
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   align-items: center;
 
   &__products {

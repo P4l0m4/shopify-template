@@ -1,7 +1,7 @@
 <script setup>
 import { useProductStore } from '@/stores/product'
 import { useCartStore } from '@/stores/cart'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 // Routing
 const route = useRoute()
@@ -18,6 +18,26 @@ loading.value = true
 await productStore.getProduct(productSlug)
 loading.value = false
 
+//Description
+
+const seeMore = ref(false)
+const isTooBig = ref(false)
+const description = ref()
+
+//Show seeMore button if description is too long
+function checkDescriptionHeight() {
+  const itemHeight = description.value.offsetHeight
+  isTooBig.value = itemHeight > 12 * 1.15 * 2 // font-size + line-height + nb lines
+}
+
+watch(
+  () => description.value,
+  () => {
+    checkDescriptionHeight()
+  }
+)
+
+// Swiper
 const currentSlideIndex = ref(0)
 
 function selectProductVariant(variant) {
@@ -59,9 +79,14 @@ async function updateCart(variant) {
               {{ productStore.product.title }} - {{ productStore.productVariant.title }}
             </h1>
             <p
+              ref="description"
               class="product__details__add-to-cart__txt__description"
+              :class="{ 'product__details__add-to-cart__txt__description--too-big': isTooBig && !seeMore }"
               v-html="productStore.product.descriptionHtml"
             ></p>
+            <button class="product__details__add-to-cart__txt__button" v-if="isTooBig" @click="seeMore = !seeMore">
+              <span v-if="!seeMore">Voir plus</span><span v-else>Voir moins</span>
+            </button>
           </div>
           <div class="product__details__add-to-cart__price">
             <span class="product__details__add-to-cart__price__number"
@@ -118,6 +143,9 @@ async function updateCart(variant) {
       overflow-x: scroll;
       width: clamp(300px, 100%, 800px);
       padding: 1rem;
+      @media (min-width: $laptop-screen) {
+        padding: 1rem 0;
+      }
 
       &__variant {
         display: flex;
@@ -128,7 +156,7 @@ async function updateCart(variant) {
         cursor: pointer;
         border: transparent solid 2px;
         width: clamp(60px, 100%, 140px);
-        padding: 1rem;
+        padding: 0.75rem;
         background-color: $primary-color;
         box-shadow: $shadow;
         border-radius: $radius;
@@ -169,15 +197,38 @@ async function updateCart(variant) {
       &__txt {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 0.25rem;
         width: 100%;
 
         &__title {
-          font-size: 1rem;
+          font-size: 0.8rem;
         }
         &__description {
           font-weight: 100;
           font-size: 0.75rem;
+
+          &--too-big {
+            display: -webkit-box;
+            max-height: 0.75rem * $line-height * 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: $line-height;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+          }
+        }
+        &__button {
+          background-color: transparent;
+          border: transparent solid 2px;
+          cursor: pointer;
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          padding: 0.25rem 0;
+          & span {
+            text-decoration: underline;
+            font-size: 0.75rem;
+          }
         }
       }
 
