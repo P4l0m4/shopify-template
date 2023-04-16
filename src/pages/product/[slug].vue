@@ -59,6 +59,12 @@ useHead({
       body: true,
     },
   ],
+  script: [
+    {
+      children:
+        '(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()',
+    },
+  ],
 })
 </script>
 
@@ -132,6 +138,16 @@ useHead({
         :data-yotpo-price="productStore.product.variants[0].priceV2.amount"
         :data-yotpo-currency="productStore.product.variants[0].priceV2.currencyCode"
         :data-yotpo-description="productStore.product.description"
+      ></div>
+
+      <div
+        class="yotpo yotpo-main-widget"
+        :data-product-id="productStore.product.id.split('/').pop()"
+        :data-price="productStore.product.variants[0].priceV2.amount"
+        :data-currency="productStore.product.variants[0].priceV2.currencyCode"
+        :data-name="productStore.product.title"
+        :data-url="`https://nuxt3-shopify-template.netlify.app/product/${productStore.product.handle}`"
+        :data-image-url="productStore.product.images[0].src"
       ></div>
     </section>
     <p class="title">Nos best sellers</p>
