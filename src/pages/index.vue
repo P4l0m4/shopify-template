@@ -10,7 +10,7 @@
     <HeaderComponent />
     <p class="title">Nos best sellers</p>
     <ProductsPropositions />
-    <GeneralReviews />
+    <!-- <GeneralReviews /> -->
   </section>
 </template>
 <style scoped lang="scss">
