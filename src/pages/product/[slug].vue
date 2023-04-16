@@ -52,13 +52,13 @@ async function updateCart(variant) {
 }
 
 useHead({
-  script: [
-    {
-      async: true,
-      src: 'https://cdn-widgetsrepository.yotpo.com/v1/loader/nJuPZmBScmN6aHPFSxrrRps569CiY5kmL9NZjXdW?languageCode=fr',
-      body: true,
-    },
-  ],
+  // script: [
+  //   {
+  //     async: true,
+  //     src: 'https://cdn-widgetsrepository.yotpo.com/v1/loader/nJuPZmBScmN6aHPFSxrrRps569CiY5kmL9NZjXdW?languageCode=fr',
+  //     body: true,
+  //   },
+  // ],
   script: [
     {
       children:
@@ -117,7 +117,7 @@ useHead({
       </div>
     </section>
     <section class="reviews">
-      <div
+      <!-- <div
         class="yotpo bottomLine"
         data-appkey="g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ"
         data-domain="https://nuxt3-shopify-template.netlify.app/"
@@ -138,7 +138,7 @@ useHead({
         :data-yotpo-price="productStore.product.variants[0].priceV2.amount"
         :data-yotpo-currency="productStore.product.variants[0].priceV2.currencyCode"
         :data-yotpo-description="productStore.product.description"
-      ></div>
+      ></div> -->
 
       <div
         class="yotpo yotpo-main-widget"
