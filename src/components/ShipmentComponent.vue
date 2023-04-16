@@ -1,9 +1,13 @@
 <script setup>
+import { useCartStore } from '@/stores/cart'
 import dayjs from 'dayjs'
 import 'dayjs/locale/fr'
 dayjs.locale('fr')
 
 let shipmentDate = dayjs().add(4, 'day').format('DD MMMM YYYY')
+
+// Store
+const cartStore = useCartStore()
 </script>
 
 <template>

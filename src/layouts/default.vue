@@ -12,8 +12,9 @@ await cartStore.initCheckout()
 <template>
   <div class="container">
     <NavigationComponent />
-    <!-- <SlideBar /> -->
     <main><slot /></main>
+    <SlideBar />
+    <FooterComponent />
   </div>
 </template>
 <style scoped lang="scss">

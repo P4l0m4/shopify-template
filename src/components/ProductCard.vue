@@ -79,6 +79,7 @@ const props = defineProps({ product: Object })
         border: 2px solid transparent;
         justify-content: flex-end;
         animation: slide-from-left 0.6s;
+        cursor: pointer;
 
         &__icon {
           width: 24px;

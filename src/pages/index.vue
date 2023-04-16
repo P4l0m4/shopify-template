@@ -1,11 +1,15 @@
-<script setup></script>
+<!-- <script setup>
+import { client } from '@/services/shopify'
+
+const info = await client.shop.fetchInfo()
+console.log(info)
+</script> -->
 
 <template>
   <section class="index-section">
     <HeaderComponent />
     <p class="title">Nos best sellers</p>
     <ProductsPropositions />
-    <FooterComponent />
   </section>
 </template>
 <style scoped lang="scss">

@@ -51,12 +51,7 @@ const isMarkerOpen = ref(false)
                 <span class="cart__products__list__product__description__txt__price"
                   >{{ item.variant.price.amount * 1 }} €</span
                 >
-                <!-- <button
-                class="cart__products__list__product__description__quantity__trash"
-                @click="cartStore.removeProductFromCart(item)"
-              >
-                <img class="icon" src="@/assets/icons/trash.svg" alt="" />
-              </button> -->
+
                 <div class="cart__products__list__product__description__quantity__buttons">
                   <button
                     class="cart__products__list__product__description__quantity__buttons__button cart__products__list__product__description__quantity__buttons__button--outline"
@@ -79,6 +74,14 @@ const isMarkerOpen = ref(false)
               <p>Prix total :</p>
               <span>{{ item.quantity * item.variant.price.amount }} €</span>
             </div> -->
+            </div>
+            <div class="cart__products__list__product__hidden">
+              <button
+                class="cart__products__list__product__hidden__trash"
+                @click="cartStore.removeProductFromCart(item)"
+              >
+                <img class="icon" src="@/assets/icons/trash.svg" alt="" />
+              </button>
             </div>
           </div>
         </div>
@@ -124,7 +127,6 @@ const isMarkerOpen = ref(false)
 
     <h3 class="title">Nos best-sellers</h3>
     <ProductsPropositions />
-    <FooterComponent />
   </div>
 </template>
 
@@ -261,6 +263,11 @@ const isMarkerOpen = ref(false)
               }
             }
           }
+        }
+        &__hidden {
+          display: none;
+          align-items: flex-end;
+          background-color: rgba(51, 51, 51, 0.1);
         }
       }
     }
