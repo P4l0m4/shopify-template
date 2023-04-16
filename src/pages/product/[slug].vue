@@ -66,6 +66,18 @@ useHead({
     },
   ],
 })
+
+//YOTPO
+function e() {
+  var e = document.createElement('script')
+  ;(e.type = 'text/javascript'),
+    (e.async = !0),
+    (e.src = '//staticw2.yotpo.com/g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ/widget.js')
+  var t = document.getElementsByTagName('script')[0]
+  t.parentNode.insertBefore(e, t)
+}
+
+e()
 </script>
 
 <template>
@@ -127,8 +139,8 @@ useHead({
         :data-image-url="productStore.product.images[0].src"
         :data-description="productStore.product.description"
         :data-bread-crumbs="productStore.product.productType"
-      ></div>
-      <div
+      ></div> -->
+      <!-- <div
         class="yotpo-widget-instance"
         data-yotpo-instance-id="381976"
         :data-yotpo-product-id="productStore.product.id.split('/').pop()"
