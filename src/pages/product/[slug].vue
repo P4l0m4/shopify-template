@@ -161,6 +161,7 @@ e()
         :data-url="`https://nuxt3-shopify-template.netlify.app/product/${productStore.product.handle}`"
         :data-image-url="productStore.product.images[0].src"
       ></div>
+      <div id="yotpo-testimonials-custom-tab"></div>
     </section>
     <p class="title">Nos best sellers</p>
     <ProductsPropositions />
