@@ -112,6 +112,17 @@ useHead({
     </section>
     <section class="reviews">
       <div
+        class="yotpo bottomLine"
+        data-appkey="g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ"
+        data-domain="https://nuxt3-shopify-template.netlify.app/"
+        :data-product-id="productStore.product.id.split('/').pop()"
+        :data-name="productStore.product.title"
+        :data-url="`https://nuxt3-shopify-template.netlify.app/product/${productStore.product.handle}`"
+        :data-image-url="productStore.product.images[0].src"
+        :data-description="productStore.product.description"
+        :data-bread-crumbs="productStore.product.productType"
+      ></div>
+      <div
         class="yotpo-widget-instance"
         data-yotpo-instance-id="381976"
         :data-yotpo-product-id="productStore.product.id.split('/').pop()"
@@ -120,7 +131,7 @@ useHead({
         :data-yotpo-image-url="productStore.product.images[0].src"
         :data-yotpo-price="productStore.product.variants[0].priceV2.amount"
         :data-yotpo-currency="productStore.product.variants[0].priceV2.currencyCode"
-        :data-yotpo-description="productStore.product.description | escape"
+        :data-yotpo-description="productStore.product.description"
       ></div>
     </section>
     <p class="title">Nos best sellers</p>
@@ -255,7 +266,9 @@ useHead({
   display: flex;
   width: 100%;
   height: 100%;
-  justify-content: center;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
   background-color: $primary-color;
 }
 </style>
