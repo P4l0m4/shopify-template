@@ -267,5 +267,7 @@ useHead({
   display: flex;
   width: 100%;
   height: 100%;
+  justify-content: center;
+  background-color: $primary-color;
 }
 </style>
