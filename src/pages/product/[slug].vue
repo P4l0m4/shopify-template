@@ -114,7 +114,7 @@ useHead({
       <div
         class="yotpo-widget-instance"
         data-yotpo-instance-id="381976"
-        :data-yotpo-product-id="productStore.product.id"
+        :data-yotpo-product-id="encodeURIComponent(productStore.product.id)"
         :data-yotpo-name="productStore.product.title"
         :data-yotpo-url="`https://nuxt3-shopify-template.netlify.app/product/${productStore.product.handle}`"
         :data-yotpo-image-url="productStore.product.images[0].src"
