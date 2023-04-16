@@ -56,12 +56,10 @@ useHead({
     {
       async: true,
       src: 'https://cdn-widgetsrepository.yotpo.com/v1/loader/nJuPZmBScmN6aHPFSxrrRps569CiY5kmL9NZjXdW?languageCode=fr',
+      body: true,
     },
   ],
 })
-
-// console.log(JSON.parse(JSON.stringify(productStore.product)))
-// console.log(productStore.product.images[0].src)
 </script>
 
 <template>
@@ -116,24 +114,14 @@ useHead({
       <div
         class="yotpo-widget-instance"
         data-yotpo-instance-id="381976"
-        data-yotpo-product-id="{{productStore.product.id}}"
-        data-yotpo-name="{{ productStore.product.title }}"
-        data-yotpo-url="https://nuxt3-shopify-template.netlify.app/product/{{productStore.product.handle}}"
-        data-yotpo-image-url="{{productStore.product.images[0].src}}"
-        data-yotpo-price="{{productStore.product.variants[0].priceV2.amount}}"
-        data-yotpo-currency="{{productStore.product.variants[0].priceV2.currencyCode}}"
-        data-yotpo-description="{{ productStore.product.description }}"
+        :data-yotpo-product-id="productStore.product.id"
+        :data-yotpo-name="productStore.product.title"
+        :data-yotpo-url="`https://nuxt3-shopify-template.netlify.app/product/${productStore.product.handle}`"
+        :data-yotpo-image-url="productStore.product.images[0].src"
+        :data-yotpo-price="productStore.product.variants[0].priceV2.amount"
+        :data-yotpo-currency="productStore.product.variants[0].priceV2.currencyCode"
+        :data-yotpo-description="productStore.product.description | escape"
       ></div>
-      <!-- <div
-        class="yotpo yotpo-main-widget"
-        data-product-id="{{productStore.product.id}}"
-        data-price="{{productStore.product.variants[0].priceV2.amount}}"
-        data-currency="{{productStore.product.variants[0].priceV2.currencyCode}}"
-        data-name="{{productStore.product.title}}"
-        data-url="https://nuxt3-shopify-template.netlify.app/product/{{productStore.product.handle}}"
-        data-image-url="{{productStore.product.images[0].src}}"
-      ></div>
-      <div class="yotpo bottomLine" data-yotpo-product-id="{{productStore.product.id}}"></div> -->
     </section>
     <p class="title">Nos best sellers</p>
     <ProductsPropositions />
