@@ -31,7 +31,8 @@ function filterProducts(collections) {
 <template>
   <section class="shop">
     <SearchBar @search="searchProducts" />
-    <SearchSortComponent :collections="productStore.collections" @collectionSelected="filterProducts" />
+    <SearchFilterByCollection :collections="productStore.collections" @collectionSelected="filterProducts" />
+    <SearchAdditionalCriteria />
     <SearchResults :products="filteredProducts" :query="productStore.searchQuery" />
   </section>
 </template>

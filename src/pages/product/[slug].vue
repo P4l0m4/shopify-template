@@ -75,6 +75,12 @@ function e() {
     (e.src = '//staticw2.yotpo.com/g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ/widget.js')
   var t = document.getElementsByTagName('script')[0]
   t.parentNode.insertBefore(e, t)
+
+  setTimeout(function () {
+    document.querySelector('.yotpo-bottomline').style.gap = '0.25rem'
+    document.querySelector('.yotpo-bottomline').style.alignItems = 'center'
+    document.querySelector('.yotpo-label-container').style.display = 'none'
+  }, 500)
 }
 
 e()
@@ -109,9 +115,26 @@ e()
               :class="{ 'product__details__add-to-cart__txt__description--too-big': isTooBig && !seeMore }"
               v-html="productStore.product.descriptionHtml"
             ></p>
-            <button class="product__details__add-to-cart__txt__button" v-if="isTooBig" @click="seeMore = !seeMore">
-              <span v-if="!seeMore">Voir plus</span><span v-else>Voir moins</span>
-            </button>
+            <div class="product__details__add-to-cart__txt__wrapper">
+              <div
+                class="yotpo bottomLine"
+                data-appkey="g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ"
+                data-domain="https://nuxt3-shopify-template.netlify.app/"
+                :data-product-id="productStore.product.id.split('/').pop()"
+                :data-name="productStore.product.title"
+                :data-url="`https://nuxt3-shopify-template.netlify.app/product/${productStore.product.handle}`"
+                :data-image-url="productStore.product.images[0].src"
+                :data-description="productStore.product.description"
+                :data-bread-crumbs="productStore.product.productType"
+              ></div>
+              <button
+                class="product__details__add-to-cart__txt__wrapper__button"
+                v-if="isTooBig"
+                @click="seeMore = !seeMore"
+              >
+                <span v-if="!seeMore">Voir plus</span><span v-else>Voir moins</span>
+              </button>
+            </div>
           </div>
           <div class="product__details__add-to-cart__price">
             <span class="product__details__add-to-cart__price__number"
@@ -129,17 +152,6 @@ e()
       </div>
     </section>
     <section class="reviews">
-      <!-- <div
-        class="yotpo bottomLine"
-        data-appkey="g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ"
-        data-domain="https://nuxt3-shopify-template.netlify.app/"
-        :data-product-id="productStore.product.id.split('/').pop()"
-        :data-name="productStore.product.title"
-        :data-url="`https://nuxt3-shopify-template.netlify.app/product/${productStore.product.handle}`"
-        :data-image-url="productStore.product.images[0].src"
-        :data-description="productStore.product.description"
-        :data-bread-crumbs="productStore.product.productType"
-      ></div> -->
       <!-- <div
         class="yotpo-widget-instance"
         data-yotpo-instance-id="381976"
@@ -161,7 +173,7 @@ e()
         :data-url="`https://nuxt3-shopify-template.netlify.app/product/${productStore.product.handle}`"
         :data-image-url="productStore.product.images[0].src"
       ></div>
-      <div id="yotpo-testimonials-custom-tab"></div>
+      <!-- <div id="yotpo-testimonials-custom-tab"></div> -->
     </section>
     <p class="title">Nos best sellers</p>
     <ProductsPropositions />
@@ -211,8 +223,8 @@ e()
         font-size: 0.75rem;
 
         &__img {
-          width: 72px;
-          height: 72px;
+          width: 50px;
+          height: 50px;
           object-fit: contain;
         }
 
@@ -263,19 +275,30 @@ e()
             line-height: $line-height;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
+            color: $text-color;
           }
         }
-        &__button {
-          background-color: transparent;
-          border: transparent solid 2px;
-          cursor: pointer;
-          width: 100%;
+        &__wrapper {
           display: flex;
-          justify-content: flex-end;
-          padding: 0.25rem 0;
-          & span {
-            text-decoration: underline;
-            font-size: 0.75rem;
+
+          &__button {
+            background-color: transparent;
+            border: transparent solid 2px;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            padding: 0.25rem 0;
+            & span {
+              text-decoration: underline;
+              font-size: 0.75rem;
+            }
+          }
+
+          .yotpo.bottomLine.yotpo-small {
+            width: clamp(160px, 100%, 300px);
+            display: flex;
+            align-items: center;
           }
         }
       }

@@ -1,9 +1,9 @@
-<script setup>
-// import { client } from '@/services/shopify'
+<!-- <script setup>
+import { client } from '@/services/shopify'
 
-// const info = await client.shop.fetchInfo()
-// console.log(info)
-</script>
+const info = await client.shop.fetchInfo()
+console.log(JSON.parse(JSON.stringify(info)))
+</script> -->
 
 <template>
   <section class="index-section">

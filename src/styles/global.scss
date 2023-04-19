@@ -152,6 +152,14 @@ details > summary::-webkit-details-marker /* Safari */ {
     transform: translate(0px);
   }
 }
+@keyframes slide-from-right {
+  from {
+    transform: translate(20px);
+  }
+  to {
+    transform: translate(0px);
+  }
+}
 @keyframes slide-from-top {
   from {
     transform: translateY(-20px);
