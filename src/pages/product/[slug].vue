@@ -80,7 +80,7 @@ function e() {
     document.querySelector('.yotpo-bottomline').style.gap = '0.25rem'
     document.querySelector('.yotpo-bottomline').style.alignItems = 'center'
     document.querySelector('.yotpo-label-container').style.display = 'none'
-  }, 4000)
+  }, 1000)
 }
 
 e()
