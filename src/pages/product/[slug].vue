@@ -138,7 +138,7 @@ e()
           </div>
           <div class="product__details__add-to-cart__price">
             <span class="product__details__add-to-cart__price__number"
-              >{{ productStore.productVariant.price.amount }} €</span
+              >{{ parseFloat(productStore.productVariant.price.amount).toFixed(2) }} €</span
             >
             <button
               :disabled="updatingCart"
