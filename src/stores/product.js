@@ -36,7 +36,8 @@ export const useProductStore = defineStore('product', {
     async applyFilter(filters) {
       let query = ''
       if (filters.price) {
-        query += `variants.price:>=${filters.price.min} variants.price:<=${filters.price.max}`
+        query += !isNaN(filters.price.min) ? `variants.price:>=${filters.price.min}` : ''
+        query += !isNaN(filters.price.max) ? `variants.price:<=${filters.price.max}` : ''
       }
       const products = await client.product.fetchQuery({
         query,

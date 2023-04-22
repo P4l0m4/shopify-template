@@ -9,14 +9,30 @@ productStore.getCollectionsAndProducts()
 
 let selectedCollections = ref([])
 
+// const filteredProducts = computed(() => {
+//   if (selectedCollections.value.length > 0) {
+//     return productStore.collections.reduce((products, collection) => {
+//       if (selectedCollections.value.includes(collection.handle)) {
+//         products.push(...collection.products)
+//       }
+//       return products
+//     }, [])
+//   }
+//   return productStore.productsSearched
+// })
+
 const filteredProducts = computed(() => {
   if (selectedCollections.value.length > 0) {
-    return productStore.collections.reduce((products, collection) => {
+    const collectionsProducts = productStore.collections.reduce((products, collection) => {
       if (selectedCollections.value.includes(collection.handle)) {
         products.push(...collection.products)
       }
       return products
     }, [])
+
+    return productStore.productsSearched.filter(product => {
+      return collectionsProducts.find(cProduct => cProduct.id === product.id)
+    })
   }
   return productStore.productsSearched
 })
@@ -43,7 +59,7 @@ function applyFilter(filter) {
   <section class="shop">
     <SearchBar @search="searchProducts" @toggleOverlay="toggleOverlay" />
     <SearchFilterByCollection :collections="productStore.collections" @collectionSelected="filterProducts" />
-    <SearchAdditionalCriteria v-if="displayOverlay" @closeOverlay="toggleOverlay" @filter="applyFilter" />
+    <SearchAdditionalCriteria v-show="displayOverlay" @closeOverlay="toggleOverlay" @filter="applyFilter" />
     <SearchResults :products="filteredProducts" :query="productStore.searchQuery" />
   </section>
 </template>
