@@ -1,7 +1,7 @@
 <script setup>
 import { useProductStore } from '@/stores/product'
 import { useCartStore } from '@/stores/cart'
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 
 // Routing
 const route = useRoute()
@@ -51,39 +51,11 @@ async function updateCart(variant) {
   updatingCart.value = false
 }
 
-useHead({
-  // script: [
-  //   {
-  //     async: true,
-  //     src: 'https://cdn-widgetsrepository.yotpo.com/v1/loader/nJuPZmBScmN6aHPFSxrrRps569CiY5kmL9NZjXdW?languageCode=fr',
-  //     body: true,
-  //   },
-  // ],
-  // script: [
-  //   {
-  //     children:
-  //       '(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})()',
-  //   },
-  // ],
+onMounted(() => {
+  if (typeof yotpo != 'undefined' && yotpo && yotpo.initialized && !document.querySelector('.yotpo-display-wrapper')) {
+    new Yotpo.API(yotpo).refreshWidgets()
+  }
 })
-
-//YOTPO
-function e() {
-  var e = document.createElement('script')
-  ;(e.type = 'text/javascript'),
-    (e.async = !0),
-    (e.src = '//staticw2.yotpo.com/g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ/widget.js')
-  var t = document.getElementsByTagName('script')[0]
-  t.parentNode.insertBefore(e, t)
-
-  setTimeout(function () {
-    document.querySelector('.yotpo-bottomline').style.gap = '0.25rem'
-    document.querySelector('.yotpo-bottomline').style.alignItems = 'center'
-    document.querySelector('.yotpo-label-container').style.display = 'none'
-  }, 1000)
-}
-
-e()
 </script>
 
 <template>
@@ -152,18 +124,6 @@ e()
       </div>
     </section>
     <section class="reviews">
-      <!-- <div
-        class="yotpo-widget-instance"
-        data-yotpo-instance-id="381976"
-        :data-yotpo-product-id="productStore.product.id.split('/').pop()"
-        :data-yotpo-name="productStore.product.title"
-        :data-yotpo-url="`https://nuxt3-shopify-template.netlify.app/product/${productStore.product.handle}`"
-        :data-yotpo-image-url="productStore.product.images[0].src"
-        :data-yotpo-price="productStore.product.variants[0].priceV2.amount"
-        :data-yotpo-currency="productStore.product.variants[0].priceV2.currencyCode"
-        :data-yotpo-description="productStore.product.description"
-      ></div> -->
-
       <div
         class="yotpo yotpo-main-widget"
         :data-product-id="productStore.product.id.split('/').pop()"
@@ -179,11 +139,11 @@ e()
     <ProductsPropositions />
   </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   padding: 1rem 0;
 }
 .product {
@@ -295,15 +255,21 @@ e()
             }
           }
 
-          .yotpo.bottomLine.yotpo-small {
-            width: clamp(160px, 100%, 300px);
-            display: flex;
+          & :deep(.yotpo-bottomline) {
             align-items: center;
             gap: 0.25rem;
 
-            .yotpo-label-container {
-              display: none;
+            .yotpo-stars {
+              min-width: 90px;
             }
+
+            .write-review-btn-hidden {
+              min-width: 100px;
+            }
+          }
+
+          .yotpo.bottomLine.yotpo-small {
+            width: clamp(160px, 100%, 400px);
           }
         }
       }
@@ -327,5 +293,41 @@ e()
   flex-direction: column;
   align-items: center;
   background-color: $primary-color;
+
+  & :deep(.yotpo-label-container) {
+    display: none !important;
+  }
+
+  &
+    :deep(
+      .yotpo-default-button.yotpo-default-button.yotpo-icon-btn.write-question-review-button.write-button.write-review-button
+    ) {
+    border-radius: $radius;
+    color: $text-color;
+    display: flex;
+    padding: 1rem;
+    border: $text-color solid 2px;
+    align-items: center;
+    margin: auto;
+    justify-content: center;
+  }
+  & :deep(.yotpo-icon.yotpo-icon-write-no-frame.write-question-review-button-icon.yotpo-hidden-mobile) {
+    display: none;
+  }
+
+  & :deep(.write-question-review-button-text.font-color-gray-darker) {
+    color: $text-color;
+  }
+
+  & :deep(.free-text-search-input) {
+    border-radius: $radius;
+    width: 100%;
+  }
+  & :deep(.form-element) {
+    & input,
+    textarea {
+      border-radius: $radius;
+    }
+  }
 }
 </style>

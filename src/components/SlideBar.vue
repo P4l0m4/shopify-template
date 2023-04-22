@@ -14,12 +14,12 @@ import InfiniteSlideBar from 'vue3-infinite-slide-bar'
 </script>
 
 <template>
-  <infinite-slide-bar :barStyle="{ background: '#333333' }" :duration="'60s'" class="infinite-slide-bar">
+  <infinite-slide-bar :barStyle="{ background: '#333333' }" :duration="'120s'" class="infinite-slide-bar">
     <div class="infinite-slide-bar__component">
-      <button style="padding-left: 128px" @click="copy()">livraison gratuite dès 40€ d'achats</button
-      ><button @click="copy()">Livraison gratuite dès 40€ d'achats avec le code {{ code }}</button
-      ><button @click="copy()">Livraison gratuite dès 40€ d'achats avec le code {{ code }}</button
-      ><button @click="copy()">Livraison gratuite dès 40€ d'achats avec le code {{ code }}</button>
+      <button style="padding-left: 128px" @click="copy()">Livraison gratuite dès 40€ d'achats</button
+      ><button @click="copy()">Livraison gratuite dès 40€ d'achats</button
+      ><button @click="copy()">Livraison gratuite dès 40€ d'achats</button
+      ><button @click="copy()">Livraison gratuite dès 40€ d'achats</button>
     </div>
   </infinite-slide-bar>
 </template>
@@ -27,13 +27,13 @@ import InfiniteSlideBar from 'vue3-infinite-slide-bar'
 .infinite-slide-bar {
   &__component {
     display: flex;
-    gap: 8px;
+    gap: 10.5rem;
 
     & button {
       background: #333333;
       color: #fffdfa;
       border: none;
-      padding: 8px 16px;
+      padding: 0.5rem 0 !important;
       border-radius: 4px;
       font-size: 14px;
     }

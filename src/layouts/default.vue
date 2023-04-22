@@ -7,6 +7,16 @@ register()
 
 const cartStore = useCartStore()
 await cartStore.initCheckout()
+
+useHead({
+  script: [
+    {
+      async: true,
+      src: '//staticw2.yotpo.com/g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ/widget.js',
+      body: true,
+    },
+  ],
+})
 </script>
 
 <template>
