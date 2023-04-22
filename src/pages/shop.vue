@@ -58,8 +58,14 @@ function applyFilter(filter) {
 <template>
   <section class="shop">
     <SearchBar @search="searchProducts" @toggleOverlay="toggleOverlay" />
-    <SearchFilterByCollection :collections="productStore.collections" @collectionSelected="filterProducts" />
-    <SearchAdditionalCriteria v-show="displayOverlay" @closeOverlay="toggleOverlay" @filter="applyFilter" />
+
+    <SearchAdditionalCriteria
+      v-show="displayOverlay"
+      @closeOverlay="toggleOverlay"
+      @filter="applyFilter"
+      :collections="productStore.collections"
+      @collectionSelected="filterProducts"
+    />
     <SearchResults :products="filteredProducts" :query="productStore.searchQuery" />
   </section>
 </template>
