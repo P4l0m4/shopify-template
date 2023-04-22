@@ -144,7 +144,6 @@ function selectCollection(collection) {
         gap: 0.5rem;
         width: clamp(300px, 100%, 800px);
         flex-wrap: wrap;
-        padding: 0 1rem;
 
         &__button {
           display: flex;

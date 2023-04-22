@@ -8,14 +8,16 @@ const props = defineProps({ product: Object })
 
 <template>
   <nuxt-link :to="`/product/${product.handle}`" :key="product.id" class="product-card">
-    <img class="product-card__img" :src="product.images[0].src" />
+    <img class="product-card__img" :src="product.images[0].src" :alt="product.handle" />
 
     <div class="product-card__txt">
       <h3 class="product-card__txt__title">
         {{ product.title }}
       </h3>
       <div class="product-card__txt__price">
-        <span class="product-card__txt__price__amount"> {{ product.variants[0].price.amount }} €</span>
+        <span class="product-card__txt__price__amount">
+          {{ parseFloat(product.variants[0].price.amount).toFixed(2) }} €</span
+        >
         <button class="product-card__txt__price__button" @click.prevent="likedStore.addProductToLiked(product)">
           <img
             v-if="likedStore.isProductLiked(product)"

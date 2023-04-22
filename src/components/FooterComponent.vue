@@ -16,7 +16,7 @@ const image = await client
 <template>
   <footer>
     <span>©{{ info.name }} {{ year }}</span>
-    <nuxt-link to="/">Mentions légales</nuxt-link>
+    <nuxt-link to="/" class="mentions">Mentions légales</nuxt-link>
   </footer>
 </template>
 <style lang="scss" scoped>
@@ -28,5 +28,8 @@ footer {
   position: relative;
   padding: 0 1rem;
   font-size: 0.75rem;
+  & .mentions {
+    text-decoration: underline;
+  }
 }
 </style>

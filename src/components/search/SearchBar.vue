@@ -60,7 +60,7 @@ const emit = defineEmits(['search', 'toggleOverlay'])
   &__filters {
     padding: 0.5rem;
     background-color: $primary-color;
-    border-radius: calc($radius/2);
+    border-radius: $radius;
     box-shadow: $shadow;
     align-items: center;
     display: flex;
