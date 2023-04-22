@@ -1,6 +1,7 @@
 <script setup>
 // import { useInfoStore } from '@/stores/info'
 import { client } from '@/services/shopify'
+import { ref } from 'vue'
 // Store
 // const infoStore = useInfoStore()
 // console.log(infoStore.name)
@@ -15,6 +16,7 @@ const image = await client
 
 <template>
   <footer>
+    <CookiesSettings />
     <span>©{{ info.name }} {{ year }}</span>
     <nuxt-link to="/" class="mentions">Mentions légales</nuxt-link>
   </footer>
@@ -28,6 +30,7 @@ footer {
   position: relative;
   padding: 0 1rem;
   font-size: 0.75rem;
+  flex-wrap: wrap;
   & .mentions {
     text-decoration: underline;
   }

@@ -17,7 +17,7 @@ console.log(JSON.parse(JSON.stringify(info)))
 .index-section {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 }
 .tm-title {
   font-weight: 200 !important;
