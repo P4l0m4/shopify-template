@@ -1,16 +1,16 @@
 <script setup>
 import { ref } from 'vue'
-const areCookiesEnabled = ref(false)
+const areCookiesEnabled = ref(true)
 const closeNotice = ref(false)
 
 function exit() {
-  areCookiesEnabled.value = true
   closeNotice.value = true
 }
 
 function clearCookies() {
   document.cookie = ''
   console.log('cookies:' + document.cookie)
+  areCookiesEnabled.value = false
   exit()
 }
 </script>
@@ -38,9 +38,9 @@ function clearCookies() {
         </div>
       </div>
     </div>
-    <span v-if="!areCookiesEnabled">Les cookies sont activés</span>
-    <span v-if="areCookiesEnabled">Les cookies sont désactivés</span>
-    <button class="cookies__button button-primary" v-if="!areCookiesEnabled" @click="areCookiesEnabled = false">
+    <span v-if="areCookiesEnabled">Les cookies sont activés</span>
+    <span v-if="!areCookiesEnabled">Les cookies sont désactivés</span>
+    <button class="cookies__button button-primary" v-if="areCookiesEnabled" @click="areCookiesEnabled = false">
       Désactiver
     </button>
     <button class="cookies__button button-primary" v-else @click="areCookiesEnabled = true">Activer</button>

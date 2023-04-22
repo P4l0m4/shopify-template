@@ -28,9 +28,11 @@ footer {
   justify-content: flex-end;
   width: 100%;
   position: relative;
-  padding: 0 1rem;
+  padding: 1rem 1rem 4rem 1rem;
   font-size: 0.75rem;
   flex-wrap: wrap;
+  background-color: $primary-color;
+
   & .mentions {
     text-decoration: underline;
   }

@@ -30,7 +30,7 @@ useHead({
 .container {
   display: flex;
   flex-direction: column;
-  padding: 3.5rem 0;
+  padding: 3.5rem 0 0 0;
   gap: 2rem;
   align-items: center;
 
