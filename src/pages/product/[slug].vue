@@ -179,7 +179,7 @@ e()
     <ProductsPropositions />
   </div>
 </template>
-<style scoped lang="scss">
+<style lang="scss">
 .container {
   display: flex;
   flex-direction: column;
@@ -299,6 +299,11 @@ e()
             width: clamp(160px, 100%, 300px);
             display: flex;
             align-items: center;
+            gap: 0.25rem;
+
+            .yotpo-label-container {
+              display: none;
+            }
           }
         }
       }

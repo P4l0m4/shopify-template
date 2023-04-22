@@ -33,5 +33,15 @@ export const useProductStore = defineStore('product', {
         return products
       }, [])
     },
+    async applyFilter(filters) {
+      let query = ''
+      if (filters.price) {
+        query += `variants.price:>=${filters.price.min} variants.price:<=${filters.price.max}`
+      }
+      const products = await client.product.fetchQuery({
+        query,
+      })
+      this.productsSearched = JSON.parse(JSON.stringify(products))
+    },
   },
 })

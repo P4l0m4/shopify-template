@@ -1,5 +1,6 @@
 <script setup>
 import { useProductStore } from '@/stores/product'
+import { ref } from 'vue'
 
 // Store
 const productStore = useProductStore()
@@ -27,12 +28,22 @@ async function searchProducts(query) {
 function filterProducts(collections) {
   selectedCollections.value = collections
 }
+
+const displayOverlay = ref(false)
+
+function toggleOverlay() {
+  displayOverlay.value = !displayOverlay.value
+}
+
+function applyFilter(filter) {
+  productStore.applyFilter(filter)
+}
 </script>
 <template>
   <section class="shop">
-    <SearchBar @search="searchProducts" />
+    <SearchBar @search="searchProducts" @toggleOverlay="toggleOverlay" />
     <SearchFilterByCollection :collections="productStore.collections" @collectionSelected="filterProducts" />
-    <SearchAdditionalCriteria />
+    <SearchAdditionalCriteria v-if="displayOverlay" @closeOverlay="toggleOverlay" @filter="applyFilter" />
     <SearchResults :products="filteredProducts" :query="productStore.searchQuery" />
   </section>
 </template>
