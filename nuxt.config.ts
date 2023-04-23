@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
+import { getProductPages } from './src/utils/sitemap.js'
+
 export default defineNuxtConfig({
   ssr: false,
   srcDir: 'src/',
@@ -16,16 +18,10 @@ export default defineNuxtConfig({
     },
   },
   sitemap: {
-    siteUrl: 'nuxt3-shopify-template.netlify.app',
+    sitemaps: true,
+    siteUrl: 'https://nuxt3-shopify-template.netlify.app',
+    urls: async () => {
+      return await getProductPages()
+    },
   },
-  // app: {
-  //   head: {
-  //     script: [
-  //       {
-  //         children:
-  //           '(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/H7DoxCRpWkKPSHcGkh13g0IIDfU32EHOplMuHvPb/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();',
-  //       },
-  //     ],
-  //   },
-  // },
 })

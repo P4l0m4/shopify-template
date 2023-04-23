@@ -1,5 +1,6 @@
 <script setup>
 import { useLikedStore } from '@/stores/liked'
+import { PRODUCT_PATH } from '@/config/url'
 
 const likedStore = useLikedStore()
 
@@ -7,7 +8,7 @@ const props = defineProps({ product: Object })
 </script>
 
 <template>
-  <nuxt-link :to="`/product/${product.handle}`" :key="product.id" class="product-card">
+  <nuxt-link :to="`/${PRODUCT_PATH}${product.handle}`" :key="product.id" class="product-card">
     <img class="product-card__img" :src="product.images[0].src" :alt="product.handle" />
 
     <div class="product-card__txt">

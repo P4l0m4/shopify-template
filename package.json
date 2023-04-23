@@ -8,9 +8,9 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.1.2",
+    "nuxt": "^3.3.1",
     "nuxt-calendly": "^0.1.14",
-    "nuxt-simple-sitemap": "^2.2.0",
+    "nuxt-simple-sitemap": "^2.4.11",
     "sass": "^1.58.0",
     "sass-loader": "^13.2.0"
   },

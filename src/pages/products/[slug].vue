@@ -1,7 +1,8 @@
 <script setup>
+import { ref, watch, onMounted } from 'vue'
 import { useProductStore } from '@/stores/product'
 import { useCartStore } from '@/stores/cart'
-import { ref, watch, onMounted } from 'vue'
+import { PRODUCT_PATH } from '@/config/url'
 
 // Routing
 const route = useRoute()
@@ -94,7 +95,7 @@ onMounted(() => {
                 data-domain="https://nuxt3-shopify-template.netlify.app/"
                 :data-product-id="productStore.product.id.split('/').pop()"
                 :data-name="productStore.product.title"
-                :data-url="`https://nuxt3-shopify-template.netlify.app/product/${productStore.product.handle}`"
+                :data-url="`https://nuxt3-shopify-template.netlify.app/${PRODUCT_PATH}${productStore.product.handle}`"
                 :data-image-url="productStore.product.images[0].src"
                 :data-description="productStore.product.description"
                 :data-bread-crumbs="productStore.product.productType"
@@ -130,7 +131,7 @@ onMounted(() => {
         :data-price="productStore.product.variants[0].priceV2.amount"
         :data-currency="productStore.product.variants[0].priceV2.currencyCode"
         :data-name="productStore.product.title"
-        :data-url="`https://nuxt3-shopify-template.netlify.app/product/${productStore.product.handle}`"
+        :data-url="`https://nuxt3-shopify-template.netlify.app/${PRODUCT_PATH}${productStore.product.handle}`"
         :data-image-url="productStore.product.images[0].src"
       ></div>
       <!-- <div id="yotpo-testimonials-custom-tab"></div> -->

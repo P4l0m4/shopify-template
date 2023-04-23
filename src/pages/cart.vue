@@ -1,5 +1,6 @@
 <script setup>
 import { useCartStore } from '@/stores/cart'
+import { PRODUCT_PATH } from '@/config/url'
 
 // Store
 const cartStore = useCartStore()
@@ -36,7 +37,9 @@ const isMarkerOpen = ref(false)
       <div class="cart__products" v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0">
         <div class="cart__products__list">
           <div class="cart__products__list__product" v-for="item in cartStore.checkout.lineItems" :key="item.id">
-            <nuxt-link :to="`/product/${item.variant.product.handle}`" class="cart__products__list__product__card"
+            <nuxt-link
+              :to="`/${PRODUCT_PATH}${item.variant.product.handle}`"
+              class="cart__products__list__product__card"
               ><img class="cart__products__list__product__card__img" :src="item.variant.image.src" alt=""
             /></nuxt-link>
             <div class="cart__products__list__product__description">
