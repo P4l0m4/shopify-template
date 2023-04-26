@@ -10,7 +10,7 @@ let year = new Date().getFullYear()
 
 const info = await client.shop.fetchInfo()
 
-const image = await client
+// const image = await client
 // console.log(image)
 </script>
 
