@@ -16,7 +16,7 @@ const image = await client
 
 <template>
   <footer>
-    <CookiesSettings />
+    <!-- <CookiesSettings /> -->
     <span>©{{ info.name }} {{ year }}</span>
     <nuxt-link to="/" class="mentions">Mentions légales</nuxt-link>
   </footer>
