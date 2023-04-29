@@ -61,6 +61,7 @@ function selectCollection(collection) {
           </div>
         </div>
         <div class="overlay__drawer__group">
+          <label>Catégories</label>
           <div class="sort">
             <button
               v-for="collection in collections"
@@ -69,6 +70,7 @@ function selectCollection(collection) {
               class="sort__button"
               @click="selectCollection(collection)"
             >
+              <img class="sort__button__img" :src="collection.image.src" :alt="collection.image.handle" />
               {{ collection.title }}
             </button>
           </div>
@@ -142,14 +144,14 @@ function selectCollection(collection) {
       .sort {
         display: flex;
         gap: 0.5rem;
-        width: clamp(300px, 100%, 800px);
-        flex-wrap: wrap;
+        width: clamp(200px, 100%, 800px);
+        flex-direction: column;
 
         &__button {
           display: flex;
           align-items: center;
-          gap: 0.25rem;
-          padding: 0.25rem 0.5rem;
+          gap: 0.5rem;
+          padding: 0 0.5rem 0 0;
           border-radius: $radius;
           background-color: $primary-color;
           box-shadow: $shadow;
@@ -161,6 +163,12 @@ function selectCollection(collection) {
 
           &--selected {
             border: $selected-color 2px solid;
+          }
+
+          &__img {
+            width: 60px;
+            object-fit: cover;
+            border-radius: $radius 0 0 $radius;
           }
         }
       }
