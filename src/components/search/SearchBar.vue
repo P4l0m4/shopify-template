@@ -32,23 +32,12 @@ const optionSelected = ref('')
         <img src="@/assets/icons/filters.svg" alt="" />
       </button>
     </div>
-    <!-- <div class="sort">
-      <select class="sort__select" aria-label="choisir une option de tri" @change="emit('sort', $event.target.value)">
-        <option class="sort__select__option" value="">Options de tri</option>
-        <option class="sort__select__option" value="PRICE-ASC">Prix croissant</option>
-        <option class="sort__select__option" value="PRICE-DESC">Prix décroissant</option>
-        <option class="sort__select__option" value="TITLE-ASC">De A à Z</option>
-        <option class="sort__select__option" value="TITLE-DESC">De Z à A</option>
-        <option class="sort__select__option" value="BEST_SELLING-ASC">Popularité</option>
-        <option class="sort__select__option" value="CREATED_AT-DESC">Nouveautés</option>
-      </select>
-    </div> -->
+
     <div class="sort">
       <button
         class="sort__option"
         :class="{ 'sort__option--selected': optionSelected === 'PRICEASC' }"
         @click=";(optionSelected = 'PRICEASC'), emit('sort', 'PRICE-ASC')"
-        value="PRICE-ASC"
       >
         Prix croissant
       </button>
@@ -56,7 +45,6 @@ const optionSelected = ref('')
         class="sort__option"
         :class="{ 'sort__option--selected': optionSelected === 'PRICEDESC' }"
         @click=";(optionSelected = 'PRICEDESC'), emit('sort', 'PRICE-DESC')"
-        value="PRICE-DESC"
       >
         Prix décroissant
       </button>
@@ -64,7 +52,6 @@ const optionSelected = ref('')
         class="sort__option"
         :class="{ 'sort__option--selected': optionSelected === 'BESTSELLINGASC' }"
         @click=";(optionSelected = 'BESTSELLINGASC'), emit('sort', 'BEST_SELLING-ASC')"
-        value="BEST_SELLING-ASC"
       >
         Popularité
       </button>
@@ -72,7 +59,6 @@ const optionSelected = ref('')
         class="sort__option"
         :class="{ 'sort__option--selected': optionSelected === 'CREATEDATDESC' }"
         @click=";(optionSelected = 'CREATEDATDESC'), emit('sort', 'CREATED_AT-DESC')"
-        value="CREATED_AT-DESC"
       >
         Nouveautés
       </button>
@@ -80,7 +66,6 @@ const optionSelected = ref('')
         class="sort__option"
         :class="{ 'sort__option--selected': optionSelected === 'TITLEASC' }"
         @click=";(optionSelected = 'TITLEASC'), emit('sort', 'TITLE-ASC')"
-        value="TITLE-ASC"
       >
         De A à Z
       </button>
@@ -88,7 +73,6 @@ const optionSelected = ref('')
         class="sort__option"
         :class="{ 'sort__option--selected': optionSelected === 'TITLEDESC' }"
         @click=";(optionSelected = 'TITLEDESC'), emit('sort', 'TITLE-DESC')"
-        value="TITLE-DESC"
       >
         De Z à A
       </button>
