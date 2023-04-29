@@ -45,7 +45,7 @@ const props = defineProps({ product: Object })
   gap: 1rem;
   padding: 1rem;
   min-width: 146px;
-  animation: slide-from-left 0.6s;
+  animation: fading 0.4s ease;
 
   &__img {
     object-fit: contain;
@@ -82,7 +82,6 @@ const props = defineProps({ product: Object })
         display: flex;
         border: 2px solid transparent;
         justify-content: flex-end;
-        animation: slide-from-left 0.6s;
         cursor: pointer;
 
         &__icon {
