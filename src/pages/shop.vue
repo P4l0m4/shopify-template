@@ -37,8 +37,10 @@ const filteredProducts = computed(() => {
   return productStore.productsSearched
 })
 
-async function searchProducts(query) {
-  await productStore.searchProducts(query)
+async function applySearch(query, option) {
+  if (query != null) {
+    await productStore.setSearch(query)
+  }
 }
 
 function filterProducts(collections) {
@@ -51,13 +53,17 @@ function toggleOverlay() {
   displayOverlay.value = !displayOverlay.value
 }
 
-function applyFilter(filter) {
-  productStore.applyFilter(filter)
+function applyFilter(filters) {
+  productStore.setFilters(filters)
+}
+
+function applySort(options) {
+  productStore.setSort(options)
 }
 </script>
 <template>
   <section class="shop">
-    <SearchBar @search="searchProducts" @toggleOverlay="toggleOverlay" />
+    <SearchBar @search="applySearch" @toggleOverlay="toggleOverlay" @sort="applySort" />
 
     <SearchAdditionalCriteria
       v-show="displayOverlay"
