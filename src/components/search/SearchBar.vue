@@ -1,5 +1,6 @@
 <script setup>
 import { debounce } from '@/utils/debounce'
+import { defineEmits, ref } from 'vue'
 
 const search = debounce(async e => {
   const query = e.target.value
@@ -8,6 +9,8 @@ const search = debounce(async e => {
 }, 500)
 
 const emit = defineEmits(['search', 'toggleOverlay', 'sort'])
+
+const optionSelected = ref('')
 </script>
 
 <template>
@@ -29,7 +32,7 @@ const emit = defineEmits(['search', 'toggleOverlay', 'sort'])
         <img src="@/assets/icons/filters.svg" alt="" />
       </button>
     </div>
-    <div class="sort">
+    <!-- <div class="sort">
       <select class="sort__select" aria-label="choisir une option de tri" @change="emit('sort', $event.target.value)">
         <option class="sort__select__option" value="">Options de tri</option>
         <option class="sort__select__option" value="PRICE-ASC">Prix croissant</option>
@@ -39,6 +42,56 @@ const emit = defineEmits(['search', 'toggleOverlay', 'sort'])
         <option class="sort__select__option" value="BEST_SELLING-ASC">Popularité</option>
         <option class="sort__select__option" value="CREATED_AT-DESC">Nouveautés</option>
       </select>
+    </div> -->
+    <div class="sort">
+      <button
+        class="sort__option"
+        :class="{ 'sort__option--selected': optionSelected === 'PRICEASC' }"
+        @click=";(optionSelected = 'PRICEASC'), emit('sort', 'PRICE-ASC')"
+        value="PRICE-ASC"
+      >
+        Prix croissant
+      </button>
+      <button
+        class="sort__option"
+        :class="{ 'sort__option--selected': optionSelected === 'PRICEDESC' }"
+        @click=";(optionSelected = 'PRICEDESC'), emit('sort', 'PRICE-DESC')"
+        value="PRICE-DESC"
+      >
+        Prix décroissant
+      </button>
+      <button
+        class="sort__option"
+        :class="{ 'sort__option--selected': optionSelected === 'BESTSELLINGASC' }"
+        @click=";(optionSelected = 'BESTSELLINGASC'), emit('sort', 'BEST_SELLING-ASC')"
+        value="BEST_SELLING-ASC"
+      >
+        Popularité
+      </button>
+      <button
+        class="sort__option"
+        :class="{ 'sort__option--selected': optionSelected === 'CREATEDATDESC' }"
+        @click=";(optionSelected = 'CREATEDATDESC'), emit('sort', 'CREATED_AT-DESC')"
+        value="CREATED_AT-DESC"
+      >
+        Nouveautés
+      </button>
+      <button
+        class="sort__option"
+        :class="{ 'sort__option--selected': optionSelected === 'TITLEASC' }"
+        @click=";(optionSelected = 'TITLEASC'), emit('sort', 'TITLE-ASC')"
+        value="TITLE-ASC"
+      >
+        De A à Z
+      </button>
+      <button
+        class="sort__option"
+        :class="{ 'sort__option--selected': optionSelected === 'TITLEDESC' }"
+        @click=";(optionSelected = 'TITLEDESC'), emit('sort', 'TITLE-DESC')"
+        value="TITLE-DESC"
+      >
+        De Z à A
+      </button>
     </div>
   </div>
 </template>
@@ -87,34 +140,64 @@ const emit = defineEmits(['search', 'toggleOverlay', 'sort'])
     }
   }
 
-  .sort {
-    height: 30px;
-    width: 110px;
+  // .sort {
+  //   height: 30px;
+  //   width: 110px;
 
-    &__select {
-      border-radius: $radius;
+  //   &__select {
+  //     border-radius: $radius;
+  //     display: flex;
+  //     padding: 0.5rem;
+  //     box-shadow: $shadow;
+  //     background-color: $primary-color;
+  //     -webkit-appearance: none;
+  //     -moz-appearance: none;
+  //     font-weight: 100;
+  //     font-size: 0.75rem;
+  //     text-align: center;
+  //     color: $text-color;
+  //     border: none;
+  //     appearance: none;
+
+  //     &:focus {
+  //       outline: none;
+  //     }
+
+  //     &__option {
+  //       display: flex;
+  //       align-items: center;
+  //       outline: 0px;
+  //       position: relative;
+  //     }
+  //   }
+  // }
+
+  .sort {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    overflow: scroll;
+
+    &__option {
       display: flex;
-      padding: 0.5rem;
+      align-items: center;
+      outline: 0px;
+      border-radius: $radius;
+      padding: 0.5rem 1rem;
       box-shadow: $shadow;
       background-color: $primary-color;
-      -webkit-appearance: none;
-      -moz-appearance: none;
       font-weight: 100;
       font-size: 0.75rem;
       text-align: center;
       color: $text-color;
-      border: none;
-      appearance: none;
+      border: 2px solid transparent;
+      height: fit-content;
+      white-space: nowrap;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
 
-      &:focus {
-        outline: none;
-      }
-
-      &__option {
-        display: flex;
-        align-items: center;
-        outline: 0px;
-        position: relative;
+      &--selected {
+        border: $selected-color 2px solid;
+        background-color: $selected-background-color;
       }
     }
   }

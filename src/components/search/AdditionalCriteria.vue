@@ -62,38 +62,19 @@ function selectCollection(collection) {
         </div>
         <div class="overlay__drawer__group">
           <label>Catégories</label>
-          <div class="sort">
+          <div class="collection">
             <button
               v-for="collection in collections"
               :key="collection.id"
-              :class="{ 'sort__button--selected': isCollectionSelected(collection) }"
-              class="sort__button"
+              :class="{ 'collection__button--selected': isCollectionSelected(collection) }"
+              class="collection__button"
               @click="selectCollection(collection)"
             >
-              <img class="sort__button__img" :src="collection.image.src" :alt="collection.image.handle" />
-              {{ collection.title }}
+              <img class="collection__button__img" :src="collection.image.src" :alt="collection.image.handle" />
+              <span class="collection__button__title"> {{ collection.title }}</span>
             </button>
           </div>
         </div>
-        <!-- <div class="overlay__drawer__group">
-          Prix
-          <div class="overlay__drawer__group__price">
-            <button
-              class="overlay__drawer__group__price__button"
-              :class="{ 'overlay__drawer__group__price__button--selected': priceSortingSelected === 'high' }"
-              @click.stop="priceSortingSelected = 'high'"
-            >
-              <img class="icon" src="@/assets/icons/high.svg" alt="" />
-            </button>
-            <button
-              class="overlay__drawer__group__price__button"
-              :class="{ 'overlay__drawer__group__price__button--selected': priceSortingSelected === 'low' }"
-              @click.stop="priceSortingSelected = 'low'"
-            >
-              <img class="icon" src="@/assets/icons/low.svg" alt="" />
-            </button>
-          </div>
-        </div> -->
       </div>
     </div></Transition
   >
@@ -141,17 +122,16 @@ function selectCollection(collection) {
         }
       }
 
-      .sort {
+      .collection {
         display: flex;
         gap: 0.5rem;
         width: clamp(200px, 100%, 800px);
-        flex-direction: column;
+        flex-wrap: wrap;
 
         &__button {
           display: flex;
           align-items: center;
           gap: 0.5rem;
-          padding: 0 0.5rem 0 0;
           border-radius: $radius;
           background-color: $primary-color;
           box-shadow: $shadow;
@@ -160,9 +140,11 @@ function selectCollection(collection) {
           border: transparent 2px solid;
           color: $text-color;
           cursor: pointer;
+          width: 100%;
 
           &--selected {
             border: $selected-color 2px solid;
+            background-color: $selected-background-color;
           }
 
           &__img {
@@ -170,29 +152,37 @@ function selectCollection(collection) {
             object-fit: cover;
             border-radius: $radius 0 0 $radius;
           }
-        }
-      }
 
-      &__price {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        gap: 0.5rem;
-
-        &__button {
-          padding: 0.5rem;
-          background-color: $primary-color;
-          border-radius: calc($radius/2);
-          box-shadow: $shadow;
-          align-items: center;
-          display: flex;
-          cursor: pointer;
-
-          &--selected {
-            border: 2px solid $selected-color;
+          &__title {
+            display: flex;
+            padding: 0 0.5rem 0 0;
+            height: 100%;
+            align-items: center;
+            height: 100%;
           }
         }
       }
+
+      // &__price {
+      //   display: flex;
+      //   width: 100%;
+      //   justify-content: center;
+      //   gap: 0.5rem;
+
+      //   &__button {
+      //     padding: 0.5rem;
+      //     background-color: $primary-color;
+      //     border-radius: calc($radius/2);
+      //     box-shadow: $shadow;
+      //     align-items: center;
+      //     display: flex;
+      //     cursor: pointer;
+
+      //     &--selected {
+      //       border: 2px solid $selected-color;
+      //     }
+      //   }
+      // }
     }
   }
 }

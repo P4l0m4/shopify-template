@@ -192,6 +192,7 @@ onMounted(() => {
         &--selected {
           border: $selected-color 2px solid;
           border-radius: $radius;
+          background-color: $selected-background-color;
         }
       }
     }

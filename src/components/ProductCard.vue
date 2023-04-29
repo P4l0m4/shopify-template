@@ -23,6 +23,7 @@ const props = defineProps({ product: Object })
           <img
             v-if="likedStore.isProductLiked(product)"
             class="product-card__txt__price__button__icon"
+            :class="{ 'product-card__txt__price__button__icon--selected': likedStore.isProductLiked(product) }"
             src="@/assets/icons/heart-light-solid.svg"
             alt=""
           />
@@ -89,6 +90,10 @@ const props = defineProps({ product: Object })
           background-color: $text-color;
           border-radius: $radius;
           padding: 0.2rem;
+
+          &--selected {
+            background-color: $selected-background-color-darker;
+          }
         }
       }
     }
