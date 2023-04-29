@@ -20,8 +20,8 @@ export default defineNuxtConfig({
   sitemap: {
     sitemaps: true,
     siteUrl: 'https://nuxt3-shopify-template.netlify.app',
-    urls: async () => {
-      return await getProductPages()
-    },
+    // urls: async () => {
+    //   return await getProductPages()
+    // },
   },
 })
