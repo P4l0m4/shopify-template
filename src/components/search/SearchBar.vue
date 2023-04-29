@@ -11,7 +11,7 @@ const emit = defineEmits(['search', 'toggleOverlay', 'sort'])
 </script>
 
 <template>
-  <section>
+  <div class="container">
     <div class="search">
       <div class="search__field">
         <img class="search__field__icon" src="@/assets/icons/search.svg" alt="" />
@@ -34,16 +34,16 @@ const emit = defineEmits(['search', 'toggleOverlay', 'sort'])
         <option class="sort__select__option" value="">Options de tri</option>
         <option class="sort__select__option" value="PRICE-ASC">Prix croissant</option>
         <option class="sort__select__option" value="PRICE-DESC">Prix décroissant</option>
-        <!-- <option class="sort__select__option" :value="{ key: 'TITLE', reverse: false }">Ordre alphabétique A-Z</option>
-        <option class="sort__select__option" :value="{ key: 'TITLE', reverse: true }">Ordre alphabétique Z-A</option> -->
+        <option class="sort__select__option" value="TITLE-ASC">De A à Z</option>
+        <option class="sort__select__option" value="TITLE-DESC">De Z à A</option>
         <option class="sort__select__option" value="BEST_SELLING-ASC">Popularité</option>
-        <option class="sort__select__option" value="CREATED_AT-DESC">Nouveauté</option>
+        <option class="sort__select__option" value="CREATED_AT-DESC">Nouveautés</option>
       </select>
     </div>
-  </section>
+  </div>
 </template>
 <style lang="scss" scoped>
-section {
+.container {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -88,14 +88,33 @@ section {
   }
 
   .sort {
+    height: 30px;
+    width: 110px;
+
     &__select {
       border-radius: $radius;
       display: flex;
       padding: 0.5rem;
+      box-shadow: $shadow;
+      background-color: $primary-color;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      font-weight: 100;
+      font-size: 0.75rem;
+      text-align: center;
+      color: $text-color;
+      border: none;
+      appearance: none;
+
+      &:focus {
+        outline: none;
+      }
 
       &__option {
         display: flex;
         align-items: center;
+        outline: 0px;
+        position: relative;
       }
     }
   }
