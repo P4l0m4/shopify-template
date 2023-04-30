@@ -16,10 +16,14 @@ defineProps({ collections: Array })
 <style scoped lang="scss">
 .collections {
   display: flex;
-  flex-wrap: wrap;
   gap: 2rem;
   align-items: center;
   padding: 1rem;
+  flex-wrap: wrap;
+  max-height: 800px;
+  overflow: scroll;
+  width: 100vw;
+  max-width: 2000px;
 
   @media (min-width: $tablet-screen) {
     gap: 4rem;
@@ -32,14 +36,13 @@ defineProps({ collections: Array })
     height: 300px;
     width: clamp(240px, 100%, 600px);
     background-color: $primary-color;
-    box-shadow: $shadow;
-    border-radius: $radius;
+    border-radius: calc($radius / 2);
+    overflow: hidden;
 
     &__img {
-      width: 30%;
+      width: 40%;
       height: 100%;
       object-fit: cover;
-      border-radius: $radius 0 0 $radius;
     }
     &__txt {
       display: flex;

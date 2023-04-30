@@ -136,6 +136,7 @@ const optionSelected = ref('')
     }
 
     &__option {
+      cursor: pointer;
       display: flex;
       align-items: center;
       outline: 0px;
