@@ -86,6 +86,7 @@ const optionSelected = ref('')
   gap: 0.5rem;
   width: 100%;
   padding: 0 1rem;
+  align-items: center;
 
   .search {
     display: flex;
@@ -124,43 +125,15 @@ const optionSelected = ref('')
     }
   }
 
-  // .sort {
-  //   height: 30px;
-  //   width: 110px;
-
-  //   &__select {
-  //     border-radius: $radius;
-  //     display: flex;
-  //     padding: 0.5rem;
-  //     box-shadow: $shadow;
-  //     background-color: $primary-color;
-  //     -webkit-appearance: none;
-  //     -moz-appearance: none;
-  //     font-weight: 100;
-  //     font-size: 0.75rem;
-  //     text-align: center;
-  //     color: $text-color;
-  //     border: none;
-  //     appearance: none;
-
-  //     &:focus {
-  //       outline: none;
-  //     }
-
-  //     &__option {
-  //       display: flex;
-  //       align-items: center;
-  //       outline: 0px;
-  //       position: relative;
-  //     }
-  //   }
-  // }
-
   .sort {
     width: 100%;
     display: flex;
     gap: 0.5rem;
     overflow: scroll;
+
+    @media (min-width: $tablet-screen) {
+      justify-content: center;
+    }
 
     &__option {
       display: flex;

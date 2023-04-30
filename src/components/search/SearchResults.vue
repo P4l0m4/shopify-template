@@ -34,6 +34,9 @@ const props = defineProps({ products: Array, query: String })
     @media (min-width: $desktop-screen) {
       grid-template-columns: repeat(5, 1fr);
     }
+    @media (min-width: $super-big-screen) {
+      grid-template-columns: repeat(6, 1fr);
+    }
   }
 }
 

@@ -71,7 +71,7 @@ function selectCollection(collection) {
               @click="selectCollection(collection)"
             >
               <img class="collection__button__img" :src="collection.image.src" :alt="collection.image.handle" />
-              <span class="collection__button__title"> {{ collection.title }}</span>
+              <span class="collection__button__title">{{ collection.title }}</span>
             </button>
           </div>
         </div>

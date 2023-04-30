@@ -8,31 +8,45 @@ const isMenuOpen = ref(false)
 </script>
 
 <template>
-  <nav>
-    <MenuOverlay :isMenuOpen="isMenuOpen" @close="isMenuOpen = false" />
-    <button @click="isMenuOpen = true" class="link">
-      <img class="icon" src="@/assets/icons/menu.svg" alt="menu icon" />
-    </button>
-    <nuxt-link to="/" class="logo"><img src="@/assets/images/logo.svg" alt="logo" class="logo__img" /></nuxt-link>
-    <div class="wrapper">
-      <NuxtLink to="/shop" class="link"
-        ><img class="icon" src="@/assets/icons/search.svg" alt="search icon"
-      /></NuxtLink>
-      <NuxtLink to="/cart" class="link">
-        <div class="link__cart">
-          <img class="link__cart__img" src="@/assets/icons/bag.svg" alt="" /><span
-            class="link__cart__number"
-            v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0"
-          >
-            {{ cartStore.itemQuantity }}
-          </span>
-        </div>
-      </NuxtLink>
-    </div>
-  </nav>
+  <div class="nav-container">
+    <SlideBar />
+
+    <nav>
+      <MenuOverlay :isMenuOpen="isMenuOpen" @close="isMenuOpen = false" />
+      <button @click="isMenuOpen = true" class="link">
+        <img class="icon" src="@/assets/icons/menu.svg" alt="menu icon" />
+      </button>
+      <nuxt-link to="/" class="logo"><img src="@/assets/images/logo.svg" alt="logo" class="logo__img" /></nuxt-link>
+      <div class="wrapper">
+        <NuxtLink to="/shop" class="link"
+          ><img class="icon" src="@/assets/icons/search.svg" alt="search icon"
+        /></NuxtLink>
+        <NuxtLink to="/cart" class="link">
+          <div class="link__cart">
+            <img class="link__cart__img" src="@/assets/icons/bag.svg" alt="" /><span
+              class="link__cart__number"
+              v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0"
+            >
+              {{ cartStore.itemQuantity }}
+            </span>
+          </div>
+        </NuxtLink>
+      </div>
+    </nav>
+  </div>
 </template>
 
 <style scoped lang="scss">
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 2000px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
 nav {
   width: 100%;
   display: flex;
@@ -42,9 +56,7 @@ nav {
   background-color: $primary-color;
   padding: 0.5rem;
   box-shadow: $shadow;
-  position: fixed;
-  top: 0;
-  z-index: 2;
+  position: relative;
 
   .wrapper {
     display: flex;

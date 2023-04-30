@@ -15,6 +15,7 @@ products = JSON.parse(JSON.stringify(products))
   display: flex;
   gap: 1rem;
   width: 100vw;
+  max-width: 2000px;
   overflow-x: scroll;
   padding: 0 1rem;
   animation: slide-from-right 0.4s ease;

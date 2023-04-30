@@ -3,10 +3,10 @@
     <div class="header__wrapper">
       <div class="header__wrapper__txt">
         <h1 class="header__wrapper__txt__title">HERO TITLE</h1>
-        <h2 class="header__wrapper__txt__subtitle">Hero subtitle lorem ipsum</h2>
+        <h2 class="header__wrapper__txt__subtitle">Hero subtitle lorem ipsum dolor sit amet, consequitur sit elit.</h2>
       </div>
       <NuxtLink class="header__wrapper__button" to="/shop"
-        >Voir la collection <img class="header__wrapper__button__icon icon" src="@/assets/icons/next.svg" alt=""
+        >Boutique<img class="header__wrapper__button__icon icon" src="@/assets/icons/next.svg" alt=""
       /></NuxtLink>
     </div>
   </header>
@@ -15,7 +15,7 @@
 <style scoped lang="scss">
 .header {
   width: 100%;
-  height: 200px;
+  height: 300px;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -27,7 +27,7 @@
     url('@/assets/images/mosaic-banner.png');
 
   @media (min-width: $tablet-screen) {
-    height: 300px;
+    height: 500px;
   }
 
   &__wrapper {
@@ -36,7 +36,7 @@
     gap: 2rem;
     align-items: flex-end;
     justify-content: center;
-    width: clamp(300px, 100%, 540px);
+    width: clamp(300px, 100%, 600px);
 
     &__txt {
       display: flex;
@@ -74,6 +74,7 @@
       border: 2px solid $primary-color;
       border-radius: $radius;
       animation: slide-from-left 0.6s;
+      line-height: 1.5rem;
 
       &__icon {
         width: 22px;

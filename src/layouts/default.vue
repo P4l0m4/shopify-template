@@ -22,7 +22,7 @@ useHead({
 <template>
   <div class="container">
     <NavigationComponent />
-    <main><SlideBar /><slot /></main>
+    <main><slot /></main>
     <FooterComponent />
   </div>
 </template>
@@ -33,6 +33,8 @@ useHead({
   padding: 3.5rem 0 0 0;
   gap: 2rem;
   align-items: center;
+  max-width: 2000px;
+  margin: auto;
 
   & main {
     width: 100%;

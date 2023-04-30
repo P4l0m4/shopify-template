@@ -19,13 +19,19 @@ const info = await client.shop.fetchInfo()
     <!-- <CookiesSettings /> -->
     <span>©{{ info.name }} {{ year }}</span>
     <nuxt-link to="/" class="mentions">Mentions légales</nuxt-link>
+    <div class="icons">
+      <a href="#"><img src="@/assets/icons/facebook.svg" alt="icon" /></a
+      ><a href="#"><img src="@/assets/icons/linkedin.svg" alt="icon" /></a
+      ><a href="#"><img src="@/assets/icons/instagram.svg" alt="icon" /></a>
+    </div>
   </footer>
 </template>
 <style lang="scss" scoped>
 footer {
   display: flex;
-  gap: 16px;
+  gap: 1rem;
   justify-content: flex-end;
+  align-items: center;
   width: 100%;
   position: relative;
   padding: 1rem 1rem 4rem 1rem;
@@ -35,6 +41,11 @@ footer {
 
   & .mentions {
     text-decoration: underline;
+  }
+
+  & .icons {
+    display: flex;
+    gap: 0.5rem;
   }
 }
 </style>
