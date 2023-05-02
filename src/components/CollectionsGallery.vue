@@ -26,25 +26,29 @@ defineProps({ collections: Array })
 </template>
 <style scoped lang="scss">
 .collections {
-  display: flex;
   gap: 2rem;
-  align-items: center;
-  padding: 1rem;
-  flex-wrap: wrap;
-  max-height: 800px;
-  overflow: scroll;
+  padding: 0 1rem;
   width: 100vw;
   max-width: 2000px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
 
   @media (min-width: $tablet-screen) {
     gap: 4rem;
-    justify-content: center;
+    place-items: center;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: $laptop-screen) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: $super-big-screen) {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   &__collection {
     display: flex;
     align-items: flex-end;
-    height: 300px;
+    height: clamp(240px, 100%, 600px);
     width: clamp(240px, 100%, 600px);
     background-color: $primary-color;
     border-radius: calc($radius / 2);
@@ -78,6 +82,7 @@ defineProps({ collections: Array })
         width: 100%;
         font-size: 0.75rem;
         max-height: 180px;
+        height: 100%;
 
         @media (min-width: $tablet-screen) {
           font-size: 1rem;
@@ -85,9 +90,11 @@ defineProps({ collections: Array })
       }
 
       &__button {
-        padding: 1rem 2rem;
+        padding: 1rem;
+        width: 100%;
         @media (min-width: $tablet-screen) {
           width: fit-content;
+          padding: 1rem 2rem;
         }
       }
     }

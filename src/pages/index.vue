@@ -11,6 +11,7 @@ productStore.getCollectionsAndProducts()
 <template>
   <section class="index-section">
     <HeaderComponent />
+    <p class="title">Nos collections exclusives</p>
     <CollectionsGallery :collections="productStore.collections" />
     <p class="title">Nos best sellers</p>
     <ProductsPropositions />
