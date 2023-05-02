@@ -34,7 +34,6 @@ defineProps({ collections: Array })
   grid-template-columns: repeat(1, 1fr);
 
   @media (min-width: $tablet-screen) {
-    gap: 4rem;
     place-items: center;
     grid-template-columns: repeat(2, 1fr);
   }
@@ -49,7 +48,7 @@ defineProps({ collections: Array })
     display: flex;
     align-items: flex-end;
     height: clamp(240px, 100%, 600px);
-    width: clamp(240px, 100%, 600px);
+    width: clamp(343px, 100%, 600px);
     background-color: $primary-color;
     border-radius: calc($radius / 2);
     overflow: hidden;

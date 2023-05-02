@@ -9,7 +9,7 @@
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe>
     </div>
-    <div class="contact__wrapper"><ContactCalendlyComponent /></div>
+    <!-- <div class="contact__wrapper"><ContactCalendlyComponent /></div> -->
   </main>
 </template>
 

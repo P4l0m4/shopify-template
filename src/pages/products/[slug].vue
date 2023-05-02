@@ -329,7 +329,102 @@ onMounted(() => {
     & input,
     textarea {
       border-radius: $radius;
+      border: 2px solid $text-color;
+      // border-radius: $small-radius;
+      height: 44px;
+      width: 100%;
+      caret-color: $text-color;
+      padding: 12px;
+      color: $text-color;
+      // font-weight: $slim-weight;
+      background-color: $primary-color;
+
+      &::placeholder {
+        color: $text-color;
+        // font-weight: $slim-weight;
+        opacity: 0.4;
+      }
     }
+
+    & label {
+      font-size: 1rem;
+      color: $text-color;
+    }
+
+    & input[type='button'] {
+      font-size: 1rem;
+      text-transform: none;
+    }
+  }
+
+  & :deep(.y-label) {
+    font-size: 1rem;
+    color: $text-color;
+  }
+
+  & :deep(.yotpo-header-title) {
+    font-size: 1.5rem !important;
+    color: $text-color;
+    display: block;
+    text-transform: capitalize !important;
+    padding-bottom: 2rem;
+
+    &:first-letter {
+      text-transform: capitalize !important;
+    }
+  }
+
+  & :deep(.write-question-review-buttons-container) {
+    float: none;
+    display: none;
+  }
+
+  & :deep(.yotpo-regular-box) {
+    border: none;
+  }
+
+  & :deep(.write-form) {
+    max-width: 450px;
+    margin: auto;
+  }
+  & :deep(.form-element) {
+    width: 100%;
+  }
+  & :deep(.yotpo .write-review .connect-wrapper) {
+    padding: 0;
+  }
+
+  & :deep(.socialize-wrapper .visible) {
+    display: none;
+  }
+  & :deep(.yotpo-regular-box) {
+    display: flex;
+    height: fit-content;
+    margin: 0;
+    flex-direction: column;
+  }
+
+  & :deep(.yotpo-bottomline .bottom-line-items-container-desktop .yotpo-hidden) {
+    display: none;
+  }
+  & :deep(.write-first-review-button) {
+    background-color: $text-color;
+    font-size: 1rem;
+    text-transform: none;
+    width: 100%;
+    max-width: 450px;
+    &:first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  & :deep(.yotpo-default-button .primary-color-btn .yotpo-submit) {
+    font-size: 1rem;
+    text-transform: none;
+  }
+
+  & :deep(.yotpo-first-review-stars) {
+    display: none;
   }
 }
 </style>
