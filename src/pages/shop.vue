@@ -9,18 +9,6 @@ productStore.getCollectionsAndProducts()
 
 let selectedCollections = ref([])
 
-// const filteredProducts = computed(() => {
-//   if (selectedCollections.value.length > 0) {
-//     return productStore.collections.reduce((products, collection) => {
-//       if (selectedCollections.value.includes(collection.handle)) {
-//         products.push(...collection.products)
-//       }
-//       return products
-//     }, [])
-//   }
-//   return productStore.productsSearched
-// })
-
 const filteredProducts = computed(() => {
   if (selectedCollections.value.length > 0) {
     const collectionsProducts = productStore.collections.reduce((products, collection) => {

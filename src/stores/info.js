@@ -4,8 +4,14 @@ import { client } from '@/services/shopify'
 export const useInfoStore = defineStore('info', {
   state: () => {
     return {
-      info: client.shop.fetchInfo(),
+      info: [],
     }
   },
-  actions: {},
+  actions: {
+    getInfo() {
+      this.info.push(client.shop.fetchInfo())
+
+      return this.info
+    },
+  },
 })

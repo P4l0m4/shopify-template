@@ -23,7 +23,7 @@ productStore.getCollectionsAndProducts()
   flex-direction: column;
   gap: 2rem;
 }
-.tm-title {
+.title {
   font-weight: 200 !important;
 }
 </style>

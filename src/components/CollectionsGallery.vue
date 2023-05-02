@@ -1,14 +1,25 @@
 <script setup>
+import { COLLECTION_PATH } from '@/config/url'
+
 defineProps({ collections: Array })
 </script>
 <template>
   <section class="collections">
-    <NuxtLink class="collections__collection" to="/" v-for="collection in collections" :key="collection.id">
+    <NuxtLink
+      class="collections__collection"
+      :to="`/${COLLECTION_PATH}${collection.handle}`"
+      v-for="collection in collections"
+      :key="collection.id"
+    >
       <img class="collections__collection__img" :src="collection.image.src" :alt="collection.image.handle" />
       <div class="collections__collection__txt">
         <h3 class="collections__collection__txt__title">{{ collection.title }}</h3>
         <p class="collections__collection__txt__description">{{ collection.description }}</p>
-        <NuxtLink to="/" class="collections__collection__txt__button button-primary">Voir la collection</NuxtLink>
+        <NuxtLink
+          :to="`/${COLLECTION_PATH}${collection.handle}`"
+          class="collections__collection__txt__button button-primary"
+          >Voir la collection</NuxtLink
+        >
       </div>
     </NuxtLink>
   </section>
