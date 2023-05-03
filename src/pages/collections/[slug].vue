@@ -8,19 +8,31 @@ const collectionSlug = route.params.slug
 
 // Store
 const productStore = useProductStore()
-productStore.getCollectionsAndProducts()
-const collections = productStore.collections
 const products = ref([])
+// META TAGS
+const metaTitle = ref('')
+const metaDescription = ref('')
 
-collections.forEach(collection => {
-  if (collection.handle === collectionSlug) {
-    products.value.push(...collection.products)
-    console.log(products.value)
-  }
+onMounted(() => {
+  const collection = productStore.collections.find(collection => collection.handle === collectionSlug)
+  products.value.push(...collection.products)
+  metaTitle.value = collection.title
+  metaDescription.value = collection.description
+})
+
+useHead({
+  title: metaTitle,
+  meta: [
+    {
+      name: 'description',
+      content: metaDescription,
+    },
+  ],
 })
 </script>
 <template>
   <section class="collection">
+    <h1 class="collection__title">{{ metaTitle }}</h1>
     <div class="collection__products">
       <ProductCard v-for="product in products" :product="product" />
     </div>
@@ -35,6 +47,15 @@ collections.forEach(collection => {
   padding: 2rem 1rem;
   flex-direction: column;
   align-items: center;
+
+  &__title {
+    font-weight: 200 !important;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
   &__products {
     display: grid;

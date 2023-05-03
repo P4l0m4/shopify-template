@@ -57,6 +57,20 @@ onMounted(() => {
     new Yotpo.API(yotpo).refreshWidgets()
   }
 })
+
+// META TAGS
+const metaTitle = ref(productStore.product.title)
+const metaDescription = ref(productStore.product.description)
+
+useHead({
+  title: metaTitle,
+  meta: [
+    {
+      name: 'description',
+      content: metaDescription,
+    },
+  ],
+})
 </script>
 
 <template>
@@ -437,6 +451,13 @@ onMounted(() => {
   }
 
   & :deep(.yotpo-first-review-stars) {
+    display: none;
+  }
+
+  &
+    :deep(
+      .bottom-line-items-container-desktop .bottom-line-items-wrapper .bottom-line-only .bottom-line-only-container
+    ) {
     display: none;
   }
 }

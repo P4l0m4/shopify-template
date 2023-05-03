@@ -2,10 +2,22 @@
 import { useProductStore } from '@/stores/product'
 import { ref } from 'vue'
 
+// META TAGS
+const metaTitle = ref('Boutique')
+const metaDescription = ref('Hero subtitle lorem ipsum dolor sit amet, consequitur sit elit.')
+
+useHead({
+  title: metaTitle,
+  meta: [
+    {
+      name: 'description',
+      content: metaDescription,
+    },
+  ],
+})
+
 // Store
 const productStore = useProductStore()
-
-productStore.getCollectionsAndProducts()
 
 let selectedCollections = ref([])
 

@@ -6,7 +6,7 @@ import { ref } from 'vue'
 // TESTING
 const infoStore = useInfoStore()
 infoStore.getInfo()
-console.log(infoStore.info)
+// console.log(infoStore.info)
 
 //IN PROGRESS
 let year = new Date().getFullYear()

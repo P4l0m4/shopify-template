@@ -5,7 +5,6 @@
 // console.log(JSON.parse(JSON.stringify(info)))
 import { useProductStore } from '@/stores/product'
 const productStore = useProductStore()
-productStore.getCollectionsAndProducts()
 </script>
 
 <template>

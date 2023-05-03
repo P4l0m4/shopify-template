@@ -2,10 +2,25 @@
 import { useLikedStore } from '@/stores/liked'
 
 const likedStore = useLikedStore()
+
+// META TAGS
+const metaTitle = ref('Mes favoris')
+const metaDescription = ref('Hero subtitle lorem ipsum dolor sit amet, consequitur sit elit.')
+
+useHead({
+  title: metaTitle,
+  meta: [
+    {
+      name: 'description',
+      content: metaDescription,
+    },
+  ],
+})
 </script>
 
 <template>
   <section class="liked">
+    <h1 class="liked__title">Mes favoris</h1>
     <div class="liked__products" v-if="likedStore.productsLiked.length > 0">
       <ProductCard v-for="product in likedStore.productsLiked" :product="product" />
     </div>
@@ -24,6 +39,16 @@ const likedStore = useLikedStore()
   padding: 2rem 1rem;
   flex-direction: column;
   align-items: center;
+
+  &__title {
+    font-weight: 200 !important;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   &__products {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

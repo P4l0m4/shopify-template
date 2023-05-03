@@ -1,9 +1,25 @@
+<script setup>
+// META TAGS
+const metaTitle = ref('Hero title')
+const metaDescription = ref('Hero subtitle lorem ipsum dolor sit amet, consequitur sit elit.')
+
+useHead({
+  title: metaTitle,
+  meta: [
+    {
+      name: 'description',
+      content: metaDescription,
+    },
+  ],
+})
+</script>
+
 <template>
   <header class="header">
     <div class="header__wrapper">
       <div class="header__wrapper__txt">
-        <h1 class="header__wrapper__txt__title">HERO TITLE</h1>
-        <h2 class="header__wrapper__txt__subtitle">Hero subtitle lorem ipsum dolor sit amet, consequitur sit elit.</h2>
+        <h1 class="header__wrapper__txt__title">{{ metaTitle }}</h1>
+        <p class="header__wrapper__txt__subtitle">{{ metaDescription }}</p>
       </div>
       <NuxtLink class="header__wrapper__button" to="/shop"
         >Boutique<img class="header__wrapper__button__icon icon" src="@/assets/icons/next.svg" alt=""

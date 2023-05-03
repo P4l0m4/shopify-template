@@ -13,7 +13,7 @@ defineProps({ collections: Array })
     >
       <img class="collections__collection__img" :src="collection.image.src" :alt="collection.image.handle" />
       <div class="collections__collection__txt">
-        <h3 class="collections__collection__txt__title">{{ collection.title }}</h3>
+        <h2 class="collections__collection__txt__title">{{ collection.title }}</h2>
         <p class="collections__collection__txt__description">{{ collection.description }}</p>
         <NuxtLink
           :to="`/${COLLECTION_PATH}${collection.handle}`"

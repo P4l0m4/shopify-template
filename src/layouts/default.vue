@@ -1,5 +1,6 @@
 <script setup>
 import { useCartStore } from '@/stores/cart'
+import { useProductStore } from '@/stores/product'
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle'
 // register Swiper custom elements
@@ -7,6 +8,9 @@ register()
 
 const cartStore = useCartStore()
 await cartStore.initCheckout()
+
+const productStore = useProductStore()
+await productStore.getCollectionsAndProducts()
 
 useHead({
   script: [
