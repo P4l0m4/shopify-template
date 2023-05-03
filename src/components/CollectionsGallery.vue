@@ -55,7 +55,7 @@ defineProps({ collections: Array })
 
     &__img {
       width: 40%;
-      height: 100%;
+      height: clamp(240px, 100%, 600px);
       object-fit: cover;
     }
     &__txt {
