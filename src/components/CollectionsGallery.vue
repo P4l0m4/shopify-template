@@ -44,15 +44,15 @@ defineProps({ collections: Array })
 
   &__collection {
     display: flex;
-    height: clamp(240px, 100%, 600px);
     max-width: 600px;
     background-color: $primary-color;
     border-radius: calc($radius / 2);
     overflow: hidden;
+    height: 100%;
 
     &__img {
       width: 40%;
-      height: 100%;
+      height: auto;
       object-fit: cover;
     }
     &__txt {
@@ -61,6 +61,7 @@ defineProps({ collections: Array })
       gap: 1rem;
       padding: 1rem;
       height: 100%;
+      align-items: flex-end;
 
       &__title {
         font-size: 1rem;
