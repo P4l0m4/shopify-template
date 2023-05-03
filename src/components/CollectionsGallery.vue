@@ -31,10 +31,8 @@ defineProps({ collections: Array })
   max-width: 2000px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  align-items: stretch;
 
-  @media (min-width: $tablet-screen) {
-    place-items: center;
-  }
   @media (min-width: $laptop-screen) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -48,7 +46,7 @@ defineProps({ collections: Array })
     background-color: $primary-color;
     border-radius: calc($radius / 2);
     overflow: hidden;
-    height: 100%;
+    box-shadow: $shadow;
 
     &__img {
       width: 40%;
