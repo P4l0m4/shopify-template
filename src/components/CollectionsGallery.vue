@@ -60,11 +60,12 @@ defineProps({ collections: Array })
       flex-direction: column;
       gap: 1rem;
       padding: 1rem;
-      height: 100%;
+      height: auto;
       align-items: flex-end;
 
       &__title {
         font-size: 1rem;
+        width: 100%;
 
         @media (min-width: $tablet-screen) {
           font-size: 1.5rem;
