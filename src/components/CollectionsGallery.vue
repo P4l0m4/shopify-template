@@ -60,7 +60,6 @@ defineProps({ collections: Array })
       flex-direction: column;
       gap: 1rem;
       padding: 1rem;
-      height: auto;
       align-items: flex-end;
 
       &__title {
@@ -74,7 +73,6 @@ defineProps({ collections: Array })
 
       &__description {
         overflow-y: hidden;
-        width: 100%;
         max-height: 300px;
       }
 
