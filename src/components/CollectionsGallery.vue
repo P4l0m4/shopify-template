@@ -78,7 +78,7 @@ defineProps({ collections: Array })
       &__description {
         overflow-y: hidden;
         width: 100%;
-        max-height: 180px;
+        max-height: 300px;
         height: 100%;
       }
 
