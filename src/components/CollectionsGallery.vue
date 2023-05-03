@@ -27,6 +27,7 @@ defineProps({ collections: Array })
 <style scoped lang="scss">
 .collections {
   gap: 2rem;
+  grid-gap: 2rem;
   padding: 0 1rem;
   width: 100vw;
   max-width: 2000px;
