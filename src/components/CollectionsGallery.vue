@@ -27,9 +27,7 @@ defineProps({ collections: Array })
 <style scoped lang="scss">
 .collections {
   gap: 2rem;
-  grid-gap: 2rem;
   padding: 0 1rem;
-  width: 100vw;
   max-width: 2000px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -46,16 +44,15 @@ defineProps({ collections: Array })
 
   &__collection {
     display: flex;
-    align-items: flex-end;
     height: clamp(240px, 100%, 600px);
-    width: clamp(343px, 100%, 600px);
+    max-width: 600px;
     background-color: $primary-color;
     border-radius: calc($radius / 2);
     overflow: hidden;
 
     &__img {
       width: 40%;
-      height: clamp(240px, 100%, 600px);
+      height: 100%;
       object-fit: cover;
     }
     &__txt {
@@ -64,12 +61,9 @@ defineProps({ collections: Array })
       gap: 1rem;
       padding: 1rem;
       height: 100%;
-      justify-content: flex-end;
-      align-items: flex-end;
 
       &__title {
         font-size: 1rem;
-        width: 100%;
 
         @media (min-width: $tablet-screen) {
           font-size: 1.5rem;
