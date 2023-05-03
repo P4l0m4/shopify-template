@@ -407,6 +407,19 @@ onMounted(() => {
   & :deep(.yotpo-bottomline .bottom-line-items-container-desktop .yotpo-hidden) {
     display: none;
   }
+
+  & :deep(.bottom-line-only-container) {
+    display: none;
+  }
+
+  & :deep(.yotpo-filter-stars .rating-stars-container .mL0) {
+    display: none !important;
+  }
+
+  & :deep(.reviews-qa-labels-container .mL0) {
+    display: none !important;
+  }
+
   & :deep(.write-first-review-button) {
     background-color: $text-color;
     font-size: 1rem;

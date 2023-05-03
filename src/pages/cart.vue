@@ -128,7 +128,7 @@ const isMarkerOpen = ref(false)
       </div>
     </section>
 
-    <h3 class="title">Nos best-sellers</h3>
+    <h3 class="container__title">Nos best-sellers</h3>
     <ProductsPropositions />
   </div>
 </template>
@@ -139,207 +139,217 @@ const isMarkerOpen = ref(false)
   flex-direction: column;
   gap: 2rem;
   align-items: center;
-}
-.cart {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  justify-content: center;
-  width: clamp(100px, 100%, 800px);
-  padding: 2rem 1rem;
-  align-items: center;
 
-  &__products {
-    gap: 2rem;
+  .cart {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    gap: 2rem;
+    justify-content: center;
+    width: clamp(100px, 100%, 800px);
+    padding: 2rem 1rem;
     align-items: center;
 
-    @media (min-width: $laptop-screen) {
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 4rem;
-    }
-    &__list {
+    &__products {
+      gap: 2rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      width: clamp(300px, 100%, 500px);
+      width: 100%;
+      align-items: center;
+
       @media (min-width: $laptop-screen) {
-        gap: 2rem;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 4rem;
       }
 
-      &__product {
-        width: 100%;
+      &__list {
         display: flex;
+        flex-direction: column;
         gap: 1rem;
-        border-radius: $radius;
-
-        &__card {
-          display: flex;
-          width: 100px;
-
-          &__img {
-            width: 70px;
-            height: 70px;
-            object-fit: contain;
-          }
+        width: clamp(300px, 100%, 500px);
+        @media (min-width: $laptop-screen) {
+          gap: 2rem;
         }
 
-        &__description {
-          display: flex;
-          flex-direction: column;
+        &__product {
           width: 100%;
-          justify-content: space-between;
+          display: flex;
+          gap: 1rem;
+          border-radius: $radius;
 
-          &__txt {
+          &__card {
+            display: flex;
+            width: 100px;
+
+            &__img {
+              width: 70px;
+              height: 70px;
+              object-fit: contain;
+            }
+          }
+
+          &__description {
             display: flex;
             flex-direction: column;
-            gap: 0.25rem;
-
-            &__title {
-              font-weight: 600;
-              font-size: 0.9rem;
-              text-overflow: ellipsis;
-            }
-
-            &__variant {
-              font-size: 0.75rem;
-            }
-
-            &__details {
-              font-size: 12px;
-              max-width: 400px;
-            }
-            &__price {
-              font-size: 1.5rem;
-              font-weight: 800;
-            }
-            &__details {
-              display: none;
-            }
-          }
-
-          &__price {
-            display: flex;
-            justify-content: flex-end;
-            gap: 0.5rem;
-            font-weight: 600;
-          }
-
-          &__quantity {
-            display: flex;
-            gap: 2rem;
             width: 100%;
-            align-items: flex-end;
             justify-content: space-between;
 
-            &__buttons {
+            &__txt {
               display: flex;
-              gap: 1rem;
+              flex-direction: column;
+              gap: 0.25rem;
+
+              &__title {
+                font-weight: 600;
+                font-size: 0.9rem;
+                text-overflow: ellipsis;
+              }
+
+              &__variant {
+                font-size: 0.75rem;
+              }
+
+              &__details {
+                font-size: 12px;
+                max-width: 400px;
+              }
+              &__price {
+                font-size: 1.5rem;
+                font-weight: 800;
+              }
+              &__details {
+                display: none;
+              }
+            }
+
+            &__price {
+              display: flex;
               justify-content: flex-end;
-              align-items: center;
-              cursor: pointer;
+              gap: 0.5rem;
+              font-weight: 600;
+            }
 
-              &__button {
+            &__quantity {
+              display: flex;
+              gap: 2rem;
+              width: 100%;
+              align-items: flex-end;
+              justify-content: space-between;
+
+              &__buttons {
                 display: flex;
-                justify-content: center;
+                gap: 1rem;
+                justify-content: flex-end;
                 align-items: center;
-                width: 30px;
-                height: 30px;
-                border-radius: $radius;
-                padding: 0.2rem;
-                transition: opacity 0.2s;
-                &:disabled {
-                  opacity: 0.5;
-                }
+                cursor: pointer;
 
-                &--solid {
-                  background-color: $text-color;
-                }
+                &__button {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  width: 30px;
+                  height: 30px;
+                  border-radius: $radius;
+                  padding: 0.2rem;
+                  transition: opacity 0.2s;
+                  &:disabled {
+                    opacity: 0.5;
+                  }
 
-                &--outline {
-                  border: 2px solid $text-color;
+                  &--solid {
+                    background-color: $text-color;
+                  }
+
+                  &--outline {
+                    border: 2px solid $text-color;
+                  }
                 }
               }
             }
           }
-        }
-        &__hidden {
-          display: none;
-          align-items: flex-end;
-          background-color: rgba(51, 51, 51, 0.1);
+
+          &__hidden {
+            display: none;
+            align-items: flex-end;
+            background-color: rgba(51, 51, 51, 0.1);
+          }
         }
       }
-    }
-    &__params {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      width: clamp(300px, 100%, 500px);
-      @media (min-width: $laptop-screen) {
-        gap: 2rem;
-      }
-      &__price {
+
+      &__params {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        width: 100%;
+        gap: 2rem;
+        width: clamp(300px, 100%, 500px);
 
-        &__amounts {
+        &__price {
           display: flex;
-          justify-content: space-between;
+          flex-direction: column;
+          gap: 1rem;
           width: 100%;
-          font-weight: 600;
-          font-size: 0.75rem;
-          &:nth-last-of-type(1) {
-            font-size: 1rem;
-          }
 
-          & details {
+          &__amounts {
             display: flex;
+            justify-content: space-between;
             width: 100%;
-            gap: 1rem;
+            font-weight: 600;
+            font-size: 0.75rem;
+            &:nth-last-of-type(1) {
+              font-size: 1rem;
+            }
 
-            & summary {
+            & details {
               display: flex;
               width: 100%;
-              justify-content: space-between;
-              align-items: center;
-              .wrapper {
+              gap: 1rem;
+
+              & summary {
                 display: flex;
+                width: 100%;
+                justify-content: space-between;
                 align-items: center;
-
-                .icon {
-                  transform: rotate(270deg);
+                .wrapper {
                   display: flex;
-                  width: 16px;
+                  align-items: center;
 
-                  &--open {
-                    transform: rotate(90deg);
+                  .icon {
+                    transform: rotate(270deg);
+                    display: flex;
+                    width: 16px;
+
+                    &--open {
+                      transform: rotate(90deg);
+                    }
                   }
                 }
               }
             }
           }
         }
+        &__button {
+          width: 100%;
+        }
       }
-      &__button {
-        width: 100%;
-      }
+    }
+
+    &__empty {
+      padding: 1rem;
+      background-color: $primary-color;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-direction: column;
+      border-radius: $radius;
     }
   }
 
-  &__empty {
-    padding: 1rem;
-    background-color: $primary-color;
+  &__title {
+    font-weight: 200 !important;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+    width: 100%;
     display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-direction: column;
-    border-radius: $radius;
   }
 }
 </style>

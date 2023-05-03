@@ -35,7 +35,6 @@ defineProps({ collections: Array })
 
   @media (min-width: $tablet-screen) {
     place-items: center;
-    grid-template-columns: repeat(2, 1fr);
   }
   @media (min-width: $laptop-screen) {
     grid-template-columns: repeat(3, 1fr);
@@ -79,13 +78,8 @@ defineProps({ collections: Array })
       &__description {
         overflow-y: hidden;
         width: 100%;
-        font-size: 0.75rem;
         max-height: 180px;
         height: 100%;
-
-        @media (min-width: $tablet-screen) {
-          font-size: 1rem;
-        }
       }
 
       &__button {

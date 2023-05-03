@@ -11,10 +11,14 @@ productStore.getCollectionsAndProducts()
 <template>
   <section class="index-section">
     <HeaderComponent />
-    <p class="title">Nos collections exclusives</p>
-    <CollectionsGallery :collections="productStore.collections" />
-    <p class="title">Nos best sellers</p>
-    <ProductsPropositions />
+    <div class="index-section__wrapper">
+      <p class="index-section__wrapper__title">Nos collections exclusives</p>
+      <CollectionsGallery :collections="productStore.collections" />
+    </div>
+    <div class="index-section__wrapper">
+      <p class="index-section__wrapper__title">Nos best sellers</p>
+      <ProductsPropositions />
+    </div>
     <!-- <GeneralReviews /> -->
   </section>
 </template>
@@ -22,9 +26,18 @@ productStore.getCollectionsAndProducts()
 .index-section {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-}
-.title {
-  font-weight: 200 !important;
+  gap: 4rem;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    &__title {
+      font-weight: 200 !important;
+      font-size: 1.5rem;
+      padding: 0 1rem;
+    }
+  }
 }
 </style>
