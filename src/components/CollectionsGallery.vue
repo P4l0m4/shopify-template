@@ -76,12 +76,12 @@ defineProps({ collections: Array })
         overflow-y: hidden;
         width: 100%;
         max-height: 300px;
-        height: 100%;
       }
 
       &__button {
         padding: 1rem;
         width: 100%;
+        margin-top: auto;
         @media (min-width: $tablet-screen) {
           width: fit-content;
           padding: 1rem 2rem;
