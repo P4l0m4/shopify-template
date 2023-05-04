@@ -32,7 +32,11 @@ useHead({
 </script>
 <template>
   <section class="collection">
-    <h1 class="collection__title">{{ metaTitle }}</h1>
+    <div class="collection__txt">
+      <h1 class="collection__txt__title">{{ metaTitle }}</h1>
+      <p class="collection__txt__description">{{ metaDescription }}</p>
+    </div>
+
     <div class="collection__products">
       <ProductCard v-for="product in products" :product="product" />
     </div>
@@ -41,20 +45,35 @@ useHead({
 <style lang="scss" scoped>
 .collection {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   width: 100vw;
   overflow-x: scroll;
   padding: 2rem 1rem;
   flex-direction: column;
   align-items: center;
 
-  &__title {
-    font-weight: 200 !important;
-    font-size: 1.5rem;
-    padding: 0 1rem;
-    width: 100%;
+  &__txt {
+    max-width: 674px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @media (min-width: $laptop-screen) {
+      max-width: 904px;
+    }
+
+    @media (min-width: $desktop-screen) {
+      max-width: 1134px;
+    }
+
+    &__title {
+      font-weight: 200 !important;
+      font-size: 1.5rem;
+    }
+
+    &__description {
+      display: flex;
+    }
   }
 
   &__products {

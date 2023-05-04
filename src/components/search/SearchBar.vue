@@ -83,21 +83,30 @@ const optionSelected = ref('')
 .container {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
   width: 100%;
   padding: 0 1rem;
   align-items: center;
 
   .search {
     display: flex;
-    width: clamp(200px, 100%, 800px);
+    width: 100%;
     border-radius: $radius;
     gap: 0.5rem;
+    max-width: 674px;
+
+    @media (min-width: $laptop-screen) {
+      max-width: 904px;
+    }
+
+    @media (min-width: $desktop-screen) {
+      max-width: 1134px;
+    }
 
     &__field {
       display: flex;
       align-items: center;
-      width: clamp(200px, 100%, 800px);
+      width: 100%;
       box-shadow: $shadow;
       border-radius: $radius;
       padding: 0.25rem 0.5rem;

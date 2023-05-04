@@ -79,7 +79,7 @@ function applySort(options) {
 .shop {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   padding: 1rem 0;
   align-items: center;
 }
