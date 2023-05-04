@@ -1,7 +1,8 @@
 <script setup>
 import { client } from '@/services/shopify'
 
-let products = await client.product.fetchAll()
+let products = await client.product.fetchQuery({ first: 10, sortKey: 'BEST_SELLING' })
+
 products = JSON.parse(JSON.stringify(products))
 </script>
 <template>
