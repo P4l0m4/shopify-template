@@ -46,7 +46,7 @@ useHead({
 .collection {
   display: flex;
   gap: 2rem;
-  width: 100vw;
+  width: 100%;
   overflow-x: scroll;
   padding: 2rem 1rem;
   flex-direction: column;
@@ -64,6 +64,10 @@ useHead({
 
     @media (min-width: $desktop-screen) {
       max-width: 1134px;
+    }
+
+    @media (min-width: $super-big-screen) {
+      max-width: 1364px;
     }
 
     &__title {

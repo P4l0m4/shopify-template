@@ -103,6 +103,10 @@ const optionSelected = ref('')
       max-width: 1134px;
     }
 
+    @media (min-width: $super-big-screen) {
+      max-width: 1364px;
+    }
+
     &__field {
       display: flex;
       align-items: center;
