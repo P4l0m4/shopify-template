@@ -124,9 +124,16 @@ useHead({
             </div>
           </div>
           <div class="product__details__add-to-cart__price">
-            <span class="product__details__add-to-cart__price__number"
-              >{{ parseFloat(productStore.productVariant.price.amount).toFixed(2) }} €</span
-            >
+            <div class="product__details__add-to-cart__price__numbers">
+              <span class="product__details__add-to-cart__price__numbers__number"
+                >{{ parseFloat(productStore.productVariant.price.amount).toFixed(2) }} €</span
+              ><span
+                v-if="productStore.productVariant.compareAtPrice.amount > productStore.productVariant.price.amount"
+                class="product__details__add-to-cart__price__numbers__promotion"
+                >{{ parseFloat(productStore.productVariant.compareAtPrice.amount).toFixed(2) }} €</span
+              >
+            </div>
+
             <button
               :disabled="updatingCart"
               @click.prevent="updateCart(productStore.productVariant)"
@@ -256,6 +263,8 @@ useHead({
         }
         &__wrapper {
           display: flex;
+          align-items: center;
+          margin-top: 0.5rem;
 
           &__button {
             background-color: transparent;
@@ -281,6 +290,8 @@ useHead({
 
             .write-review-btn-hidden {
               min-width: 100px;
+              color: $text-color !important;
+              text-decoration: underline !important;
             }
           }
 
@@ -291,12 +302,26 @@ useHead({
       }
 
       &__price {
-        font-size: 1.5rem;
-        font-weight: 800;
         display: flex;
         width: 100%;
         justify-content: space-between;
         align-items: center;
+
+        &__numbers {
+          display: flex;
+          font-size: 1.5rem;
+          font-weight: 800;
+          gap: 1rem;
+          align-items: flex-end;
+
+          &__promotion {
+            display: flex;
+            color: $selected-background-color-darker;
+            text-decoration: line-through;
+            font-weight: 400;
+            font-size: 1rem;
+          }
+        }
       }
     }
   }

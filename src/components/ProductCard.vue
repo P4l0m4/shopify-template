@@ -1,14 +1,32 @@
 <script setup>
 import { useLikedStore } from '@/stores/liked'
 import { PRODUCT_PATH } from '@/config/url'
+import { ref } from 'vue'
 
 const likedStore = useLikedStore()
 
 const props = defineProps({ product: Object })
+
+const promotion = ref()
+
+Object.values(props.product).forEach(element => {
+  let i = 0
+  if (
+    props.product.variants[i].compareAtPrice.amount > props.product.variants[i].price.amount &&
+    props.product.variants[i].compareAtPrice.amount != null
+  ) {
+    promotion.value =
+      100 -
+      parseFloat(props.product.variants[i].price.amount / props.product.variants[i].compareAtPrice.amount).toFixed(2) *
+        100
+  }
+  i++
+})
 </script>
 
 <template>
   <nuxt-link :to="`/${PRODUCT_PATH}${product.handle}`" :key="product.id" class="product-card">
+    <span v-if="promotion" class="product-card__promotion">- {{ promotion }}%</span>
     <img class="product-card__img" :src="product.images[0].src" :alt="product.handle" />
 
     <div class="product-card__txt">
@@ -46,6 +64,20 @@ const props = defineProps({ product: Object })
   padding: 1rem;
   min-width: 146px;
   animation: fading 0.4s ease;
+  position: relative;
+
+  &__promotion {
+    display: flex;
+    justify-content: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: $radius;
+    background-color: $selected-background-color;
+    color: $selected-color-darker;
+    border: 2px solid $selected-color-darker;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
 
   &__img {
     object-fit: contain;

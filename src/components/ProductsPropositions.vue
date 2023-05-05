@@ -21,7 +21,6 @@ products = JSON.parse(JSON.stringify(products))
   padding: 0 1rem;
   animation: slide-from-right 0.4s ease;
 }
-
 .product-card {
   display: flex;
   gap: 1rem;
