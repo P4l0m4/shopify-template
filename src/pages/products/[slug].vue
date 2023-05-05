@@ -157,7 +157,7 @@ useHead({
       ></div>
       <!-- <div id="yotpo-testimonials-custom-tab"></div> -->
     </section>
-    <p class="title">Nos best sellers</p>
+    <p class="container__title">Nos best sellers</p>
     <ProductsPropositions />
   </div>
 </template>
@@ -165,8 +165,14 @@ useHead({
 .container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
   padding: 1rem 0;
+
+  &__title {
+    font-weight: 200 !important;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+  }
 }
 .product {
   display: flex;
