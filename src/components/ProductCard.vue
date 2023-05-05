@@ -73,7 +73,7 @@ Object.values(props.product).forEach(element => {
     border-radius: $radius;
     background-color: $selected-background-color;
     color: $selected-color-darker;
-    border: 2px solid $selected-color-darker;
+    border: 2px solid $selected-color;
     position: absolute;
     right: 1rem;
     top: 1rem;

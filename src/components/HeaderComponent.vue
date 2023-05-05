@@ -84,7 +84,7 @@ useHead({
 
     &__button {
       display: flex;
-      padding: 1rem 2rem;
+      padding: 0.75rem 2rem;
       gap: 1rem;
       color: $primary-color;
       border: 2px solid $primary-color;

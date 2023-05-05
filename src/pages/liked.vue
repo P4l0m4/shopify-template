@@ -20,7 +20,7 @@ useHead({
 
 <template>
   <section class="liked">
-    <h1 class="liked__title">Mes favoris</h1>
+    <h1 class="liked__title">Vos favoris</h1>
     <div class="liked__products" v-if="likedStore.productsLiked.length > 0">
       <ProductCard v-for="product in likedStore.productsLiked" :product="product" />
     </div>

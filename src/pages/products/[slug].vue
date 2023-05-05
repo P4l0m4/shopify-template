@@ -102,6 +102,7 @@ useHead({
               :class="{ 'product__details__add-to-cart__txt__description--too-big': isTooBig && !seeMore }"
               v-html="productStore.product.descriptionHtml"
             ></p>
+
             <div class="product__details__add-to-cart__txt__wrapper">
               <div
                 class="yotpo bottomLine"

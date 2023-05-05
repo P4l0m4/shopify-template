@@ -1,25 +1,33 @@
 <script setup>
 import { useInfoStore } from '@/stores/info'
-import { client } from '@/services/shopify'
 import { ref } from 'vue'
 
 // TESTING
 const infoStore = useInfoStore()
-infoStore.getInfo()
-// console.log(infoStore.info)
+await infoStore.getInfo()
+let info = infoStore.info
 
 //IN PROGRESS
 let year = new Date().getFullYear()
-
-const info = await client.shop.fetchInfo()
 </script>
 
 <template>
-  <footer>
+  <footer class="footer">
     <!-- <CookiesSettings /> -->
-    <span>©{{ info.name }} {{ year }}</span>
-    <nuxt-link to="/" class="mentions">Mentions légales</nuxt-link>
-    <div class="icons">
+    <div class="footer__site-links">
+      <nuxt-link to="/shop" class="footer__document">Accueil</nuxt-link>
+      <nuxt-link to="/shop" class="footer__document">Boutique</nuxt-link>
+      <nuxt-link to="/liked" class="footer__document">Favoris</nuxt-link>
+      <nuxt-link to="/contact" class="footer__document">Contact</nuxt-link>
+    </div>
+
+    <div class="footer__others">
+      <span>©{{ info.name }} {{ year }}</span>
+      <nuxt-link to="/" class="footer__others__document">Mentions légales</nuxt-link>
+      <nuxt-link to="/" class="footer__others__document">CGV</nuxt-link>
+    </div>
+
+    <div class="footer__icons">
       <a href="#"><img src="@/assets/icons/facebook.svg" alt="icon" /></a
       ><a href="#"><img src="@/assets/icons/linkedin.svg" alt="icon" /></a
       ><a href="#"><img src="@/assets/icons/instagram.svg" alt="icon" /></a>
@@ -27,9 +35,9 @@ const info = await client.shop.fetchInfo()
   </footer>
 </template>
 <style lang="scss" scoped>
-footer {
+.footer {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: flex-end;
   align-items: center;
   width: 100%;
@@ -39,11 +47,23 @@ footer {
   flex-wrap: wrap;
   background-color: $primary-color;
 
-  & .mentions {
+  &__site-links {
+    display: flex;
+    gap: 1rem;
     text-decoration: underline;
   }
 
-  & .icons {
+  &__others {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    &__document {
+      text-decoration: underline;
+    }
+  }
+
+  &__icons {
     display: flex;
     gap: 0.5rem;
   }
