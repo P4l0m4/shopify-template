@@ -47,12 +47,8 @@ const isMenuOpen = ref(false)
 </template>
 
 <style scoped lang="scss">
-.router-link {
-  transition: border 0.4s ease;
-}
 .router-link-exact-active {
   background-color: $selected-color;
-  border-radius: $radius;
 }
 .nav-container {
   display: flex;
@@ -128,6 +124,8 @@ nav {
     gap: 0.25rem;
     padding: 0.5rem;
     align-items: center;
+    border-radius: $radius;
+    transition: background-color 0.4s ease;
 
     &__cart {
       display: flex;
