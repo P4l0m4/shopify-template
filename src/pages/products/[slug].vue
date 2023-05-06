@@ -287,20 +287,20 @@ useHead({
             }
           }
 
-          // & :deep(.yotpo-bottomline) {
-          //   align-items: center;
-          //   gap: 0.25rem;
+          & :deep(.yotpo-bottomline) {
+            align-items: center;
+            gap: 0.25rem;
 
-          //   .yotpo-stars {
-          //     min-width: 90px;
-          //   }
+            .yotpo-stars {
+              min-width: 90px;
+            }
 
-          //   .write-review-btn-hidden {
-          //     min-width: 100px;
-          //     color: $text-color !important;
-          //     text-decoration: underline !important;
-          //   }
-          // }
+            .write-review-btn-hidden {
+              min-width: 100px;
+              color: $text-color !important;
+              text-decoration: underline !important;
+            }
+          }
 
           .yotpo.bottomLine.yotpo-small {
             width: clamp(160px, 100%, 400px);
@@ -423,8 +423,8 @@ useHead({
   }
 
   & :deep(.write-question-review-buttons-container) {
-    float: none;
-    display: none;
+    // float: none;
+    // display: none;
   }
 
   & :deep(.yotpo-regular-box) {
@@ -488,11 +488,37 @@ useHead({
     display: none;
   }
 
-  &
-    :deep(
-      .bottom-line-items-container-desktop .bottom-line-items-wrapper .bottom-line-only .bottom-line-only-container
-    ) {
+  & :deep(.bottom-line-items-wrapper) {
+    // display: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  & :deep(.bottom-line-items-container-mobile .yotpo-star-distribution-wrapper .yotpo-distribution-rows) {
+    place-items: center;
+  }
+
+  & :deep(.write-question-review-buttons-container) {
+    float: none !important;
+    padding-right: 0 !important;
+
+    // @media (max-width: 5000px) {
+    //   float: none !important;
+    //   padding-right: 0 !important;
+    // }
+  }
+
+  & :deep(.yotpo .write-review .socialize-wrapper .socialize) {
     display: none;
+  }
+
+  & :deep(.yotpo .write-review .socialize-wrapper .yotpo-or) {
+    display: none;
+  }
+
+  & :deep(.yotpo-regular-box.yotpo-bottomline.bottom-line-items-container-desktop) {
+    height: initial !important;
+    min-height: 160px;
   }
 }
 </style>
