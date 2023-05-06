@@ -253,6 +253,12 @@ const isMarkerOpen = ref(false)
                   border-radius: $radius;
                   padding: 0.2rem;
                   transition: opacity 0.2s;
+                  transition: transform 0.4s ease;
+
+                  &:hover {
+                    transform: scale(1.04);
+                  }
+
                   &:disabled {
                     opacity: 0.5;
                   }

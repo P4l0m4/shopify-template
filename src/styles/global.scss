@@ -88,25 +88,36 @@ input[type='number'] {
   justify-content: center;
   cursor: pointer;
   border-radius: $radius;
+  transition: transform 0.4s ease;
+
+  &:hover {
+    transform: scale(1.04);
+  }
 }
 .button-primary {
   background-color: $secondary-color;
   color: $primary-color;
   transition: opacity 0.2s;
+  transition: transform 0.4s ease;
 
   &:hover {
     -webkit-box-shadow: 0px 2px 4px 5px rgba(250, 255, 0, 0);
     box-shadow: 0px 2px 4px 5px rgba(250, 255, 0, 0);
-    transform: none;
   }
 
   &:disabled {
     opacity: 0.5;
   }
 }
+
 .button-secondary {
   background-color: transparent;
   border: $text-color solid 2px;
+  transition: transform 0.4s ease;
+
+  &:hover {
+    transform: scale(1.04);
+  }
 }
 
 .icon {

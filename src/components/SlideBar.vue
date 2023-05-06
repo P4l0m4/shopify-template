@@ -35,6 +35,7 @@ function copy() {
       font-size: 14px;
       font-family: 'Rubik', sans-serif;
       font-weight: 200;
+      cursor: pointer;
     }
   }
 }

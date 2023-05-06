@@ -117,6 +117,11 @@ Object.values(props.product).forEach(element => {
         border: 2px solid transparent;
         justify-content: flex-end;
         cursor: pointer;
+        transition: transform 0.4s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
 
         &__icon {
           width: 24px;

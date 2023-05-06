@@ -76,6 +76,10 @@ const cartStore = useCartStore()
         font-weight: 600;
         border: $secondary-color solid 2px;
         font-weight: 500;
+        transition: transform 0.4s ease;
+        &:hover {
+          transform: scale(1.04);
+        }
       }
     }
 

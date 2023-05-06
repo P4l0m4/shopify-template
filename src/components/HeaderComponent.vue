@@ -91,6 +91,11 @@ useHead({
       border-radius: $radius;
       animation: slide-from-left 0.6s;
       line-height: 1.5rem;
+      transition: transform 0.4s ease;
+
+      &:hover {
+        transform: scale(1.04);
+      }
 
       &__icon {
         width: 22px;

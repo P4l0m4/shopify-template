@@ -287,20 +287,20 @@ useHead({
             }
           }
 
-          & :deep(.yotpo-bottomline) {
-            align-items: center;
-            gap: 0.25rem;
+          // & :deep(.yotpo-bottomline) {
+          //   align-items: center;
+          //   gap: 0.25rem;
 
-            .yotpo-stars {
-              min-width: 90px;
-            }
+          //   .yotpo-stars {
+          //     min-width: 90px;
+          //   }
 
-            .write-review-btn-hidden {
-              min-width: 100px;
-              color: $text-color !important;
-              text-decoration: underline !important;
-            }
-          }
+          //   .write-review-btn-hidden {
+          //     min-width: 100px;
+          //     color: $text-color !important;
+          //     text-decoration: underline !important;
+          //   }
+          // }
 
           .yotpo.bottomLine.yotpo-small {
             width: clamp(160px, 100%, 400px);
@@ -359,6 +359,7 @@ useHead({
     margin: auto;
     justify-content: center;
   }
+
   & :deep(.yotpo-icon.yotpo-icon-write-no-frame.write-question-review-button-icon.yotpo-hidden-mobile) {
     display: none;
   }
@@ -371,6 +372,7 @@ useHead({
     border-radius: $radius;
     width: 100%;
   }
+
   & :deep(.form-element) {
     & input,
     textarea {

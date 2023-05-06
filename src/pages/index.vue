@@ -1,10 +1,30 @@
 <script setup>
-// import { client } from '@/services/shopify'
-
-// const info = await client.shop.fetchInfo()
-// console.log(JSON.parse(JSON.stringify(info)))
 import { useProductStore } from '@/stores/product'
 const productStore = useProductStore()
+
+// useHead({
+//   script: [
+//     {
+//       '@context': 'https://schema.org/',
+//       '@type': 'BreadcrumbList',
+//       itemListElement: [
+//         {
+//           '@type': 'ListItem',
+//           position: 1,
+//           name: 'accueil',
+//           item: '',
+//         },
+//         {
+//           '@type': 'ListItem',
+//           position: 2,
+//           name: 'products',
+//           item: '',
+//         },
+//       ],
+//     },
+//   ],
+//   body: true,
+// })
 </script>
 
 <template>
