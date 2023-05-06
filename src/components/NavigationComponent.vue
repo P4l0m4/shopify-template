@@ -20,7 +20,7 @@ const isMenuOpen = ref(false)
       <nuxt-link to="/" class="logo"><img src="@/assets/images/logo.svg" alt="logo" class="logo__img" /></nuxt-link>
 
       <div class="wrapper">
-        <NuxtLink to="/shop" class="link"
+        <NuxtLink exact to="/shop" class="link"
           ><img class="icon" src="@/assets/icons/search.svg" alt="search icon" /><span class="desktop-only"
             >Boutique</span
           ></NuxtLink
@@ -47,6 +47,13 @@ const isMenuOpen = ref(false)
 </template>
 
 <style scoped lang="scss">
+.router-link {
+  transition: border 0.4s ease;
+}
+.router-link-exact-active {
+  background-color: $selected-color;
+  border-radius: $radius;
+}
 .nav-container {
   display: flex;
   flex-direction: column;
@@ -100,6 +107,7 @@ nav {
     position: absolute;
     inset: 0;
     margin: auto;
+    background-color: $primary-color !important;
 
     &__img {
       width: 100%;

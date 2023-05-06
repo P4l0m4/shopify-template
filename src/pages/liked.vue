@@ -20,7 +20,7 @@ useHead({
 
 <template>
   <section class="liked">
-    <h1 class="liked__title">Vos favoris</h1>
+    <!-- <h1 class="liked__title">Vos favoris</h1> -->
     <div class="liked__products" v-if="likedStore.productsLiked.length > 0">
       <ProductCard v-for="product in likedStore.productsLiked" :product="product" />
     </div>
@@ -40,14 +40,14 @@ useHead({
   flex-direction: column;
   align-items: center;
 
-  &__title {
-    font-weight: 200 !important;
-    font-size: 1.5rem;
-    padding: 0 1rem;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+  // &__title {
+  //   font-weight: 200 !important;
+  //   font-size: 1.5rem;
+  //   padding: 0 1rem;
+  //   width: 100%;
+  //   display: flex;
+  //   justify-content: center;
+  // }
 
   &__products {
     display: grid;

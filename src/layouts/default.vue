@@ -40,6 +40,10 @@ useHead({
   max-width: 2000px;
   margin: auto;
 
+  @media (min-width: $laptop-screen) {
+    padding: 6.4rem 0 0 0;
+  }
+
   & main {
     width: 100%;
     min-height: 100vh;
