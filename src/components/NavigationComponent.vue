@@ -10,17 +10,27 @@ const isMenuOpen = ref(false)
 <template>
   <div class="nav-container">
     <SlideBar />
-
     <nav>
       <MenuOverlay :isMenuOpen="isMenuOpen" @close="isMenuOpen = false" />
-      <button @click="isMenuOpen = true" class="link">
+
+      <button @click="isMenuOpen = true" class="link menu">
         <img class="icon" src="@/assets/icons/menu.svg" alt="menu icon" />
       </button>
+
       <nuxt-link to="/" class="logo"><img src="@/assets/images/logo.svg" alt="logo" class="logo__img" /></nuxt-link>
+
       <div class="wrapper">
         <NuxtLink to="/shop" class="link"
-          ><img class="icon" src="@/assets/icons/search.svg" alt="search icon"
-        /></NuxtLink>
+          ><img class="icon" src="@/assets/icons/search.svg" alt="search icon" /><span class="desktop-only"
+            >Boutique</span
+          ></NuxtLink
+        >
+        <NuxtLink to="/liked" class="link desktop-only"
+          ><img class="icon" src="@/assets/icons/heart.svg" alt="search icon" />Favoris</NuxtLink
+        ><NuxtLink to="/contact" class="link desktop-only"
+          ><img class="icon" src="@/assets/icons/mail.svg" alt="search icon" />Contact</NuxtLink
+        >
+
         <NuxtLink to="/cart" class="link">
           <div class="link__cart">
             <img class="link__cart__img" src="@/assets/icons/bag.svg" alt="" /><span
@@ -58,10 +68,31 @@ nav {
   box-shadow: $shadow;
   position: relative;
 
+  @media (min-width: $laptop-screen) {
+    padding: 1rem;
+  }
+
+  .desktop-only {
+    display: none !important;
+
+    @media (min-width: $laptop-screen) {
+      display: flex !important;
+    }
+  }
+
   .wrapper {
     display: flex;
     gap: 1rem;
   }
+
+  .menu {
+    display: flex;
+
+    @media (min-width: $laptop-screen) {
+      display: none !important;
+    }
+  }
+
   & .logo {
     display: flex;
     width: 80px;
@@ -76,12 +107,19 @@ nav {
     @media (min-width: $tablet-screen) {
       width: 160px;
     }
+
+    @media (min-width: $laptop-screen) {
+      margin: initial;
+      inset: initial;
+      position: initial;
+    }
   }
 
   .link {
     display: flex;
     gap: 0.25rem;
     padding: 0.5rem;
+    align-items: center;
 
     &__cart {
       display: flex;
