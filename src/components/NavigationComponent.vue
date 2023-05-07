@@ -20,18 +20,18 @@ const isMenuOpen = ref(false)
       <nuxt-link to="/" class="logo"><img src="@/assets/images/logo.svg" alt="logo" class="logo__img" /></nuxt-link>
 
       <div class="wrapper">
-        <NuxtLink exact to="/shop" class="link"
+        <NuxtLink exact to="/boutique" class="link"
           ><img class="icon" src="@/assets/icons/search.svg" alt="search icon" /><span class="desktop-only"
             >Boutique</span
           ></NuxtLink
         >
-        <NuxtLink to="/liked" class="link desktop-only"
+        <NuxtLink to="/favoris" class="link desktop-only"
           ><img class="icon" src="@/assets/icons/heart.svg" alt="search icon" />Favoris</NuxtLink
         ><NuxtLink to="/contact" class="link desktop-only"
           ><img class="icon" src="@/assets/icons/mail.svg" alt="search icon" />Contact</NuxtLink
         >
 
-        <NuxtLink to="/cart" class="link">
+        <NuxtLink to="/panier" class="link">
           <div class="link__cart">
             <img class="link__cart__img" src="@/assets/icons/bag.svg" alt="" /><span
               class="link__cart__number"

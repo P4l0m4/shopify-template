@@ -1,2 +1,2 @@
-export const PRODUCT_PATH = 'products/'
+export const PRODUCT_PATH = 'produits/'
 export const COLLECTION_PATH = 'collections/'

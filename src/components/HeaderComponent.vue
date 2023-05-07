@@ -21,7 +21,7 @@ useHead({
         <h1 class="header__wrapper__txt__title">{{ metaTitle }}</h1>
         <p class="header__wrapper__txt__subtitle">{{ metaDescription }}</p>
       </div>
-      <NuxtLink class="header__wrapper__button" to="/shop"
+      <NuxtLink class="header__wrapper__button" to="/boutique"
         >Boutique<img class="header__wrapper__button__icon icon" src="@/assets/icons/next.svg" alt=""
       /></NuxtLink>
     </div>
