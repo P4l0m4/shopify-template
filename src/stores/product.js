@@ -40,8 +40,8 @@ export const useProductStore = defineStore('product', {
       let reverse = false
 
       if (this.filters?.price) {
-        query += !isNaN(this.filters.price.min) ? `variants.price:>=${this.filters.price.min}` : ''
-        query += !isNaN(this.filters.price.max) ? `variants.price:<=${this.filters.price.max}` : ''
+        query += !isNaN(this.filters.price.min) ? `variants.price:>=${this.filters.price.min} ` : ''
+        query += !isNaN(this.filters.price.max) ? `variants.price:<=${this.filters.price.max} ` : ''
       }
       if (this.search) {
         query += ` title:*${this.search}*`

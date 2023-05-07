@@ -93,10 +93,6 @@ const isMarkerOpen = ref(false)
 
           <div class="cart__products__params__price">
             <div class="cart__products__params__price__amounts">
-              <p>Total TTC:</p>
-              <span>{{ cartStore.checkout.paymentDue.amount * 1 }} €</span>
-            </div>
-            <div class="cart__products__params__price__amounts">
               <details>
                 <summary @click="isMarkerOpen = !isMarkerOpen">
                   <div class="wrapper">
@@ -107,7 +103,7 @@ const isMarkerOpen = ref(false)
                       alt=""
                     />
                   </div>
-                  <span>0 €</span>
+                  <span>Calculée à la prochaine étape</span>
                 </summary>
                 <ShipmentComponent />
               </details>

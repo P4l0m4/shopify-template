@@ -40,6 +40,7 @@ const isMenuOpen = ref(false)
               {{ cartStore.itemQuantity }}
             </span>
           </div>
+          <span class="desktop-only">Panier</span>
         </NuxtLink>
       </div>
     </nav>
