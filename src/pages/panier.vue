@@ -120,7 +120,7 @@ const isMarkerOpen = ref(false)
       </div>
       <div class="cart__empty" v-else>
         <span class="cart__empty__txt">Votre panier est vide</span>
-        <nuxt-link class="button-primary" to="/shop">Commencer mon shopping</nuxt-link>
+        <nuxt-link class="button-primary" to="/boutique">Commencer mon shopping</nuxt-link>
       </div>
     </section>
 

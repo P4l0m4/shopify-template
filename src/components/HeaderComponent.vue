@@ -1,4 +1,5 @@
 <script setup>
+const story = await useAsyncStoryblok('home', { version: 'draft' })
 // META TAGS
 const metaTitle = ref('Hero title')
 const metaDescription = ref('Hero subtitle lorem ipsum dolor sit amet, consequitur sit elit.')
@@ -16,7 +17,8 @@ useHead({
 
 <template>
   <header class="header">
-    <div class="header__wrapper">
+    <StoryblokComponent v-if="story" :blok="story.content" />
+    <!-- <div class="header__wrapper">
       <div class="header__wrapper__txt">
         <h1 class="header__wrapper__txt__title">{{ metaTitle }}</h1>
         <p class="header__wrapper__txt__subtitle">{{ metaDescription }}</p>
@@ -24,11 +26,11 @@ useHead({
       <NuxtLink class="header__wrapper__button" to="/boutique"
         >Boutique<img class="header__wrapper__button__icon icon" src="@/assets/icons/next.svg" alt=""
       /></NuxtLink>
-    </div>
+    </div> -->
   </header>
 </template>
 
-<style scoped lang="scss">
+<!-- <style scoped lang="scss">
 .header {
   width: 100%;
   height: 300px;
@@ -107,4 +109,4 @@ useHead({
     }
   }
 }
-</style>
+</style> -->

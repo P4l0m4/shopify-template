@@ -34,7 +34,7 @@ watch(
     </swiper-container>
   </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .swiper {
   margin: 0;
   display: flex;

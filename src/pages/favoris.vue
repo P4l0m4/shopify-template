@@ -26,7 +26,7 @@ useHead({
     </div>
     <div class="liked__empty" v-else>
       <span class="cart__empty__txt">Vous n'avez pas de favoris</span>
-      <nuxt-link class="button-primary" to="/shop">Commencer mon shopping</nuxt-link>
+      <nuxt-link class="button-primary" to="/boutique">Commencer mon shopping</nuxt-link>
     </div>
   </section>
 </template>

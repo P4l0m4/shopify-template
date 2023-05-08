@@ -6,7 +6,12 @@ export default defineNuxtConfig({
   ssr: false,
   srcDir: 'src/',
   css: ['@/styles/global.scss'],
-  modules: ['@pinia/nuxt', 'nuxt-calendly', 'nuxt-simple-sitemap'],
+  modules: [
+    '@pinia/nuxt',
+    'nuxt-calendly',
+    'nuxt-simple-sitemap',
+    ['@storyblok/nuxt', { accessToken: 'HywsRInkperCxQGCRiQGhAtt' }],
+  ],
 
   vite: {
     css: {
