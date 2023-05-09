@@ -358,6 +358,7 @@ useHead({
     align-items: center;
     margin: auto;
     justify-content: center;
+    margin-top: 1rem;
   }
 
   & :deep(.yotpo-icon.yotpo-icon-write-no-frame.write-question-review-button-icon.yotpo-hidden-mobile) {
