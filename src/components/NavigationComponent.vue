@@ -73,7 +73,7 @@ nav {
   position: relative;
 
   @media (min-width: $laptop-screen) {
-    padding: 1rem;
+    padding: 1rem 2rem;
   }
 
   .desktop-only {

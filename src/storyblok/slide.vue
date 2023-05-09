@@ -1,6 +1,6 @@
 <template>
   <swiper-slide class="swiper">
-    <div v-editable="blok" class="swiper__slide">
+    <NuxtLink :href="blok.button.url" v-editable="blok" class="swiper__slide">
       <img :src="blok?.image.filename" class="swiper__slide__img" :alt="blok?.image.alt" />
       <div class="swiper__slide__wrapper" :style="'background-color:' + blok.background_color">
         <div class="swiper__slide__wrapper__txt">
@@ -10,8 +10,7 @@
         <NuxtLink class="swiper__slide__wrapper__button" :href="blok.button.url"
           >{{ blok.button_name }}
           <img class="swiper__slide__wrapper__button__icon icon" src="@/assets/icons/next.svg" alt="icon"
-        /></NuxtLink>
-      </div></div
+        /></NuxtLink></div></NuxtLink
   ></swiper-slide>
 </template>
 
