@@ -36,6 +36,7 @@ const props = defineProps({ blok: Object })
       width: calc(50% / 1.6);
       height: 100%;
       object-fit: cover;
+      position: relative;
 
       @media (min-width: $laptop-screen) {
         width: calc(50% / 0.8);
@@ -51,7 +52,7 @@ const props = defineProps({ blok: Object })
       flex-direction: column;
       justify-content: center;
       align-items: flex-end;
-      gap: 1rem;
+      gap: 1.5rem;
       padding: 1rem;
       width: 100%;
       height: 100%;
@@ -99,17 +100,23 @@ const props = defineProps({ blok: Object })
       }
       &__button {
         display: flex;
-        padding: 0.75rem 2rem;
+        padding: 0.75rem 1rem;
         gap: 1rem;
         color: $primary-color;
         border: 2px solid $primary-color;
         border-radius: $radius;
         animation: slide-from-left 0.6s;
         line-height: 1.5rem;
+        width: clamp(100px, 100%, 250px);
+        justify-content: center;
         transition: transform 0.4s ease;
 
         &:hover {
           transform: scale(1.04);
+        }
+
+        @media (min-width: $tablet-screen) {
+          padding: 0.75rem 2rem;
         }
 
         &__icon {
