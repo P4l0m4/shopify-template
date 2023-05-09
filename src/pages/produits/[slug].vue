@@ -520,5 +520,9 @@ useHead({
     height: initial !important;
     min-height: 160px;
   }
+
+  & :deep(.bottom-line-items-wrapper) {
+    display: none !important;
+  }
 }
 </style>

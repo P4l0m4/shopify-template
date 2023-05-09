@@ -33,6 +33,7 @@ const props = defineProps({ blok: Object })
 
     &__img {
       width: calc(50% / 1.6);
+      max-width: 500px;
       height: 100%;
       object-fit: cover;
       position: relative;
