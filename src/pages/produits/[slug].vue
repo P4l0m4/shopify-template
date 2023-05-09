@@ -361,6 +361,9 @@ useHead({
     margin-top: 1rem;
   }
 
+  & :deep(.bottom-line-items-container-desktop) {
+    display: none;
+  }
   & :deep(.yotpo-icon.yotpo-icon-write-no-frame.write-question-review-button-icon.yotpo-hidden-mobile) {
     display: none;
   }
