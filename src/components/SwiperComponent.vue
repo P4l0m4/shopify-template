@@ -13,6 +13,8 @@ watch(
     swiper.value.swiper.slideTo(newIndex)
   }
 )
+
+let zoom = ref(false)
 </script>
 
 <template>
@@ -29,8 +31,8 @@ watch(
       ref="swiper"
     >
       <swiper-slide v-for="image in images" :key="image.id" class="swiper__slide">
-        <img :src="image.src" class="swiper__slide__img"
-      /></swiper-slide>
+        <img :src="image.src" class="swiper__slide__img" :alt="image.alt" />
+      </swiper-slide>
     </swiper-container>
   </div>
 </template>

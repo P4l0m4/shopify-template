@@ -41,10 +41,6 @@ const props = defineProps({ blok: Object })
       @media (min-width: $laptop-screen) {
         width: calc(50% / 0.8);
       }
-
-      //   @media (min-width: $desktop-screen) {
-      //     width: 50%;
-      //   }
     }
 
     &__wrapper {
