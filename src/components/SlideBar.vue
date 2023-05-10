@@ -1,6 +1,7 @@
 <script setup>
 import InfiniteSlideBar from 'vue3-infinite-slide-bar'
 import { ref } from 'vue'
+const story = await useAsyncStoryblok('home', { version: 'draft' })
 
 let code = ref('R2Y6ZYGPRZ8G')
 let message = ref("Livraison gratuite dès 40€ d'achats avec le code")
@@ -11,6 +12,7 @@ function copy() {
     message.value = "Livraison gratuite dès 40€ d'achats avec le code"
   }, 1000)
 }
+console.log(story)
 </script>
 
 <template>
@@ -19,6 +21,7 @@ function copy() {
       <button style="padding-left: 168px !important" @click="copy()">{{ message }} {{ code }}</button
       ><button @click="copy()">{{ message }} {{ code }}</button><button @click="copy()">{{ message }} {{ code }}</button
       ><button @click="copy()">{{ message }} {{ code }}</button>
+      <!-- <StoryblokComponent v-if="story" :blok="story.content" /> -->
     </div>
   </infinite-slide-bar>
 </template>

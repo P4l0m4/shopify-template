@@ -52,6 +52,8 @@ defineProps({ collections: Array })
       width: 40%;
       height: auto;
       object-fit: cover;
+      // -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+      // mask-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     }
     &__txt {
       display: flex;
