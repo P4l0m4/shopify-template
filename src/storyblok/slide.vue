@@ -14,7 +14,7 @@
           <h3 class="swiper__slide__wrapper__txt__title">{{ blok.title }}</h3>
           <p class="swiper__slide__wrapper__txt__sub-title">{{ blok.subtitle }}</p>
         </div>
-        <NuxtLink class="swiper__slide__wrapper__button" :href="blok.button.url"
+        <NuxtLink class="swiper__slide__wrapper__button button-secondary" :href="blok.button.url"
           >{{ blok.button_name }}
           <img class="swiper__slide__wrapper__button__icon icon" src="@/assets/icons/next.svg" alt="icon"
         /></NuxtLink></div
@@ -110,16 +110,12 @@ const props = defineProps({ blok: Object })
         }
       }
       &__button {
-        display: flex;
-        padding: 0.75rem 1.75rem;
-        gap: 1rem;
         color: $primary-color;
         border: 2px solid $primary-color;
-        border-radius: $radius;
+        gap: 1rem;
         animation: slide-from-left 0.6s;
         line-height: 1.5rem;
         justify-content: center;
-        transition: transform 0.4s ease;
         width: fit-content;
         margin-left: auto;
 

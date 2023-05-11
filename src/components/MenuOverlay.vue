@@ -6,14 +6,14 @@ const emit = defineEmits(['close'])
   <Transition name="fade">
     <div v-show="isMenuOpen" class="menu" @click="emit('close')">
       <div class="menu__grid">
-        <NuxtLink class="menu__grid__link" to="/"
+        <NuxtLink class="menu__grid__link" to="/" exact
           ><img src="@/assets/icons/home.svg" alt="" /><span>Accueil</span></NuxtLink
         >
-        <NuxtLink class="menu__grid__link" to="/boutique"
+        <NuxtLink class="menu__grid__link" to="/boutique" exact
           ><img src="@/assets/icons/shop.svg" alt="" /><span>Boutique</span></NuxtLink
-        ><NuxtLink class="menu__grid__link" to="/contact"
+        ><NuxtLink class="menu__grid__link" to="/contact" exact
           ><img src="@/assets/icons/mail.svg" alt="" /><span>Contact</span></NuxtLink
-        ><NuxtLink class="menu__grid__link" to="/favoris"
+        ><NuxtLink class="menu__grid__link" to="/favoris" exact
           ><img src="@/assets/icons/heart.svg" alt="" /><span>Favoris</span></NuxtLink
         >
       </div>
@@ -21,6 +21,9 @@ const emit = defineEmits(['close'])
   >
 </template>
 <style scoped lang="scss">
+.router-link-exact-active {
+  background-color: $selected-color;
+}
 .menu {
   position: fixed;
   backdrop-filter: blur(16px);

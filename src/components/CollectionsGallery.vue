@@ -101,7 +101,6 @@ defineProps({ collections: Array })
         animation: slide-from-left 0.6s;
         line-height: 1.5rem;
         transition: transform 0.4s ease;
-        padding: 0.75rem 1.75rem;
 
         &:hover {
           transform: scale(1.04);

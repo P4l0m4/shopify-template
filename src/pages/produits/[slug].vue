@@ -71,6 +71,7 @@ useHead({
     },
   ],
 })
+console.log(productStore.product.variants)
 </script>
 
 <template>
@@ -136,7 +137,7 @@ useHead({
             </div>
 
             <button
-              :disabled="updatingCart"
+              :disabled="updatingCart || !productStore.productVariant.available"
               @click.prevent="updateCart(productStore.productVariant)"
               class="button-primary"
             >
