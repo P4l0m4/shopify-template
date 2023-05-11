@@ -89,6 +89,7 @@ input[type='number'] {
   cursor: pointer;
   border-radius: $radius;
   transition: transform 0.4s ease;
+  text-shadow: black 0px 0px 1px;
 
   &:hover {
     transform: scale(1.04);

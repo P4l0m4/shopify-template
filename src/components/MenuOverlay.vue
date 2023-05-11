@@ -9,11 +9,11 @@ const emit = defineEmits(['close'])
         <NuxtLink class="menu__grid__link" to="/"
           ><img src="@/assets/icons/home.svg" alt="" /><span>Accueil</span></NuxtLink
         >
-        <NuxtLink class="menu__grid__link" to="/shop"
+        <NuxtLink class="menu__grid__link" to="/boutique"
           ><img src="@/assets/icons/shop.svg" alt="" /><span>Boutique</span></NuxtLink
         ><NuxtLink class="menu__grid__link" to="/contact"
           ><img src="@/assets/icons/mail.svg" alt="" /><span>Contact</span></NuxtLink
-        ><NuxtLink class="menu__grid__link" to="/liked"
+        ><NuxtLink class="menu__grid__link" to="/favoris"
           ><img src="@/assets/icons/heart.svg" alt="" /><span>Favoris</span></NuxtLink
         >
       </div>

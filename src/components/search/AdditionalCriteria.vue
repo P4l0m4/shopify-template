@@ -69,9 +69,14 @@ function selectCollection(collection) {
               :class="{ 'collection__button--selected': isCollectionSelected(collection) }"
               class="collection__button"
               @click="selectCollection(collection)"
+              :style="'background-image: url(' + collection.image.src + ')'"
             >
-              <img class="collection__button__img" :src="collection.image.src" :alt="collection.image.handle" />
-              <span class="collection__button__title">{{ collection.title }}</span>
+              <!-- <img class="collection__button__img" :src="collection.image.src" :alt="collection.image.handle" /> -->
+              <span
+                class="collection__button__title"
+                :class="{ 'collection__button__title--selected': isCollectionSelected(collection) }"
+                >{{ collection.title }}</span
+              >
             </button>
           </div>
         </div>
@@ -123,42 +128,49 @@ function selectCollection(collection) {
       }
 
       .collection {
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 0.5rem;
         width: clamp(200px, 100%, 800px);
-        flex-wrap: wrap;
 
         &__button {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
-          border-radius: $radius;
-          background-color: $primary-color;
+          justify-content: center;
+          border-radius: calc($radius/2);
+          background-size: cover;
+          background-position: center;
           box-shadow: $shadow;
           font-weight: 100;
-          font-size: 0.75rem;
+          font-size: 1rem;
           border: transparent 2px solid;
-          color: $text-color;
+          color: $primary-color;
           cursor: pointer;
           width: 100%;
+          opacity: 0.6;
+          @media (min-width: $tablet-screen) {
+            min-height: 100px;
+          }
 
           &--selected {
-            border: $selected-color 2px solid;
-            background-color: $selected-background-color;
+            opacity: 1;
           }
 
-          &__img {
-            width: 60px;
-            object-fit: cover;
-            border-radius: $radius 0 0 $radius;
-          }
+          // &__img {
+          //   width: 60px;
+          //   height: 60px;
+          //   object-fit: cover;
+          //   border-radius: $radius 0 0 $radius;
+          // }
 
           &__title {
-            display: flex;
-            padding: 0 0.5rem 0 0;
-            height: 100%;
-            align-items: center;
-            height: 100%;
+            padding: 0.75rem;
+            border-radius: calc($radius/2);
+            text-shadow: black 0px 0px 4px;
+
+            // &--selected {
+            //   background-color: $selected-background-color;
+            // }
           }
         }
       }

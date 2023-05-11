@@ -84,6 +84,7 @@ const props = defineProps({ blok: Object })
         &__title {
           font-size: 1.5rem;
           font-weight: 800;
+          text-shadow: black 0px 0px 1px;
 
           @media (min-width: $tablet-screen) {
             font-size: 2rem;
@@ -97,6 +98,7 @@ const props = defineProps({ blok: Object })
         &__sub-title {
           font-weight: 300;
           line-height: 1.4;
+          text-shadow: black 0px 0px 1px;
 
           @media (min-width: $tablet-screen) {
             font-size: 1.25rem;

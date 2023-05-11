@@ -83,7 +83,7 @@ defineProps({ collections: Array })
       }
 
       &__title {
-        font-size: 1rem;
+        font-size: 1.25rem;
         width: 100%;
 
         @media (min-width: $tablet-screen) {
