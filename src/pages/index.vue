@@ -31,7 +31,7 @@ const productStore = useProductStore()
   <section class="index-section">
     <HeaderComponent />
     <div class="index-section__wrapper">
-      <p class="index-section__wrapper__title">Nos collections exclusives</p>
+      <!-- <p class="index-section__wrapper__title">Nos collections exclusives</p> -->
       <CollectionsGallery :collections="productStore.collections" />
     </div>
     <div class="index-section__wrapper">
