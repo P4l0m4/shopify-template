@@ -71,10 +71,10 @@ const cartStore = useCartStore()
         justify-content: center;
         align-items: center;
         padding: 8px;
-        background-color: $secondary-color;
+        background-color: $text-color;
         color: $primary-color;
         font-weight: 600;
-        border: $secondary-color solid 2px;
+        border: $text-color solid 2px;
         font-weight: 500;
         transition: transform 0.4s ease;
         &:hover {

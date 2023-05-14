@@ -7,6 +7,8 @@
       clickable: true,
     }"
     :mousewheel="true"
+    :loop="true"
+    speed="500"
     class="swiper"
     keyboard="true"
     ref="swiper"

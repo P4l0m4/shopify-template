@@ -44,7 +44,7 @@ export const useProductStore = defineStore('product', {
         query += !isNaN(this.filters.price.max) ? `variants.price:<=${this.filters.price.max} ` : ''
       }
       if (this.search) {
-        query += ` title:*${this.search}*`
+        query += ` title:*${this.search}* OR tag:*${this.search}*`
       }
       if (this.sort) {
         sortKey = this.sort.split('-')[0]

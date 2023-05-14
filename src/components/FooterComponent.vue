@@ -16,8 +16,8 @@ let year = new Date().getFullYear()
     <!-- <CookiesSettings /> -->
     <div class="footer__site-links">
       <nuxt-link to="/" class="footer__document">Accueil</nuxt-link>
-      <nuxt-link to="/shop" class="footer__document">Boutique</nuxt-link>
-      <nuxt-link to="/liked" class="footer__document">Favoris</nuxt-link>
+      <nuxt-link to="/boutique" class="footer__document">Boutique</nuxt-link>
+      <nuxt-link to="/favoris" class="footer__document">Favoris</nuxt-link>
       <nuxt-link to="/contact" class="footer__document">Contact</nuxt-link>
     </div>
 

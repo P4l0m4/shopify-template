@@ -5,11 +5,12 @@ import { ref } from 'vue'
 const cartStore = useCartStore()
 
 const isMenuOpen = ref(false)
+const story = await useAsyncStoryblok('promotion', { version: 'draft' })
 </script>
 
 <template>
   <div class="nav-container">
-    <SlideBar />
+    <StoryblokComponent v-if="story" :blok="story.content" />
     <nav>
       <MenuOverlay :isMenuOpen="isMenuOpen" @close="isMenuOpen = false" />
 
@@ -139,7 +140,7 @@ nav {
 
       &__number {
         height: 16px;
-        background-color: $secondary-color;
+        background-color: $text-color;
         border-radius: 8px;
         display: flex;
         justify-content: center;
@@ -155,7 +156,7 @@ nav {
     }
 
     .router-link-exact-active {
-      color: $secondary-color !important;
+      color: $text-color !important;
     }
   }
 }

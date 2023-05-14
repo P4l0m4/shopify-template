@@ -71,7 +71,6 @@ useHead({
     },
   ],
 })
-console.log(productStore.product.variants)
 </script>
 
 <template>

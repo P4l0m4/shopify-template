@@ -1,5 +1,5 @@
 <script setup>
-const story = await useAsyncStoryblok('home', { version: 'draft' })
+const story = await useAsyncStoryblok('carousel', { version: 'draft' })
 // META TAGS
 const metaTitle = ref('Hero title')
 const metaDescription = ref('Hero subtitle lorem ipsum dolor sit amet, consequitur sit elit.')

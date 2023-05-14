@@ -38,11 +38,11 @@ button {
 
 input,
 textarea {
-  caret-color: $secondary-color;
+  caret-color: $text-color;
   background-color: transparent;
   &:focus {
-    border: 2px solid $secondary-color;
-    outline: $secondary-color;
+    border: 2px solid $text-color;
+    outline: $text-color;
   }
 }
 /* Change the white to any color */
@@ -96,7 +96,7 @@ input[type='number'] {
   }
 }
 .button-primary {
-  background-color: $secondary-color;
+  background-color: $text-color;
   color: $primary-color;
   transition: opacity 0.2s;
 
