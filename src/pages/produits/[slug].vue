@@ -284,6 +284,7 @@ useHead({
             & span {
               text-decoration: underline;
               font-size: 0.75rem;
+              color: $text-color !important;
             }
           }
 
