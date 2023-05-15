@@ -346,7 +346,7 @@ useHead({
 
             & span {
               font-size: 1rem;
-              text-shadow: $shadow;
+              text-shadow: black 0px 0px 4px;
             }
           }
         }
