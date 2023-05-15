@@ -38,7 +38,6 @@ const productStore = useProductStore()
       <p class="index-section__wrapper__title">Nos best sellers</p>
       <ProductsPropositions />
     </div>
-    <!-- <GeneralReviews /> -->
   </section>
 </template>
 <style scoped lang="scss">

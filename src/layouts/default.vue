@@ -12,6 +12,8 @@ await cartStore.initCheckout()
 const productStore = useProductStore()
 await productStore.getCollectionsAndProducts()
 
+const story = await useAsyncStoryblok('promotion', { version: 'draft' })
+
 useHead({
   script: [
     {
@@ -25,7 +27,10 @@ useHead({
 
 <template>
   <div class="container">
-    <NavigationComponent />
+    <Header>
+      <StoryblokComponent v-if="story" :blok="story.content" />
+      <NavigationComponent
+    /></Header>
     <main><slot /></main>
     <FooterComponent />
   </div>
@@ -52,6 +57,16 @@ useHead({
 
   @media (min-width: $laptop-screen) {
     padding: 6.4rem 0 0 0;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    max-width: 2000px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
   }
 
   & main {

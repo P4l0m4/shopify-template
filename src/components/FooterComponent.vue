@@ -1,6 +1,5 @@
 <script setup>
 import { useInfoStore } from '@/stores/info'
-import { ref } from 'vue'
 
 // TESTING
 const infoStore = useInfoStore()
@@ -9,6 +8,8 @@ let info = infoStore.info
 
 //IN PROGRESS
 let year = new Date().getFullYear()
+
+const story = await useAsyncStoryblok('documents', { version: 'draft' })
 </script>
 
 <template>
@@ -23,8 +24,7 @@ let year = new Date().getFullYear()
 
     <div class="footer__others">
       <span>©{{ info.name }} {{ year }}</span>
-      <nuxt-link to="/" class="footer__others__document">Mentions légales</nuxt-link>
-      <nuxt-link to="/" class="footer__others__document">CGV</nuxt-link>
+      <StoryblokComponent v-if="story" :blok="story.content" />
     </div>
 
     <div class="footer__icons">
@@ -57,10 +57,8 @@ let year = new Date().getFullYear()
     display: flex;
     gap: 1rem;
     align-items: center;
-
-    &__document {
-      text-decoration: underline;
-    }
+    justify-content: flex-end;
+    flex-wrap: wrap;
   }
 
   &__icons {

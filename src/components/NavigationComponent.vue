@@ -5,61 +5,50 @@ import { ref } from 'vue'
 const cartStore = useCartStore()
 
 const isMenuOpen = ref(false)
-const story = await useAsyncStoryblok('promotion', { version: 'draft' })
+
+const story = await useAsyncStoryblok('logo', { version: 'draft' })
 </script>
 
 <template>
-  <div class="nav-container">
-    <StoryblokComponent v-if="story" :blok="story.content" />
-    <nav>
-      <MenuOverlay :isMenuOpen="isMenuOpen" @close="isMenuOpen = false" />
+  <nav>
+    <MenuOverlay :isMenuOpen="isMenuOpen" @close="isMenuOpen = false" />
 
-      <button @click="isMenuOpen = true" class="link menu">
-        <img class="icon" src="@/assets/icons/menu.svg" alt="menu icon" />
-      </button>
+    <button @click="isMenuOpen = true" class="link menu">
+      <img class="icon" src="@/assets/icons/menu.svg" alt="menu icon" />
+    </button>
 
-      <nuxt-link to="/" class="logo"><img src="@/assets/images/logo.svg" alt="logo" class="logo__img" /></nuxt-link>
+    <nuxt-link to="/" class="logo"><StoryblokComponent v-if="story" :blok="story.content" /></nuxt-link>
 
-      <div class="wrapper">
-        <NuxtLink exact to="/boutique" class="link"
-          ><img class="icon" src="@/assets/icons/search.svg" alt="search icon" /><span class="desktop-only"
-            >Boutique</span
-          ></NuxtLink
-        >
-        <NuxtLink to="/favoris" class="link desktop-only"
-          ><img class="icon" src="@/assets/icons/heart.svg" alt="search icon" />Favoris</NuxtLink
-        ><NuxtLink to="/contact" class="link desktop-only"
-          ><img class="icon" src="@/assets/icons/mail.svg" alt="search icon" />Contact</NuxtLink
-        >
+    <div class="wrapper">
+      <NuxtLink exact to="/boutique" class="link"
+        ><img class="icon" src="@/assets/icons/search.svg" alt="search icon" /><span class="desktop-only"
+          >Boutique</span
+        ></NuxtLink
+      >
+      <NuxtLink to="/favoris" class="link desktop-only"
+        ><img class="icon" src="@/assets/icons/heart.svg" alt="search icon" />Favoris</NuxtLink
+      ><NuxtLink to="/contact" class="link desktop-only"
+        ><img class="icon" src="@/assets/icons/mail.svg" alt="search icon" />Contact</NuxtLink
+      >
 
-        <NuxtLink to="/panier" class="link">
-          <div class="link__cart">
-            <img class="link__cart__img" src="@/assets/icons/bag.svg" alt="" /><span
-              class="link__cart__number"
-              v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0"
-            >
-              {{ cartStore.itemQuantity }}
-            </span>
-          </div>
-          <span class="desktop-only">Panier</span>
-        </NuxtLink>
-      </div>
-    </nav>
-  </div>
+      <NuxtLink to="/panier" class="link">
+        <div class="link__cart">
+          <img class="link__cart__img" src="@/assets/icons/bag.svg" alt="" /><span
+            class="link__cart__number"
+            v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0"
+          >
+            {{ cartStore.itemQuantity }}
+          </span>
+        </div>
+        <span class="desktop-only">Panier</span>
+      </NuxtLink>
+    </div>
+  </nav>
 </template>
 
 <style scoped lang="scss">
 .router-link-exact-active {
   background-color: $selected-color;
-}
-.nav-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 2000px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 2;
 }
 
 nav {
@@ -107,9 +96,6 @@ nav {
     margin: auto;
     background-color: $primary-color !important;
 
-    &__img {
-      width: 100%;
-    }
     @media (min-width: $tablet-screen) {
       width: 160px;
     }
