@@ -1,23 +1,27 @@
 <script setup>
-import { useCartStore } from '@/stores/cart'
-import dayjs from 'dayjs'
-import 'dayjs/locale/fr'
-dayjs.locale('fr')
+// import { useCartStore } from '@/stores/cart'
+// import dayjs from 'dayjs'
+// import 'dayjs/locale/fr'
+// dayjs.locale('fr')
 
-let shipmentDate = dayjs().add(4, 'day').format('DD MMMM YYYY')
+// let shipmentDate = dayjs().add(4, 'day').format('DD MMMM YYYY')
 
-// Store
-const cartStore = useCartStore()
+// // Store
+// const cartStore = useCartStore()
 </script>
 
 <template>
   <div class="shipment">
-    <span class="shipment__date"
+    <!-- <span class="shipment__date"
       >Livraison estimée le <strong>{{ shipmentDate }}</strong></span
-    >
+    > -->
     <div class="shipment__location">
-      <img class="icon" src="@/assets/icons/map-marker-outline.svg" />Livré en France avec
-      <a class="shipment__location__link" href="https://www.chronopost.fr/fr/particulier#/step-home">Chronopost</a>
+      <span
+        >Nos délais de livraison sont en moyenne de 4 à 10 jours ouvrés. Plus de détails sur les modalités de livraison
+        à l'étape suivante.</span
+      >
+      <!-- <img class="shipment__location__icon icon" src="@/assets/icons/map-marker-outline.svg" />Livré en France avec
+      <a class="shipment__location__link" href="https://www.chronopost.fr/fr/particulier#/step-home">Chronopost</a> -->
     </div>
     <!-- <div class="shipment__details">
       <span>Livraison gratuite</span>

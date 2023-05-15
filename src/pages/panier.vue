@@ -109,7 +109,7 @@ const isMarkerOpen = ref(false)
               </details>
             </div>
             <div class="cart__products__params__price__amounts">
-              <p>Total :</p>
+              <p>Total TTC :</p>
               <span>{{ cartStore.checkout.paymentDue.amount * 1 }} €</span>
             </div>
           </div>
@@ -182,6 +182,7 @@ const isMarkerOpen = ref(false)
               width: 70px;
               height: 70px;
               object-fit: contain;
+              border-radius: calc($radius/ 2);
             }
           }
 
@@ -314,11 +315,12 @@ const isMarkerOpen = ref(false)
                 .wrapper {
                   display: flex;
                   align-items: center;
+                  gap: 0.25rem;
 
                   .icon {
                     transform: rotate(270deg);
                     display: flex;
-                    width: 16px;
+                    width: 14px;
 
                     &--open {
                       transform: rotate(90deg);
