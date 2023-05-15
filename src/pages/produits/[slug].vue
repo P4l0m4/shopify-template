@@ -528,5 +528,9 @@ useHead({
   & :deep(.bottom-line-items-wrapper) {
     display: none !important;
   }
+
+  & :deep(.yotpo-regular-box.yotpo-bottomline.bottom-line-items-container-desktop) {
+    display: none !important;
+  }
 }
 </style>
