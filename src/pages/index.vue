@@ -29,7 +29,7 @@ const productStore = useProductStore()
 
 <template>
   <section class="index-section">
-    <HeaderComponent />
+    <HomeCarousel />
     <div class="index-section__wrapper">
       <!-- <p class="index-section__wrapper__title">Nos collections exclusives</p> -->
       <CollectionsGallery :collections="productStore.collections" />

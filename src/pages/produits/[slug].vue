@@ -139,8 +139,14 @@ useHead({
               :disabled="updatingCart || !productStore.productVariant.available"
               @click.prevent="updateCart(productStore.productVariant)"
               class="button-primary"
+              :class="{
+                'product__details__add-to-cart__price__button--updating': updatingCart,
+              }"
             >
-              <img class="icon" src="@/assets/icons/add-to-cart.svg" alt="" />
+              <img v-if="!updatingCart" class="icon" src="@/assets/icons/add-to-cart.svg" alt="" /><span
+                v-if="updatingCart"
+                >Ajouté au panier</span
+              >
             </button>
           </div>
         </div>
@@ -328,6 +334,20 @@ useHead({
             text-decoration: line-through;
             font-weight: 400;
             font-size: 1rem;
+          }
+        }
+
+        &__button {
+          &--updating {
+            background-color: $promo-code-color;
+            gap: 0.25rem;
+            align-items: center;
+            display: flex;
+
+            & span {
+              font-size: 1rem;
+              text-shadow: $shadow;
+            }
           }
         }
       }
