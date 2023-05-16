@@ -24,9 +24,11 @@ onMounted(() => {
 <template>
   <infinite-slide-bar :barStyle="{ background: blok.color }" :duration="'128s'" class="infinite-slide-bar">
     <div class="infinite-slide-bar__component">
-      <button style="padding-left: 168px !important" @click="copy()">{{ message }} {{ code }}</button
-      ><button @click="copy()">{{ message }} {{ code }}</button><button @click="copy()">{{ message }} {{ code }}</button
-      ><button @click="copy()">{{ message }} {{ code }}</button>
+      <button style="padding-left: 168px !important" @click="copy()" aria-label="copier le code promo">
+        {{ message }} {{ code }}</button
+      ><button @click="copy()" aria-label="copier le code promo">{{ message }} {{ code }}</button
+      ><button @click="copy()" aria-label="copier le code promo">{{ message }} {{ code }}</button
+      ><button @click="copy()" aria-label="copier le code promo">{{ message }} {{ code }}</button>
     </div>
   </infinite-slide-bar>
 </template>

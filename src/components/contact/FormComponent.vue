@@ -138,7 +138,14 @@ async function submit() {
     <input id="HP" v-model="state.HP" class="HP" type="checkbox" name="not_a_robot" @change="checkIfHP" />
     <label for="HP" class="HP"> Je ne suis pas un robot </label>
 
-    <button class="form__button button-primary" type="submit" :disabled="state.isSubmitting">Envoyer</button>
+    <button
+      class="form__button button-primary"
+      type="submit"
+      :disabled="state.isSubmitting"
+      aria-label="envoyer le formulaire"
+    >
+      Envoyer
+    </button>
 
     <p v-if="sent" class="form__error">Message envoyé !</p>
   </form>

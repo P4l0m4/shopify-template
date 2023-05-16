@@ -28,8 +28,8 @@ const optionSelected = ref('')
           autofocus
         />
       </div>
-      <button class="search__filters" @click="emit('toggleOverlay')">
-        <img src="@/assets/icons/filters.svg" alt="" />
+      <button class="search__filters" @click="emit('toggleOverlay')" aria-label="filtres">
+        <img src="@/assets/icons/filters.svg" alt="icone filtrer" />
       </button>
     </div>
 
@@ -38,6 +38,7 @@ const optionSelected = ref('')
         class="sort__option"
         :class="{ 'sort__option--selected': optionSelected === 'PRICEASC' }"
         @click=";(optionSelected = 'PRICEASC'), emit('sort', 'PRICE-ASC')"
+        aria-label="prix croissant"
       >
         Prix croissant
       </button>
@@ -45,6 +46,7 @@ const optionSelected = ref('')
         class="sort__option"
         :class="{ 'sort__option--selected': optionSelected === 'PRICEDESC' }"
         @click=";(optionSelected = 'PRICEDESC'), emit('sort', 'PRICE-DESC')"
+        aria-label="prix décroissant"
       >
         Prix décroissant
       </button>
@@ -52,6 +54,7 @@ const optionSelected = ref('')
         class="sort__option"
         :class="{ 'sort__option--selected': optionSelected === 'BESTSELLINGASC' }"
         @click=";(optionSelected = 'BESTSELLINGASC'), emit('sort', 'BEST_SELLING-ASC')"
+        aria-label="popularité"
       >
         Popularité
       </button>
@@ -59,6 +62,7 @@ const optionSelected = ref('')
         class="sort__option"
         :class="{ 'sort__option--selected': optionSelected === 'CREATEDATDESC' }"
         @click=";(optionSelected = 'CREATEDATDESC'), emit('sort', 'CREATED_AT-DESC')"
+        aria-label="nouveautés"
       >
         Nouveautés
       </button>
@@ -66,6 +70,7 @@ const optionSelected = ref('')
         class="sort__option"
         :class="{ 'sort__option--selected': optionSelected === 'TITLEASC' }"
         @click=";(optionSelected = 'TITLEASC'), emit('sort', 'TITLE-ASC')"
+        aria-label="ordre alphabétique"
       >
         De A à Z
       </button>
@@ -73,6 +78,7 @@ const optionSelected = ref('')
         class="sort__option"
         :class="{ 'sort__option--selected': optionSelected === 'TITLEDESC' }"
         @click=";(optionSelected = 'TITLEDESC'), emit('sort', 'TITLE-DESC')"
+        aria-label="ordre alphabétique inversé"
       >
         De Z à A
       </button>

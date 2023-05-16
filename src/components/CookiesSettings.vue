@@ -37,17 +37,29 @@ console.log(props.blok)
           >
         </div>
         <div class="cookies__notice__content__buttons">
-          <button class="button-primary" @click="clearCookies">Désactiver</button>
-          <button class="button-primary" @click="exit">Activer</button>
+          <button class="button-primary" @click="clearCookies" aria-label="désactiver les cookies">Désactiver</button>
+          <button class="button-primary" @click="exit" aria-label="activer les cookies">Activer</button>
         </div>
       </div>
     </div>
     <span v-if="areCookiesEnabled">Les cookies sont activés</span>
     <span v-if="!areCookiesEnabled">Les cookies sont désactivés</span>
-    <button class="cookies__button button-primary" v-if="areCookiesEnabled" @click="areCookiesEnabled = false">
+    <button
+      class="cookies__button button-primary"
+      v-if="areCookiesEnabled"
+      @click="areCookiesEnabled = false"
+      aria-label="désactiver les cookies"
+    >
       Désactiver
     </button>
-    <button class="cookies__button button-primary" v-else @click="areCookiesEnabled = true">Activer</button>
+    <button
+      class="cookies__button button-primary"
+      v-else
+      @click="areCookiesEnabled = true"
+      aria-label="activer les cookies"
+    >
+      Activer
+    </button>
   </div>
 </template>
 <style lang="scss" scoped>

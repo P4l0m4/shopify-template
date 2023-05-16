@@ -27,6 +27,7 @@ function selectCollection(collection) {
       :class="{ 'sort__button--selected': isCollectionSelected(collection) }"
       class="sort__button"
       @click="selectCollection(collection)"
+      :aria-label="'voir les produits de la collection' + collection.title"
     >
       {{ collection.title }}
     </button>

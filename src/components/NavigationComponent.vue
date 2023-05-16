@@ -13,7 +13,7 @@ const story = await useAsyncStoryblok('logo', { version: 'draft' })
   <nav>
     <MenuOverlay :isMenuOpen="isMenuOpen" @close="isMenuOpen = false" />
 
-    <button @click="isMenuOpen = true" class="link menu">
+    <button @click="isMenuOpen = true" class="link menu" aria-label="ouvrir le menu">
       <img class="icon" src="@/assets/icons/menu.svg" alt="menu icon" />
     </button>
 

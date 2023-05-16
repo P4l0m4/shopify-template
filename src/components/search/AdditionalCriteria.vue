@@ -70,6 +70,7 @@ function selectCollection(collection) {
               class="collection__button"
               @click="selectCollection(collection)"
               :style="'background-image: url(' + collection.image.src + ')'"
+              aria-label="voir la collection"
             >
               <!-- <img class="collection__button__img" :src="collection.image.src" :alt="collection.image.handle" /> -->
               <span

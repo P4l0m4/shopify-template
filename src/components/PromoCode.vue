@@ -7,7 +7,12 @@ const cartStore = useCartStore()
     <div class="promo__test">
       <div class="promo__test__wrapper">
         <input placeholder="Code promo" id="code" class="promo__test__wrapper__input" v-model="codeToTry" />
-        <button class="promo__test__wrapper__button" type="submit" @click="cartStore.addPromoCode(codeToTry)">
+        <button
+          class="promo__test__wrapper__button"
+          type="submit"
+          @click="cartStore.addPromoCode(codeToTry)"
+          aria-label="tester code promo"
+        >
           Tester
         </button>
       </div>

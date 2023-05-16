@@ -8,7 +8,7 @@ defineProps(['error'])
     <div class="error__message">
       <h1>Oooops... erreur {{ error.statusCode }}</h1>
       <h2>Nous n'avons pas trouvé la page que vous cherchez.</h2>
-      <button class="button-primary">Retour à la page d'accueil</button>
+      <button class="button-primary" aria-label="retour à la page d'accueil">Retour à la page d'accueil</button>
     </div>
     <div class="error__animation"></div>
   </div>

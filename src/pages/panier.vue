@@ -60,16 +60,18 @@ const isMarkerOpen = ref(false)
                     class="cart__products__list__product__description__quantity__buttons__button cart__products__list__product__description__quantity__buttons__button--outline"
                     :disabled="loading.action === 'remove' && loading.id === item.id"
                     @click="removeOneProductFromCart(item)"
+                    aria-label="quantité moins 1"
                   >
-                    <img class="icon" src="@/assets/icons/minus.svg" alt="" />
+                    <img class="icon" src="@/assets/icons/minus.svg" alt="icone moins" />
                   </button>
                   <span>{{ item.quantity }}</span>
                   <button
                     class="cart__products__list__product__description__quantity__buttons__button cart__products__list__product__description__quantity__buttons__button--solid"
                     :disabled="loading.action === 'add' && loading.id === item.variant.id"
                     @click="addProductToCart(item.variant)"
+                    aria-label="quantité plus 1"
                   >
-                    <img class="icon" src="@/assets/icons/plus.svg" alt="" />
+                    <img class="icon" src="@/assets/icons/plus.svg" alt="icone plus" />
                   </button>
                 </div>
               </div>
@@ -82,8 +84,9 @@ const isMarkerOpen = ref(false)
               <button
                 class="cart__products__list__product__hidden__trash"
                 @click="cartStore.removeProductFromCart(item)"
+                aria-label="supprimer le produit"
               >
-                <img class="icon" src="@/assets/icons/trash.svg" alt="" />
+                <img class="icon" src="@/assets/icons/trash.svg" alt="icone poubelle" />
               </button>
             </div>
           </div>

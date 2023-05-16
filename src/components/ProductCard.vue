@@ -37,13 +37,17 @@ Object.values(props.product).forEach(element => {
         <span class="product-card__txt__price__amount">
           {{ parseFloat(product.variants[0].price.amount).toFixed(2) }} €</span
         >
-        <button class="product-card__txt__price__button" @click.prevent="likedStore.addProductToLiked(product)">
+        <button
+          class="product-card__txt__price__button"
+          @click.prevent="likedStore.addProductToLiked(product)"
+          aria-label="ajouter au favoris"
+        >
           <img
             v-if="likedStore.isProductLiked(product)"
             class="product-card__txt__price__button__icon"
             :class="{ 'product-card__txt__price__button__icon--selected': likedStore.isProductLiked(product) }"
             src="@/assets/icons/heart-light-solid.svg"
-            alt=""
+            alt="icone coeur"
           />
           <img v-else class="product-card__txt__price__button__icon" src="@/assets/icons/heart-light.svg" alt="" />
         </button>
