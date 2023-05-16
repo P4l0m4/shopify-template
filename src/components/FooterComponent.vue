@@ -1,5 +1,6 @@
 <script setup>
 import { useInfoStore } from '@/stores/info'
+import { ref } from 'vue'
 
 // TESTING
 const infoStore = useInfoStore()
@@ -10,11 +11,16 @@ let info = infoStore.info
 let year = new Date().getFullYear()
 
 const story = await useAsyncStoryblok('documents', { version: 'draft' })
+
+const showCookieModal = ref(false)
+setTimeout(() => {
+  showCookieModal.value = true
+}, 10000)
 </script>
 
 <template>
   <footer class="footer">
-    <!-- <CookiesSettings /> -->
+    <CookiesSettings :cookie="story.content" v-if="showCookieModal" />
     <div class="footer__site-links">
       <nuxt-link to="/" class="footer__document">Accueil</nuxt-link>
       <nuxt-link to="/boutique" class="footer__document">Boutique</nuxt-link>

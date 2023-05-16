@@ -13,6 +13,9 @@ function clearCookies() {
   areCookiesEnabled.value = false
   exit()
 }
+
+const props = defineProps({ cookie: Object })
+console.log(props.blok)
 </script>
 <template>
   <div class="cookies">
@@ -28,7 +31,8 @@ function clearCookies() {
           </p>
           <span class="cookies__notice__content__txt__policy"
             >Pour en savoir plus, consultez notre
-            <NuxtLink to="/cookies" class="cookies__notice__content__txt__policy__link">politique des cookies</NuxtLink
+            <NuxtLink :to="cookie.cookies_policy.filename" class="cookies__notice__content__txt__policy__link"
+              >politique des cookies</NuxtLink
             >.</span
           >
         </div>
@@ -64,6 +68,9 @@ function clearCookies() {
     z-index: 2;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(16px);
+    background-color: rgb(0, 0, 0, 0.1);
+    animation: fading 0.8s ease;
 
     &__content {
       display: flex;

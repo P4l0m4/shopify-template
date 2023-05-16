@@ -162,8 +162,10 @@ details > summary::-webkit-details-marker /* Safari */ {
 @keyframes fading {
   from {
     opacity: 0;
+    display: none;
   }
   to {
+    display: flex;
     opacity: 1;
   }
 }

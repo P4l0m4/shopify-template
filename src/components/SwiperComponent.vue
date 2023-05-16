@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watch } from 'vue'
+import 'swiper/element/css/zoom'
 
 const props = defineProps({
   images: Array,
@@ -14,7 +15,7 @@ watch(
   }
 )
 
-let zoom = ref(false)
+// let zoom = ref(false)
 </script>
 
 <template>
@@ -29,9 +30,13 @@ let zoom = ref(false)
       class="swiper"
       keyboard="true"
       ref="swiper"
+      zoom="true"
+      :zoom="true"
     >
       <swiper-slide v-for="image in images" :key="image.id" class="swiper__slide">
-        <img :src="image.src" class="swiper__slide__img" :alt="image.alt" />
+        <div class="swiper__slide__div swiper-zoom-container" data-swiper-zoom="5">
+          <img :src="image.src" class="swiper__slide__div__img" :alt="image.alt" />
+        </div>
       </swiper-slide>
     </swiper-container>
   </div>
@@ -42,23 +47,60 @@ let zoom = ref(false)
   display: flex;
   justify-content: center;
   --swiper-pagination-color: #{$text-color};
+  background-color: $base-color;
+
+  // &--zoom {
+  //   position: fixed;
+  //   inset: 0;
+  //   margin: auto;
+  //   z-index: 3;
+  // }
 
   &__slide {
+    display: flex;
+    justify-content: center;
     width: 100% !important;
     height: 230px;
+    transition: height 0.4s ease;
+
     @media (min-width: $laptop-screen) {
       height: 330px;
     }
 
-    &__img {
-      padding: 0 1rem;
+    // &--zoom {
+    //   width: 100%;
+    //   height: 90vh;
+    // }
+
+    &__div {
+      max-width: 900px;
       width: 100%;
       height: 200px;
-      object-fit: contain;
-      border-radius: $radius;
+      display: flex;
+      justify-content: center;
+
+      &:hover {
+        cursor: zoom-in;
+      }
 
       @media (min-width: $laptop-screen) {
         height: 300px;
+      }
+      // &--zoom {
+      //   width: 100%;
+      //   height: 100%;
+
+      //   &:hover {
+      //     cursor: zoom-out;
+      //   }
+      // }
+
+      &__img {
+        padding: 0 1rem;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: $radius;
       }
     }
   }
