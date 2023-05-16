@@ -361,12 +361,15 @@ useHead({
   padding: 1rem;
   flex-direction: column;
   align-items: center;
-  background-color: $primary-color;
+  // background-color: $primary-color;
 
   & :deep(.yotpo-label-container) {
     display: none !important;
   }
 
+  & :deep(.yotpo-default-button.write-review-button.write-first-review-button) {
+    display: none !important;
+  }
   &
     :deep(
       .yotpo-default-button.yotpo-default-button.yotpo-icon-btn.write-question-review-button.write-button.write-review-button
@@ -374,7 +377,7 @@ useHead({
     border-radius: $radius;
     color: $text-color;
     display: flex;
-    padding: 1rem;
+    padding: 1rem !important;
     border: $text-color solid 2px;
     align-items: center;
     margin: auto;
@@ -410,7 +413,8 @@ useHead({
       padding: 12px;
       color: $text-color;
       // font-weight: $slim-weight;
-      background-color: $primary-color;
+      // background-color: $primary-color;
+      -webkit-box-shadow: 0 0 0 30px $base-color inset !important;
 
       &::placeholder {
         color: $text-color;
