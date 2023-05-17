@@ -71,6 +71,7 @@ useHead({
     },
   ],
 })
+// console.log(productStore.product.tags)
 </script>
 
 <template>
@@ -151,6 +152,9 @@ useHead({
           </div>
         </div>
       </div>
+    </section>
+    <section class="tags">
+      <div></div>
     </section>
     <section class="reviews">
       <div
@@ -407,7 +411,7 @@ useHead({
   }
 
   & :deep(.form-element) {
-    & input,
+    & input:not([type='button']),
     textarea {
       border-radius: $radius;
       border: 2px solid $text-color;
@@ -419,7 +423,8 @@ useHead({
       color: $text-color;
       // font-weight: $slim-weight;
       // background-color: $primary-color;
-      -webkit-box-shadow: 0 0 0 30px $base-color inset !important;
+      // -webkit-box-shadow: 0 0 0 30px $base-color inset !important;
+      box-shadow: 0 0 0 30px $base-color inset !important;
 
       &::placeholder {
         color: $text-color;
@@ -428,7 +433,13 @@ useHead({
       }
     }
     & input[type='button'] {
-      -webkit-box-shadow: 0 0 0 30px $text-color inset !important;
+      background: $text-color;
+      width: 100%;
+      border-radius: 25px;
+
+      &:hover {
+        background-color: $text-color !important;
+      }
     }
 
     & label {

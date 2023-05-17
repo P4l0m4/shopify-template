@@ -22,16 +22,12 @@ watch(
   <div>
     <swiper-container
       :grabCursor="true"
-      :cssMode="true"
       :pagination="{
         clickable: true,
       }"
-      :mousewheel="true"
+      :keyboard="true"
       class="swiper"
-      keyboard="true"
       ref="swiper"
-      zoom="true"
-      :zoom="true"
     >
       <swiper-slide v-for="image in images" :key="image.id" class="swiper__slide">
         <div class="swiper__slide__div swiper-zoom-container" data-swiper-zoom="5">
@@ -80,7 +76,7 @@ watch(
       justify-content: center;
 
       &:hover {
-        cursor: zoom-in;
+        // cursor: zoom-in;
       }
 
       @media (min-width: $laptop-screen) {
