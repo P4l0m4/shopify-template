@@ -49,7 +49,7 @@ watch(
     display: flex;
     justify-content: center;
     width: 100% !important;
-    height: 230px;
+    height: 260px;
     transition: height 0.4s ease;
 
     @media (min-width: $tablet-screen) {
@@ -62,7 +62,7 @@ watch(
     &__div {
       max-width: 900px;
       width: 100%;
-      height: 200px;
+      height: 230px;
       display: flex;
       justify-content: center;
 
