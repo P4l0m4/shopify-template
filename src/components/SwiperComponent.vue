@@ -45,13 +45,6 @@ watch(
   --swiper-pagination-color: #{$text-color};
   background-color: $base-color;
 
-  // &--zoom {
-  //   position: fixed;
-  //   inset: 0;
-  //   margin: auto;
-  //   z-index: 3;
-  // }
-
   &__slide {
     display: flex;
     justify-content: center;
@@ -59,14 +52,12 @@ watch(
     height: 230px;
     transition: height 0.4s ease;
 
-    @media (min-width: $laptop-screen) {
-      height: 330px;
+    @media (min-width: $tablet-screen) {
+      height: 300px;
     }
-
-    // &--zoom {
-    //   width: 100%;
-    //   height: 90vh;
-    // }
+    @media (min-width: $laptop-screen) {
+      height: 360px;
+    }
 
     &__div {
       max-width: 900px;
@@ -75,24 +66,14 @@ watch(
       display: flex;
       justify-content: center;
 
-      &:hover {
-        // cursor: zoom-in;
+      @media (min-width: $tablet-screen) {
+        height: 270px;
       }
-
       @media (min-width: $laptop-screen) {
-        height: 300px;
+        height: 330px;
       }
-      // &--zoom {
-      //   width: 100%;
-      //   height: 100%;
-
-      //   &:hover {
-      //     cursor: zoom-out;
-      //   }
-      // }
 
       &__img {
-        padding: 0 1rem;
         width: 100%;
         height: 100%;
         object-fit: contain;

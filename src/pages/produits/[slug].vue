@@ -201,10 +201,7 @@ useHead({
       gap: 0.5rem;
       overflow-x: scroll;
       width: clamp(300px, 100%, 800px);
-      padding: 1rem;
-      @media (min-width: $laptop-screen) {
-        padding: 1rem 0;
-      }
+      padding: 0 1rem 1rem 1rem;
 
       &__variant {
         display: flex;
