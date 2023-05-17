@@ -88,7 +88,7 @@ input[type='number'] {
   align-items: center;
   cursor: pointer;
   border-radius: $radius;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease-in-out !important;
   text-shadow: black 0px 0px 1px;
 
   &:hover {

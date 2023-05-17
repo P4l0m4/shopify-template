@@ -377,12 +377,17 @@ useHead({
     border-radius: $radius;
     color: $text-color;
     display: flex;
-    padding: 1rem !important;
+    padding: 0.75rem 1.75rem !important;
     border: $text-color solid 2px;
     align-items: center;
     margin: auto;
     justify-content: center;
     margin-top: 1rem;
+    white-space: nowrap;
+    transition: transform 0.4s ease-in-out;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   & :deep(.bottom-line-items-container-desktop) {
@@ -421,6 +426,9 @@ useHead({
         // font-weight: $slim-weight;
         opacity: 0.4;
       }
+    }
+    & input[type='button'] {
+      -webkit-box-shadow: 0 0 0 30px $text-color inset !important;
     }
 
     & label {
