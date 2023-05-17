@@ -9,6 +9,10 @@
     :mousewheel="true"
     loop="true"
     speed="500"
+    :autoplay="{
+      delay: 2500,
+      pauseOnMouseEnter: true,
+    }"
     class="swiper"
     keyboard="true"
     ref="swiper"
