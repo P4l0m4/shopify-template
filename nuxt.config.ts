@@ -29,7 +29,11 @@ export default defineNuxtConfig({
       return await getProductPages()
     },
   },
-
+  vue: {
+    compilerOptions: {
+      isCustomElement: tag => ['swiper-container', 'swiper-slide'].includes(tag),
+    },
+  },
   app: {
     head: {
       script: [

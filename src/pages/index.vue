@@ -27,7 +27,6 @@ const productStore = useProductStore()
 // })
 
 // const cookies = Cookies.get()
-// console.log(cookies)
 </script>
 
 <template>

@@ -27,10 +27,10 @@ useHead({
 
 <template>
   <div class="container">
-    <Header>
+    <header>
       <StoryblokComponent v-if="story" :blok="story.content" />
-      <NavigationComponent
-    /></Header>
+      <NavigationComponent />
+    </header>
     <main><slot /></main>
     <FooterComponent />
   </div>
