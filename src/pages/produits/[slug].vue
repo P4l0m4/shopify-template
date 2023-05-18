@@ -155,6 +155,7 @@ useHead({
     <section class="tags">
       <div></div>
     </section>
+    <section class="test"></section>
     <section class="reviews">
       <div
         class="yotpo yotpo-main-widget"
@@ -354,6 +355,11 @@ useHead({
     }
   }
 }
+
+.test {
+  width: 100%;
+  height: 200px;
+}
 .reviews {
   display: flex;
   width: 100%;
@@ -375,18 +381,18 @@ useHead({
       .yotpo-default-button.yotpo-default-button.yotpo-icon-btn.write-question-review-button.write-button.write-review-button
     ) {
     border-radius: $radius;
-    color: $text-color;
+    text-transform: capitalize;
     display: flex;
     padding: 0.75rem 1.75rem !important;
     border: $text-color solid 2px;
     align-items: center;
     margin: auto;
     justify-content: center;
-    margin-top: 1rem;
     white-space: nowrap;
     transition: transform 0.4s ease-in-out;
+
     &:hover {
-      transform: scale(1.05);
+      transform: scale(1.04);
     }
   }
 
