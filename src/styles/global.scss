@@ -51,8 +51,6 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px $primary-color inset !important;
-  border: 2px solid $text-color !important;
-  outline: $text-color !important;
 }
 input[type='search'] {
   -webkit-appearance: none;

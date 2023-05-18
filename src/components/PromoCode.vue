@@ -53,21 +53,31 @@ const cartStore = useCartStore()
 
     &__wrapper {
       display: flex;
-      gap: 0.5rem;
-      padding: 0.5rem;
       width: 100%;
-      background-color: $primary-color;
-      box-shadow: $shadow;
-      border-radius: $radius;
       justify-content: space-between;
 
       &__input {
         padding: 8px;
-        // background-color: $primary-color;
+        background-color: $primary-color;
+        box-shadow: $shadow;
         outline: none;
-        border: transparent 2px solid;
+        border: $primary-color 2px solid;
         width: clamp(100px, 100%, 375px);
         color: $text-color;
+
+        &:focus {
+          border: 2px solid $primary-color;
+          outline: $primary-color;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0 30px $primary-color inset !important;
+          border: 2px solid $primary-color !important;
+          outline: $primary-color !important;
+        }
       }
 
       &__button {
@@ -75,7 +85,7 @@ const cartStore = useCartStore()
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 8px;
+        padding: 0.75rem 1.75rem;
         background-color: $text-color;
         color: $primary-color;
         font-weight: 600;
