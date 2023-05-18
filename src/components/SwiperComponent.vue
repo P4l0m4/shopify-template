@@ -48,7 +48,7 @@ let zoom = ref(false)
   justify-content: center;
   --swiper-pagination-color: #{$text-color};
   background-color: $base-color;
-  width: clamp(100px, 100%, 1000px);
+  width: clamp(100px, 100%, 800px);
 
   &__slide {
     display: flex;

@@ -190,7 +190,7 @@ function scroll() {
   padding: 1rem 0;
 
   &__title {
-    font-weight: 200 !important;
+    font-weight: 300 !important;
     font-size: 1.5rem;
     padding: 0 1rem;
   }
