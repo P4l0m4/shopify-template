@@ -6,7 +6,7 @@ const cartStore = useCartStore()
   <div class="promo">
     <div class="promo__test">
       <div class="promo__test__wrapper">
-        <input placeholder="Code promo" id="code" class="promo__test__wrapper__input" v-model="codeToTry" />
+        <input placeholder="Ajouter un code promo" id="code" class="promo__test__wrapper__input" v-model="codeToTry" />
         <button
           class="promo__test__wrapper__button"
           type="submit"
@@ -54,7 +54,7 @@ const cartStore = useCartStore()
     &__wrapper {
       display: flex;
       width: 100%;
-      justify-content: space-between;
+      gap: 0.5rem;
 
       &__input {
         padding: 8px;
@@ -62,7 +62,7 @@ const cartStore = useCartStore()
         box-shadow: $shadow;
         outline: none;
         border: $primary-color 2px solid;
-        width: clamp(100px, 100%, 375px);
+        width: clamp(100px, 100%, 400px);
         color: $text-color;
 
         &:focus {
