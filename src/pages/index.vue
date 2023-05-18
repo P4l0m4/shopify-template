@@ -25,8 +25,6 @@ const productStore = useProductStore()
 //   ],
 //   body: true,
 // })
-
-// const cookies = Cookies.get()
 </script>
 
 <template>

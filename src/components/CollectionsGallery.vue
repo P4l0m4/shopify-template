@@ -29,6 +29,7 @@ defineProps({ collections: Array })
   gap: 4rem;
   padding: 0 1rem;
   max-width: 2000px;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +49,7 @@ defineProps({ collections: Array })
     border-radius: calc($radius/2);
     padding: 1rem;
 
-    @media (min-width: $tablet-screen) {
+    @media (min-width: $laptop-screen) {
       padding: 0;
       background-color: transparent;
       flex-direction: row;
@@ -59,7 +60,7 @@ defineProps({ collections: Array })
     }
 
     &__img {
-      width: 343px;
+      width: 100%;
       height: 343px;
       object-fit: cover;
       border-radius: calc($radius / 2);
