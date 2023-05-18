@@ -52,6 +52,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   '@type': 'WebSite',
   name: 'SampleShop',
   url: 'https://nuxt3-shopify-template.netlify.app/',`,
+
+          body: true,
         },
       ],
       htmlAttrs: { lang: 'fr' },

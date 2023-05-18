@@ -31,8 +31,6 @@ useHead({
 })
 
 // JSON-LD
-const route = useRoute()
-const pageSlug = route.params.slug
 
 useJsonld(() => ({
   '@context': 'https://schema.org',
