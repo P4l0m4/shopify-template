@@ -26,13 +26,7 @@ const productStore = useProductStore()
 //   body: true,
 // })
 
-<<<<<<< HEAD
 // const cookies = Cookies.get()
-=======
-Cookies.set('name', 'value')
-const cookies = Cookies.get()
-console.log(cookies)
->>>>>>> bb98f1c (mc)
 </script>
 
 <template>
