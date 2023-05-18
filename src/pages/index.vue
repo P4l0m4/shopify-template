@@ -5,19 +5,29 @@ const productStore = useProductStore()
 const route = useRoute()
 const pageSlug = route.params.slug
 
-useJsonld(() => ({
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-
-  itemListElement: [
+useJsonld(
+  () => (
     {
-      '@type': 'ListItem',
-      position: 1,
-      name: 'accueil',
-      item: pageSlug,
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'accueil',
+          item: pageSlug,
+        },
+      ],
     },
-  ],
-}))
+    {
+      '@context': 'https://schema.org/',
+      '@type': 'WebSite',
+      name: 'SampleShop',
+      url: pageSlug,
+    }
+  )
+)
 // useJsonld(() => ({
 //   '@context': 'https://schema.org/',
 //   '@type': 'WebSite',
