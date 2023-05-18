@@ -60,6 +60,24 @@ function applyFilter(filters) {
 function applySort(options) {
   productStore.setSort(options)
 }
+
+// JSON-LD
+const route = useRoute()
+const pageSlug = route.params.slug
+
+useJsonld(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'boutique',
+      item: pageSlug,
+    },
+  ],
+}))
 </script>
 <template>
   <section class="shop">

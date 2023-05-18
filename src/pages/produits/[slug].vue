@@ -72,10 +72,27 @@ useHead({
   ],
 })
 
+//Scroll to description
 function scroll() {
   const anchor = document.querySelector('#anchor')
   anchor.scrollIntoView({ behavior: 'smooth' })
 }
+
+// JSON-LD
+
+useJsonld(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'produits',
+      item: pageSlug,
+    },
+  ],
+}))
 </script>
 
 <template>

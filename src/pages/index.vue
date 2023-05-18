@@ -18,12 +18,12 @@ useJsonld(() => ({
     },
   ],
 }))
-useJsonld(() => ({
-  '@context': 'https://schema.org/',
-  '@type': 'WebSite',
-  name: 'SampleShop',
-  url: 'https://nuxt3-shopify-template.netlify.app/',
-}))
+// useJsonld(() => ({
+//   '@context': 'https://schema.org/',
+//   '@type': 'WebSite',
+//   name: 'SampleShop',
+//   url: 'https://nuxt3-shopify-template.netlify.app/',
+// }))
 </script>
 
 <template>

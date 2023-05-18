@@ -29,6 +29,24 @@ useHead({
     },
   ],
 })
+
+// JSON-LD
+const route = useRoute()
+const pageSlug = route.params.slug
+
+useJsonld(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: 'collections',
+      item: pageSlug,
+    },
+  ],
+}))
 </script>
 <template>
   <section class="collection">

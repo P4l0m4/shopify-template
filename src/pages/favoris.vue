@@ -16,6 +16,23 @@ useHead({
     },
   ],
 })
+
+const route = useRoute()
+const pageSlug = route.params.slug
+
+useJsonld(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'favoris',
+      item: pageSlug,
+    },
+  ],
+}))
 </script>
 
 <template>

@@ -1,3 +1,22 @@
+<script setup>
+const route = useRoute()
+const pageSlug = route.params.slug
+
+useJsonld(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'contact',
+      item: pageSlug,
+    },
+  ],
+}))
+</script>
+
 <template>
   <main class="contact">
     <div class="contact__wrapper">

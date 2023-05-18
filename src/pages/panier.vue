@@ -30,6 +30,23 @@ async function removeOneProductFromCart(item) {
 }
 
 const isMarkerOpen = ref(false)
+
+const route = useRoute()
+const pageSlug = route.params.slug
+
+useJsonld(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'panier',
+      item: pageSlug,
+    },
+  ],
+}))
 </script>
 <template>
   <div class="container">
