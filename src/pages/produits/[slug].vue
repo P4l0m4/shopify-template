@@ -78,25 +78,22 @@ function scroll() {
   anchor.scrollIntoView({ behavior: 'smooth' })
 }
 
-// JSON-LD
-
-useJsonld(() => ({
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 3,
-      name: 'produits',
-      item: pageSlug,
-    },
-  ],
-}))
+//JSONLD
+const breadcrumbs = [
+  {
+    name: 'Accueil',
+    url: window.location.origin,
+  },
+  {
+    name: productStore.product.title,
+    url: window.location.href,
+  },
+]
 </script>
 
 <template>
   <div class="container">
+    <JsonldBreadcrumb :links="breadcrumbs" />
     <section class="product" v-if="!loading">
       <SwiperComponent :images="productStore.product.images" :currentSlideIndex="currentSlideIndex" />
       <div class="product__details">

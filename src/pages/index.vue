@@ -2,42 +2,17 @@
 import { useProductStore } from '@/stores/product'
 const productStore = useProductStore()
 
-const route = useRoute()
-const pageSlug = route.params.slug
-
-useJsonld(
-  () => (
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'accueil',
-          item: pageSlug,
-        },
-      ],
-    },
-    {
-      '@context': 'https://schema.org/',
-      '@type': 'WebSite',
-      name: 'SampleShop',
-      url: pageSlug,
-    }
-  )
-)
-// useJsonld(() => ({
-//   '@context': 'https://schema.org/',
-//   '@type': 'WebSite',
-//   name: 'SampleShop',
-//   url: 'https://nuxt3-shopify-template.netlify.app/',
-// }))
+const breadcrumbs = [
+  {
+    name: 'Accueil',
+    url: window.location.origin,
+  },
+]
 </script>
 
 <template>
   <section class="index-section">
+    <JsonldBreadcrumb :links="breadcrumbs" />
     <HomeCarousel />
     <div class="index-section__wrapper">
       <!-- <p class="index-section__wrapper__title">Nos collections exclusives</p> -->

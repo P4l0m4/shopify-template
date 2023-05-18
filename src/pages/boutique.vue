@@ -61,26 +61,21 @@ function applySort(options) {
   productStore.setSort(options)
 }
 
-// JSON-LD
-const route = useRoute()
-const pageSlug = route.params.slug
-
-useJsonld(() => ({
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: 'boutique',
-      item: pageSlug,
-    },
-  ],
-}))
+//JSONLD
+const breadcrumbs = [
+  {
+    name: 'Accueil',
+    url: window.location.origin,
+  },
+  {
+    name: 'Boutique',
+    url: window.location.href,
+  },
+]
 </script>
 <template>
   <section class="shop">
+    <JsonldBreadcrumb :links="breadcrumbs" />
     <SearchBar @search="applySearch" @toggleOverlay="toggleOverlay" @sort="applySort" />
 
     <SearchAdditionalCriteria

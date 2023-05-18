@@ -17,26 +17,22 @@ useHead({
   ],
 })
 
-const route = useRoute()
-const pageSlug = route.params.slug
-
-useJsonld(() => ({
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: 'favoris',
-      item: pageSlug,
-    },
-  ],
-}))
+//JSONLD
+const breadcrumbs = [
+  {
+    name: 'Accueil',
+    url: window.location.origin,
+  },
+  {
+    name: 'Favoris',
+    url: window.location.href,
+  },
+]
 </script>
 
 <template>
   <section class="liked">
+    <JsonldBreadcrumb :links="breadcrumbs" />
     <!-- <h1 class="liked__title">Vos favoris</h1> -->
     <div class="liked__products" v-if="likedStore.productsLiked.length > 0">
       <ProductCard v-for="product in likedStore.productsLiked" :product="product" />

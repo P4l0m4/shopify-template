@@ -1,24 +1,20 @@
 <script setup>
-const route = useRoute()
-const pageSlug = route.params.slug
-
-useJsonld(() => ({
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: 'contact',
-      item: pageSlug,
-    },
-  ],
-}))
+//JSONLD
+const breadcrumbs = [
+  {
+    name: 'Accueil',
+    url: window.location.origin,
+  },
+  {
+    name: 'Contact',
+    url: window.location.href,
+  },
+]
 </script>
 
 <template>
-  <main class="contact">
+  <section class="contact">
+    <JsonldBreadcrumb :links="breadcrumbs" />
     <div class="contact__wrapper">
       <ContactFormComponent />
       <iframe
@@ -29,7 +25,7 @@ useJsonld(() => ({
       ></iframe>
     </div>
     <!-- <div class="contact__wrapper"><ContactCalendlyComponent /></div> -->
-  </main>
+  </section>
 </template>
 
 <style lang="scss" scoped>

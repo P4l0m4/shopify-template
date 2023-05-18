@@ -30,24 +30,21 @@ useHead({
   ],
 })
 
-// JSON-LD
-
-useJsonld(() => ({
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 3,
-      name: 'collections',
-      item: pageSlug,
-    },
-  ],
-}))
+//JSONLD
+const breadcrumbs = [
+  {
+    name: 'Accueil',
+    url: window.location.origin,
+  },
+  {
+    name: metaTitle.value,
+    url: window.location.href,
+  },
+]
 </script>
 <template>
   <section class="collection">
+    <JsonldBreadcrumb :links="breadcrumbs" />
     <div class="collection__txt">
       <h1 class="collection__txt__title">{{ metaTitle }}</h1>
       <p class="collection__txt__description">{{ metaDescription }}</p>
