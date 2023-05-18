@@ -43,7 +43,6 @@ const form = ref(null)
 
 async function submit() {
   const valid = await v$.value.$validate()
-  console.log(valid)
 
   if (valid) {
     if (state.HP === false) {

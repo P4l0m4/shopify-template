@@ -9,13 +9,11 @@ function exit() {
 
 function clearCookies() {
   document.cookie = ''
-  console.log('cookies:' + document.cookie)
   areCookiesEnabled.value = false
   exit()
 }
 
 const props = defineProps({ cookie: Object })
-console.log(props.blok)
 </script>
 <template>
   <div class="cookies">

@@ -20,7 +20,7 @@ setTimeout(() => {
 
 <template>
   <footer class="footer">
-    <CookiesSettings :cookie="story.content" v-if="showCookieModal" />
+    <!-- <CookiesSettings :cookie="story.content" v-if="showCookieModal" /> -->
     <div class="footer__site-links">
       <nuxt-link to="/" class="footer__document">Accueil</nuxt-link>
       <nuxt-link to="/boutique" class="footer__document">Boutique</nuxt-link>
