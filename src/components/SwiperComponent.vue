@@ -15,27 +15,31 @@ watch(
   }
 )
 
-// let zoom = ref(false)
+let zoom = ref(false)
 </script>
 
 <template>
-  <div>
-    <swiper-container
-      :grabCursor="true"
-      :pagination="{
-        clickable: true,
-      }"
-      :keyboard="true"
-      class="swiper"
-      ref="swiper"
+  <swiper-container
+    :pagination="{
+      clickable: true,
+    }"
+    :keyboard="true"
+    speed="600"
+    class="swiper"
+    ref="swiper"
+  >
+    <swiper-slide
+      v-for="image in images"
+      :key="image.id"
+      class="swiper__slide"
+      :class="{ 'swiper__slide--zoom': zoom }"
+      @click="zoom = !zoom"
     >
-      <swiper-slide v-for="image in images" :key="image.id" class="swiper__slide">
-        <div class="swiper__slide__div swiper-zoom-container" data-swiper-zoom="5">
-          <img :src="image.src" class="swiper__slide__div__img" :alt="image.alt" />
-        </div>
-      </swiper-slide>
-    </swiper-container>
-  </div>
+      <div class="swiper__slide__div">
+        <img :src="image.src" class="swiper__slide__div__img" :alt="image.alt" />
+      </div>
+    </swiper-slide>
+  </swiper-container>
 </template>
 <style lang="scss" scoped>
 .swiper {
@@ -44,13 +48,17 @@ watch(
   justify-content: center;
   --swiper-pagination-color: #{$text-color};
   background-color: $base-color;
+  width: clamp(100px, 100%, 1000px);
 
   &__slide {
     display: flex;
     justify-content: center;
-    width: 100% !important;
+    width: 100%;
     height: 260px;
     transition: height 0.4s ease;
+    &:hover {
+      cursor: zoom-in;
+    }
 
     @media (min-width: $tablet-screen) {
       height: 300px;
@@ -60,24 +68,24 @@ watch(
     }
 
     &__div {
-      max-width: 900px;
       width: 100%;
-      height: 230px;
+      height: calc(100% - 30px);
       display: flex;
       justify-content: center;
-
-      @media (min-width: $tablet-screen) {
-        height: 270px;
-      }
-      @media (min-width: $laptop-screen) {
-        height: 330px;
-      }
 
       &__img {
         width: 100%;
         height: 100%;
         object-fit: contain;
         border-radius: $radius;
+      }
+    }
+
+    &--zoom {
+      height: 100vh;
+      max-height: calc(100vh - 120px);
+      &:hover {
+        cursor: zoom-out;
       }
     }
   }
