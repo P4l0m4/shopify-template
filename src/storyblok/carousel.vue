@@ -2,13 +2,12 @@
   <swiper-container
     v-editable="blok"
     :grabCursor="true"
-    :cssMode="true"
     :pagination="{
       clickable: true,
     }"
     :mousewheel="true"
     loop="true"
-    speed="500"
+    speed="600"
     :autoplay="{
       delay: 2500,
       pauseOnMouseEnter: true,
