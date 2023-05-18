@@ -17,6 +17,7 @@
     "js-cookie": "^3.0.5",
     "nuxt": "^3.3.1",
     "nuxt-calendly": "^0.1.14",
+    "nuxt-jsonld": "^2.0.8",
     "nuxt-simple-sitemap": "^2.4.11",
     "pinia": "^2.0.30",
     "ress": "^5.0.2",

@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     'nuxt-calendly',
     'nuxt-simple-sitemap',
     ['@storyblok/nuxt', { accessToken: 'HywsRInkperCxQGCRiQGhAtt' }],
+    'nuxt-jsonld',
   ],
 
   vite: {

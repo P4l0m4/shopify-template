@@ -2,29 +2,22 @@
 import { useProductStore } from '@/stores/product'
 const productStore = useProductStore()
 
-// useHead({
-//   script: [
-//     {
-//       '@context': 'https://schema.org/',
-//       '@type': 'BreadcrumbList',
-//       itemListElement: [
-//         {
-//           '@type': 'ListItem',
-//           position: 1,
-//           name: 'accueil',
-//           item: '',
-//         },
-//         {
-//           '@type': 'ListItem',
-//           position: 2,
-//           name: 'products',
-//           item: '',
-//         },
-//       ],
-//     },
-//   ],
-//   body: true,
-// })
+const route = useRoute()
+const pageSlug = route.params.slug
+
+useJsonld(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  name: 'accueil',
+  position: 1,
+  item: pageSlug,
+}))
+useJsonld(() => ({
+  '@context': 'https://schema.org/',
+  '@type': 'WebSite',
+  name: 'SampleShop',
+  url: 'https://nuxt3-shopify-template.netlify.app/',
+}))
 </script>
 
 <template>
