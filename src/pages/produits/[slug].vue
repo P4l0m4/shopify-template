@@ -290,6 +290,11 @@ function scroll() {
           align-items: center;
           margin-top: 0.5rem;
 
+          .yotpo-offset-button {
+            display: flex;
+            min-width: 150px;
+          }
+
           &__button {
             background-color: transparent;
             border: transparent solid 2px;
@@ -298,7 +303,7 @@ function scroll() {
             display: flex;
             justify-content: flex-end;
             padding: 0.25rem 0;
-            margin-left: 1rem;
+
             & span {
               text-decoration: underline;
               font-size: 0.75rem;
