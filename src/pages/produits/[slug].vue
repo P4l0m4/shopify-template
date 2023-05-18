@@ -372,6 +372,10 @@ function scroll() {
     display: none !important;
   }
 
+  & :deep(.y-label.yotpo-header-title) {
+    visibility: hidden !important;
+  }
+
   & :deep(.yotpo-default-button.write-review-button.write-first-review-button) {
     display: none !important;
   }
