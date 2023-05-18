@@ -298,6 +298,7 @@ function scroll() {
             display: flex;
             justify-content: flex-end;
             padding: 0.25rem 0;
+            margin-left: 1rem;
             & span {
               text-decoration: underline;
               font-size: 0.75rem;
