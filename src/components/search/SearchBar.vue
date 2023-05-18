@@ -1,6 +1,6 @@
 <script setup>
 import { debounce } from '@/utils/debounce'
-import { defineEmits, ref } from 'vue'
+import { ref } from 'vue'
 
 const search = debounce(async e => {
   const query = e.target.value
@@ -163,7 +163,7 @@ const optionSelected = ref('')
       padding: 0.5rem 1rem;
       box-shadow: $shadow;
       background-color: $primary-color;
-      font-weight: 100;
+      font-weight: 300;
       font-size: 0.75rem;
       text-align: center;
       color: $text-color;
