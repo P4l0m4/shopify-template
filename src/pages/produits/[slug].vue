@@ -109,7 +109,13 @@ function scroll() {
             ></p>
 
             <div class="product__details__add-to-cart__txt__wrapper">
-              <button class="yotpo-offset-button" @click="scroll" id="anchor">
+              <button
+                class="yotpo-offset-button"
+                @click="scroll"
+                id="anchor"
+                title="écrire un avis"
+                aria-label="écrire un avis"
+              >
                 <div
                   class="yotpo bottomLine"
                   data-appkey="g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ"
