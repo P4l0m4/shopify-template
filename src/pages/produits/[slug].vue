@@ -71,6 +71,11 @@ useHead({
     },
   ],
 })
+
+function scroll() {
+  const anchor = document.querySelector('#anchor')
+  anchor.scrollIntoView({ behavior: 'smooth' })
+}
 </script>
 
 <template>
@@ -104,17 +109,19 @@ useHead({
             ></p>
 
             <div class="product__details__add-to-cart__txt__wrapper">
-              <div
-                class="yotpo bottomLine"
-                data-appkey="g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ"
-                data-domain="https://nuxt3-shopify-template.netlify.app/"
-                :data-product-id="productStore.product.id.split('/').pop()"
-                :data-name="productStore.product.title"
-                :data-url="`https://nuxt3-shopify-template.netlify.app/${PRODUCT_PATH}${productStore.product.handle}`"
-                :data-image-url="productStore.product.images[0].src"
-                :data-description="productStore.product.description"
-                :data-bread-crumbs="productStore.product.productType"
-              ></div>
+              <button class="yotpo-offset-button" @click="scroll" id="anchor">
+                <div
+                  class="yotpo bottomLine"
+                  data-appkey="g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ"
+                  data-domain="https://nuxt3-shopify-template.netlify.app/"
+                  :data-product-id="productStore.product.id.split('/').pop()"
+                  :data-name="productStore.product.title"
+                  :data-url="`https://nuxt3-shopify-template.netlify.app/${PRODUCT_PATH}${productStore.product.handle}`"
+                  :data-image-url="productStore.product.images[0].src"
+                  :data-description="productStore.product.description"
+                  :data-bread-crumbs="productStore.product.productType"
+                ></div>
+              </button>
               <button
                 class="product__details__add-to-cart__txt__wrapper__button"
                 v-if="isTooBig"
@@ -143,7 +150,7 @@ useHead({
                 'product__details__add-to-cart__price__button--updating': updatingCart,
               }"
             >
-              <img v-if="!updatingCart" class="icon" src="@/assets/icons/add-to-cart.svg" alt="" /><span
+              <img v-if="!updatingCart" class="icon" src="@/assets/icons/add-to-cart.svg" alt="icon" /><span
                 v-if="updatingCart"
                 >Ajouté au panier</span
               >
@@ -152,10 +159,7 @@ useHead({
         </div>
       </div>
     </section>
-    <section class="tags">
-      <div></div>
-    </section>
-    <section class="test"></section>
+
     <section class="reviews">
       <div
         class="yotpo yotpo-main-widget"
@@ -354,11 +358,6 @@ useHead({
       }
     }
   }
-}
-
-.test {
-  width: 100%;
-  height: 200px;
 }
 .reviews {
   display: flex;
