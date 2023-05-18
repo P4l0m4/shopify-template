@@ -43,19 +43,22 @@ onMounted(() => {
   &__component {
     display: flex;
     gap: 14rem;
-    max-height: 35px;
+    height: 36px;
+    align-items: center;
 
     & button {
       background: #333333;
+      height: 36px;
       color: #fffdfa;
-      padding: 0.5rem 0 !important;
+      padding: 0 !important;
       font-size: 14px;
       font-family: 'Rubik', sans-serif;
       font-weight: 300;
       cursor: pointer;
+      align-items: center;
 
       & span {
-        font-size: 14px;
+        font-size: 0.75rem;
         font-weight: 300;
       }
     }
