@@ -8,9 +8,15 @@ const pageSlug = route.params.slug
 useJsonld(() => ({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
-  name: 'accueil',
-  position: 1,
-  item: pageSlug,
+
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'accueil',
+      item: pageSlug,
+    },
+  ],
 }))
 useJsonld(() => ({
   '@context': 'https://schema.org/',
