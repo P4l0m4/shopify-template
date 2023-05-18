@@ -27,7 +27,7 @@ useHead({
 
 <template>
   <div class="container">
-    <header>
+    <header class="container__header">
       <StoryblokComponent v-if="story" :blok="story.content" />
       <NavigationComponent />
     </header>
@@ -52,17 +52,16 @@ useHead({
   padding: 5.2rem 0 0 0;
   gap: 2rem;
   align-items: center;
-  max-width: 2000px;
   margin: auto;
 
   @media (min-width: $laptop-screen) {
     padding: 6.4rem 0 0 0;
   }
 
-  header {
+  &__header {
     display: flex;
     flex-direction: column;
-    max-width: 2000px;
+    align-items: center;
     width: 100%;
     position: fixed;
     top: 0;

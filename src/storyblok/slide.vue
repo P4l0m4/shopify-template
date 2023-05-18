@@ -27,7 +27,7 @@ const props = defineProps({ blok: Object })
 </script>
 <style lang="scss" scoped>
 .swiper {
-  width: 100% !important;
+  width: 100%;
   height: 340px;
   box-shadow: $shadow;
 

@@ -47,6 +47,7 @@ const productStore = useProductStore()
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  align-items: center;
 
   &__wrapper {
     display: flex;

@@ -24,9 +24,10 @@ defineProps({ blok: Object })
 </script>
 <style lang="scss" scoped>
 .swiper {
-  margin: 0;
+  margin: auto;
   display: flex;
   justify-content: center;
   --swiper-pagination-color: #{$primary-color};
+  width: clamp(100px, 100%, 2000px) !important;
 }
 </style>
