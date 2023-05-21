@@ -144,17 +144,17 @@ function selectCollection(collection) {
           box-shadow: $shadow;
           font-weight: 100;
           font-size: 1rem;
-          border: transparent 2px solid;
+          border: $primary-color 4px solid;
           color: $primary-color;
           cursor: pointer;
           width: 100%;
-          opacity: 0.6;
+
           @media (min-width: $tablet-screen) {
             min-height: 100px;
           }
 
           &--selected {
-            opacity: 1;
+            border: $selected-background-color-darker 4px solid;
           }
 
           // &__img {
