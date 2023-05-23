@@ -1,5 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=:wght@300;400;500;600;800&display=swap');
 @import 'transitions';
+
+@font-face {
+  font-family: 'Rubik';
+  src: url(@/assets/fonts/Rubik-VariableFont_wght.ttf) format('truetype');
+}
 
 *,
 :before,

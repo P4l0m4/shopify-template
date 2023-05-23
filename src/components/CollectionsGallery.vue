@@ -61,7 +61,8 @@ defineProps({ collections: Array })
 
     &__img {
       width: 100%;
-      height: 343px;
+      max-width: 340px;
+      height: 340px;
       object-fit: cover;
       border-radius: calc($radius / 2);
 

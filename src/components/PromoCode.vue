@@ -8,7 +8,7 @@ const cartStore = useCartStore()
       <div class="promo__test__wrapper">
         <input placeholder="Ajouter un code promo" id="code" class="promo__test__wrapper__input" v-model="codeToTry" />
         <button
-          class="promo__test__wrapper__button"
+          class="promo__test__wrapper__button button-secondary"
           type="submit"
           @click="cartStore.addPromoCode(codeToTry)"
           aria-label="tester code promo"
@@ -22,6 +22,7 @@ const cartStore = useCartStore()
           v-for="(discount, i) in cartStore.checkout.discountApplications"
           :key="i"
         >
+          <img class="icon" src="@/assets/icons/tag.svg" alt="icone tag" />
           <span v-if="discount.__typename === 'DiscountCodeApplication'">
             {{ discount.code }}
           </span>
@@ -81,47 +82,43 @@ const cartStore = useCartStore()
       }
 
       &__button {
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0.75rem 1.75rem;
-        background-color: $text-color;
-        color: $primary-color;
-        font-weight: 600;
-        border: $text-color solid 2px;
-        font-weight: 500;
-        transition: transform 0.4s ease;
-        &:hover {
-          transform: scale(1.04);
-        }
+        text-shadow: none;
       }
     }
 
     &__codes {
       display: flex;
       gap: 0.5rem;
-      flex-direction: column;
+      flex-wrap: wrap;
 
       &__code {
-        font-size: 16px;
+        font-size: 0.75rem;
         display: flex;
-        padding: 8px 16px;
-        border: $promo-code-color solid 2px;
-        color: $promo-code-color;
-        font-weight: 500;
+        background-color: $selected-background-color;
+        color: $selected-color-darker;
+        border: 2px solid $selected-color;
+        padding: 0.25rem 0.5rem;
+        font-weight: 600;
+        align-items: center;
+        gap: 0.25rem;
         justify-content: center;
         border-radius: $radius;
+        width: fit-content;
+
+        .icon {
+          height: 18px;
+          cursor: none;
+        }
       }
     }
   }
   &__error {
-    color: red;
-    font-size: 16px;
+    color: #b80303;
+    font-size: 0.75rem;
 
     &__code {
       text-transform: uppercase;
-      color: red;
+      color: #b80303;
     }
   }
 }

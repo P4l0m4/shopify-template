@@ -1,6 +1,7 @@
 <script setup>
 import { useCartStore } from '@/stores/cart'
 import { PRODUCT_PATH } from '@/config/url'
+import { ref } from 'vue'
 
 // Store
 const cartStore = useCartStore()
@@ -93,9 +94,9 @@ const breadcrumbs = [
               <span>{{ item.quantity * item.variant.price.amount }} €</span>
             </div> -->
             </div>
-            <div class="cart__products__list__product__hidden">
+            <div class="cart__products__list__product__trash">
               <button
-                class="cart__products__list__product__hidden__trash"
+                class="cart__products__list__product__trash__button"
                 @click="cartStore.removeProductFromCart(item)"
                 aria-label="supprimer le produit"
               >
@@ -116,7 +117,7 @@ const breadcrumbs = [
                       class="icon"
                       :class="{ 'icon--open': isMarkerOpen }"
                       src="@/assets/icons/next.svg"
-                      alt=""
+                      alt="icone suivant"
                     />
                   </div>
                   <span>Calculée à la prochaine étape</span>
@@ -127,6 +128,9 @@ const breadcrumbs = [
             <div class="cart__products__params__price__amounts">
               <p>Total TTC :</p>
               <span>{{ cartStore.checkout.paymentDue.amount * 1 }} €</span>
+              <span v-if="promotion !== 0 && promotion" class="cart__products__params__price__amounts__promotion"
+                >-{{ promotion }}%</span
+              >
             </div>
           </div>
           <a :href="cartStore.checkout.webUrl" class="cart__products__params__button button-primary"
@@ -187,8 +191,9 @@ const breadcrumbs = [
         &__product {
           width: 100%;
           display: flex;
-          gap: 1rem;
-          border-radius: $radius;
+          gap: 0.75rem;
+          overflow: scroll;
+          position: relative;
 
           &__card {
             display: flex;
@@ -288,10 +293,22 @@ const breadcrumbs = [
             }
           }
 
-          &__hidden {
-            display: none;
-            align-items: flex-end;
-            background-color: rgba(51, 51, 51, 0.1);
+          &__trash {
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            background-color: $text-color;
+            border-radius: 0 $radius $radius 0;
+            position: absolute;
+            right: -70px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+
+            &__button {
+              display: flex;
+              align-items: center;
+            }
           }
         }
       }

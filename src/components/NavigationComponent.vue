@@ -126,6 +126,7 @@ nav {
 
       &__number {
         height: 16px;
+        min-width: 16px;
         background-color: $text-color;
         border-radius: 8px;
         display: flex;
