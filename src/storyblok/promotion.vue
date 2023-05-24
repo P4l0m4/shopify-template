@@ -26,13 +26,18 @@ onMounted(() => {
 <template>
   <infinite-slide-bar :barStyle="{ background: blok.color }" :duration="'128s'" class="infinite-slide-bar">
     <div class="infinite-slide-bar__component">
-      <button style="padding-left: 168px !important" @click="copy()" aria-label="copier le code promo">
+      <button
+        :style="{ 'background-color': blok.color }"
+        style="padding-left: 168px !important"
+        @click="copy()"
+        aria-label="copier le code promo"
+      >
         {{ message }} <span v-if="code">{{ code }}</span></button
-      ><button @click="copy()" aria-label="copier le code promo">
+      ><button :style="{ 'background-color': blok.color }" @click="copy()" aria-label="copier le code promo">
         {{ message }} <span v-if="code">{{ code }}</span></button
-      ><button @click="copy()" aria-label="copier le code promo">
+      ><button :style="{ 'background-color': blok.color }" @click="copy()" aria-label="copier le code promo">
         {{ message }} <span v-if="code">{{ code }}</span></button
-      ><button @click="copy()" aria-label="copier le code promo">
+      ><button :style="{ 'background-color': blok.color }" @click="copy()" aria-label="copier le code promo">
         {{ message }} <span v-if="code">{{ code }}</span>
       </button>
     </div>
@@ -47,7 +52,6 @@ onMounted(() => {
     align-items: center;
 
     & button {
-      background: #333333;
       height: 36px;
       color: #fffdfa;
       padding: 0 !important;

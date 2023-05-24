@@ -86,6 +86,7 @@ const breadcrumbs = [
     gap: 1rem;
     flex-direction: column;
     border-radius: $radius;
+    box-shadow: $shadow;
   }
 }
 </style>
