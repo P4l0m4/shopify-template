@@ -89,6 +89,9 @@ const breadcrumbs = [
     url: window.location.href,
   },
 ]
+
+//STORYBLOK
+const story = await useAsyncStoryblok('product', { version: 'draft' })
 </script>
 
 <template>
@@ -192,6 +195,8 @@ const breadcrumbs = [
       ></div>
       <!-- <div id="yotpo-testimonials-custom-tab"></div> -->
     </section>
+    <StoryblokComponent v-if="story" :blok="story.content" />
+
     <p class="container__title">Nos best sellers</p>
     <ProductsPropositions />
   </div>

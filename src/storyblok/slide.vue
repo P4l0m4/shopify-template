@@ -1,3 +1,6 @@
+<script setup>
+const props = defineProps({ blok: Object })
+</script>
 <template>
   <swiper-slide class="swiper" :style="'background-color:' + blok.background_color">
     <NuxtLink
@@ -22,9 +25,6 @@
   </swiper-slide>
 </template>
 
-<script setup>
-const props = defineProps({ blok: Object })
-</script>
 <style lang="scss" scoped>
 .swiper {
   width: 100%;

@@ -78,10 +78,11 @@ defineProps({ collections: Array })
       align-items: flex-end;
       justify-content: center;
       color: $text-color;
-      max-width: 440px;
+      max-width: 340px;
 
-      @media (min-width: $tablet-screen) {
+      @media (min-width: $laptop-screen) {
         padding: 1rem;
+        max-width: 440px;
       }
 
       &__title {

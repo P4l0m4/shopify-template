@@ -192,7 +192,8 @@ const breadcrumbs = [
           width: 100%;
           display: flex;
           gap: 0.75rem;
-          overflow: scroll;
+          overflow-x: scroll;
+          overflow-y: hidden;
           position: relative;
 
           &__card {

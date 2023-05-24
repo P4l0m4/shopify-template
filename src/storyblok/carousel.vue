@@ -1,3 +1,7 @@
+<script setup>
+defineProps({ blok: Object })
+</script>
+
 <template>
   <swiper-container
     v-editable="blok"
@@ -19,9 +23,6 @@
   </swiper-container>
 </template>
 
-<script setup>
-defineProps({ blok: Object })
-</script>
 <style lang="scss" scoped>
 .swiper {
   margin: auto;
