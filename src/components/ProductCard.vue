@@ -82,7 +82,7 @@ Object.values(props.product).forEach(element => {
     right: 1rem;
     top: 1rem;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 500;
   }
 
   &__img {
