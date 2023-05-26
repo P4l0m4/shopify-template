@@ -15,14 +15,12 @@ const props = defineProps({ blok: Object })
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  border-radius: $radius;
   display: flex;
   max-width: 800px;
   overflow: hidden;
   color: $primary-color;
   justify-content: space-between;
   flex-direction: column;
-  padding: 1rem;
 
   @media (min-width: $laptop-screen) {
     padding: 0;
