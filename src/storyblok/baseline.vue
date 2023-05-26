@@ -11,7 +11,7 @@ const props = defineProps({ blok: Object })
   font-size: 1.25rem;
   text-align: center;
   font-weight: 400;
-  color: $primary-color;
+  color: $text-color;
 
   @media (min-width: $tablet-screen) {
     font-size: 1.5rem;
