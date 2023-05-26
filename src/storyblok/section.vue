@@ -57,6 +57,7 @@ const props = defineProps({ blok: Object })
     &__title {
       font-size: 1.25rem;
       width: 100%;
+      font-weight: 600;
 
       @media (min-width: $laptop-screen) {
         font-size: 1.5rem;
