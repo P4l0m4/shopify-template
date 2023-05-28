@@ -129,6 +129,7 @@ Object.values(props.product).forEach(element => {
 
         &__icon {
           width: 24px;
+          height: 24px;
           background-color: $text-color;
           border-radius: $radius;
           padding: 0.2rem;
