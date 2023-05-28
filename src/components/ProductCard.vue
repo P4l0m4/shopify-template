@@ -49,7 +49,7 @@ Object.values(props.product).forEach(element => {
             src="@/assets/icons/heart-light-solid.svg"
             alt="icone coeur"
           />
-          <img v-else class="product-card__txt__price__button__icon" src="@/assets/icons/heart-light.svg" alt="" />
+          <img v-else class="product-card__txt__price__button__icon" src="@/assets/icons/heart-light.svg" alt="icone" />
         </button>
       </div>
     </div>

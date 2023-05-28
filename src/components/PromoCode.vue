@@ -13,7 +13,7 @@ const cartStore = useCartStore()
           @click="cartStore.addPromoCode(codeToTry)"
           aria-label="tester code promo"
         >
-          Tester
+          Appliquer
         </button>
       </div>
       <div class="promo__test__codes" v-if="cartStore.checkout.discountApplications?.length > 0">
