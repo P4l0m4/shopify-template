@@ -173,10 +173,12 @@ const story = await useAsyncStoryblok('product', { version: 'draft' })
                 'product__details__add-to-cart__price__button--updating': updatingCart,
               }"
             >
-              <img v-if="!updatingCart" class="icon" src="@/assets/icons/add-to-cart.svg" alt="icon" /><span
+              <img v-if="!updatingCart" class="icon" src="@/assets/icons/add-to-cart.svg" alt="icon" /><img
+                class="icon"
+                src="@/assets/icons/add-to-cart-confirmation.svg"
+                alt="icon add to cart"
                 v-if="updatingCart"
-                >Ajouté au panier</span
-              >
+              />
             </button>
           </div>
         </div>
