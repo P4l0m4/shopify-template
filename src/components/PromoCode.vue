@@ -84,7 +84,6 @@ const cartStore = useCartStore()
       &__button {
         text-shadow: none;
         color: $text-color !important;
-        background-color: red !important;
       }
     }
 
