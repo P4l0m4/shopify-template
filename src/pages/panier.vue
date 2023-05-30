@@ -66,7 +66,7 @@ const breadcrumbs = [
 
               <div class="cart__products__list__product__description__quantity">
                 <span class="cart__products__list__product__description__txt__price"
-                  >{{ item.variant.price.amount * 1 }} €</span
+                  >{{ parseFloat(item.variant.price.amount * 1).toFixed(2) }} €</span
                 >
 
                 <div class="cart__products__list__product__description__quantity__buttons">
@@ -127,7 +127,7 @@ const breadcrumbs = [
             </div>
             <div class="cart__products__params__price__amounts">
               <p>Total TTC :</p>
-              <span>{{ cartStore.checkout.paymentDue.amount * 1 }} €</span>
+              <span>{{ parseFloat(cartStore.checkout.paymentDue.amount * 1).toFixed(2) }} €</span>
               <span v-if="promotion !== 0 && promotion" class="cart__products__params__price__amounts__promotion"
                 >-{{ promotion }}%</span
               >
@@ -272,11 +272,6 @@ const breadcrumbs = [
                   border-radius: $radius;
                   padding: 0.2rem;
                   transition: opacity 0.2s;
-                  transition: transform 0.4s ease;
-
-                  &:hover {
-                    transform: scale(1.04);
-                  }
 
                   &:disabled {
                     opacity: 0.5;

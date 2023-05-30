@@ -1,8 +1,11 @@
 <script setup>
 import { ref, watch, onMounted } from 'vue'
 import { useProductStore } from '@/stores/product'
+import { useLikedStore } from '@/stores/liked'
 import { useCartStore } from '@/stores/cart'
 import { PRODUCT_PATH } from '@/config/url'
+
+const likedStore = useLikedStore()
 
 // Routing
 const route = useRoute()
@@ -98,7 +101,24 @@ const story = await useAsyncStoryblok('product', { version: 'draft' })
   <div class="container">
     <JsonldBreadcrumb :links="breadcrumbs" />
     <section class="product" v-if="!loading">
-      <SwiperComponent :images="productStore.product.images" :currentSlideIndex="currentSlideIndex" />
+      <div class="product__wrapper">
+        <SwiperComponent :images="productStore.product.images" :currentSlideIndex="currentSlideIndex" />
+        <button
+          class="product__wrapper__like"
+          @click.prevent="likedStore.addProductToLiked(productStore.product)"
+          aria-label="ajouter au favoris"
+        >
+          <img
+            v-if="likedStore.isProductLiked(productStore.product)"
+            class="product__wrapper__like__icon"
+            :class="{ 'product__wrapper__like__icon--selected': likedStore.isProductLiked(productStore.product) }"
+            src="@/assets/icons/heart-light-solid.svg"
+            alt="icone coeur"
+          />
+          <img v-else class="product__wrapper__like__icon" src="@/assets/icons/heart-light.svg" alt="icone" />
+        </button>
+      </div>
+
       <div class="product__details">
         <div class="product__details__variants">
           <div
@@ -221,6 +241,41 @@ const story = await useAsyncStoryblok('product', { version: 'draft' })
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  &__wrapper {
+    display: flex;
+    width: clamp(100px, 100%, 800px);
+    justify-content: center;
+    position: relative;
+
+    &__like {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 1;
+      display: flex;
+      border: 2px solid transparent;
+      justify-content: flex-end;
+      cursor: pointer;
+      transition: transform 0.4s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      &__icon {
+        width: 40px;
+        height: 40px;
+        background-color: $text-color;
+        border-radius: $radius;
+        padding: 0.5rem;
+
+        &--selected {
+          background-color: $selected-background-color-darker;
+        }
+      }
+    }
+  }
 
   &__details {
     display: flex;

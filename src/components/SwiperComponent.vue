@@ -49,6 +49,7 @@ let zoom = ref(false)
   --swiper-pagination-color: #{$text-color};
   background-color: $base-color;
   width: clamp(100px, 100%, 800px);
+  position: relative;
 
   &__slide {
     display: flex;
