@@ -17,23 +17,25 @@ const story = await useAsyncStoryblok('logo', { version: 'draft' })
       <img class="icon" src="@/assets/icons/menu.svg" alt="menu icon" />
     </button>
 
-    <nuxt-link to="/" class="logo"><StoryblokComponent v-if="story" :blok="story.content" /></nuxt-link>
+    <nuxt-link to="/" class="logo" aria-label="lien vers la page d'accueil"
+      ><StoryblokComponent v-if="story" :blok="story.content"
+    /></nuxt-link>
 
     <div class="wrapper">
-      <NuxtLink exact to="/boutique" class="link"
+      <NuxtLink exact to="/boutique" class="link" aria-label="lien vers la boutique"
         ><img class="icon" src="@/assets/icons/search.svg" alt="search icon" /><span class="desktop-only"
           >Boutique</span
         ></NuxtLink
       >
-      <NuxtLink to="/favoris" class="link desktop-only"
+      <NuxtLink to="/favoris" class="link desktop-only" aria-label="lien vers les favoris"
         ><img class="icon" src="@/assets/icons/heart.svg" alt="search icon" />Favoris</NuxtLink
-      ><NuxtLink to="/contact" class="link desktop-only"
+      ><NuxtLink to="/contact" class="link desktop-only" aria-label="lien vers la page de contact"
         ><img class="icon" src="@/assets/icons/mail.svg" alt="search icon" />Contact</NuxtLink
       >
 
-      <NuxtLink to="/panier" class="link">
+      <NuxtLink to="/panier" class="link" aria-label="lien vers le panier">
         <div class="link__cart">
-          <img class="link__cart__img" src="@/assets/icons/bag.svg" alt="" /><span
+          <img class="link__cart__img" src="@/assets/icons/bag.svg" alt="icone panier" /><span
             class="link__cart__number"
             v-if="cartStore.checkout && cartStore.checkout.lineItems.length > 0"
           >
