@@ -124,6 +124,7 @@ nav {
 
       &__img {
         width: 20px;
+        height: 20px;
       }
 
       &__number {
