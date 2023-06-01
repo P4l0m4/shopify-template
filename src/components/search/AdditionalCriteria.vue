@@ -168,6 +168,7 @@ function selectCollection(collection) {
             padding: 0.75rem;
             border-radius: calc($radius/2);
             text-shadow: black 0px 0px 4px;
+            font-weight: 300;
 
             // &--selected {
             //   background-color: $selected-background-color;
