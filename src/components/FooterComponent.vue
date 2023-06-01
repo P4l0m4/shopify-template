@@ -34,9 +34,13 @@ setTimeout(() => {
     </div>
 
     <div class="footer__icons">
-      <a href="#"><img src="@/assets/icons/facebook.svg" alt="icon" /></a
-      ><a href="#"><img src="@/assets/icons/linkedin.svg" alt="icon" /></a
-      ><a href="#"><img src="@/assets/icons/instagram.svg" alt="icon" /></a>
+      <a class="footer__icons__link" href="#" aria-label="lien vers la page facebook"
+        ><img class="footer__icons__link__icon" src="@/assets/icons/facebook.svg" alt="icon" /></a
+      ><a class="footer__icons__link" href="#" aria-label="lien vers la page linkedin"
+        ><img class="footer__icons__link__icon" src="@/assets/icons/linkedin.svg" alt="icon" /></a
+      ><a class="footer__icons__link" href="#" aria-label="lien vers la page instagram"
+        ><img class="footer__icons__link__icon" src="@/assets/icons/instagram.svg" alt="icon"
+      /></a>
     </div>
   </footer>
 </template>
@@ -70,6 +74,13 @@ setTimeout(() => {
   &__icons {
     display: flex;
     gap: 0.5rem;
+
+    &__link {
+      &__icon {
+        width: 26px;
+        height: 26px;
+      }
+    }
   }
 }
 </style>
