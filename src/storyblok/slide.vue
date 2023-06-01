@@ -12,7 +12,7 @@ const props = defineProps({ blok: Object })
     >
       <div
         class="swiper__slide__wrapper"
-        :style="'background: linear-gradient(270deg, rgba(255,253,250,0) 0%, ' + blok.background_color + ' 40%);'"
+        :style="'background: linear-gradient(270deg, rgba(255,253,250,0) 0%, ' + blok.background_color + ' 36%);'"
       >
         <div class="swiper__slide__wrapper__txt">
           <h3 class="swiper__slide__wrapper__txt__title">{{ blok.title }}</h3>
@@ -53,7 +53,7 @@ const props = defineProps({ blok: Object })
       background-size: 720px 560px;
     }
     @media (min-width: $super-big-screen) {
-      background-size: 1020px 560px;
+      background-size: 860px 560px;
     }
 
     &__wrapper {
