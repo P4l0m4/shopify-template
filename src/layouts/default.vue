@@ -14,16 +14,6 @@ await productStore.getCollectionsAndProducts()
 
 const story = await useAsyncStoryblok('promotion', { version: 'draft' })
 
-useHead({
-  script: [
-    {
-      async: true,
-      src: '//staticw2.yotpo.com/g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ/widget.js',
-      body: true,
-    },
-  ],
-})
-
 useJsonld(() => ({
   '@context': 'https://schema.org/',
   '@type': 'WebSite',

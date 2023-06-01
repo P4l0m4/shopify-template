@@ -20,7 +20,12 @@ defineProps({ collections: Array })
           >Voir la collection</NuxtLink
         >
       </div>
-      <img class="collections__collection__img" :src="collection.image.src" :alt="collection.image.altText" />
+      <img
+        loading="lazy"
+        class="collections__collection__img"
+        :src="collection.image.src"
+        :alt="collection.image.altText"
+      />
     </NuxtLink>
   </section>
 </template>

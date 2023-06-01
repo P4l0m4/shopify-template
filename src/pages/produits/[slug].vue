@@ -95,6 +95,16 @@ const breadcrumbs = [
 
 //STORYBLOK
 const story = await useAsyncStoryblok('product', { version: 'draft' })
+
+useHead({
+  script: [
+    {
+      async: true,
+      src: '//staticw2.yotpo.com/g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ/widget.js',
+      body: true,
+    },
+  ],
+})
 </script>
 
 <template>

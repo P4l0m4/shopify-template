@@ -8,6 +8,7 @@ const props = defineProps({ blok: Object })
       v-editable="blok"
       class="swiper__slide"
       :style="'background-image: url(' + blok?.image.filename + ')'"
+      loading="lazy"
     >
       <div
         class="swiper__slide__wrapper"
