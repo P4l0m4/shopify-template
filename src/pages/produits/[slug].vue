@@ -99,9 +99,10 @@ const story = await useAsyncStoryblok('product', { version: 'draft' })
 useHead({
   script: [
     {
-      async: true,
+      async: false,
       src: '//staticw2.yotpo.com/g0YglhE3q3wxCEFpK4R4tF5UE349zZrrw0C4psLQ/widget.js',
       body: true,
+      defer: true,
     },
   ],
 })
