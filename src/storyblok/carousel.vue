@@ -9,7 +9,6 @@ defineProps({ blok: Object })
     :pagination="{
       clickable: true,
     }"
-    :mousewheel="true"
     loop="true"
     speed="600"
     :autoplay="{
