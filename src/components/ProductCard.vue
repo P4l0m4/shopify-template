@@ -27,7 +27,7 @@ Object.values(props.product).forEach(element => {
 <template>
   <nuxt-link :to="`/${PRODUCT_PATH}${product.handle}`" :key="product.id" class="product-card">
     <span v-if="promotion" class="product-card__promotion">- {{ promotion }}%</span>
-    <img class="product-card__img" :src="product.images[0].src" :alt="product.handle" />
+    <img loading="lazy" class="product-card__img" :src="product.images[0].src" :alt="product.handle" />
 
     <div class="product-card__txt">
       <h3 class="product-card__txt__title">
