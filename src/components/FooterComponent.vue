@@ -48,7 +48,7 @@ setTimeout(() => {
 .footer {
   display: flex;
   gap: 1.5rem;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   width: 100%;
   position: relative;
@@ -67,7 +67,7 @@ setTimeout(() => {
     display: flex;
     gap: 1rem;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
