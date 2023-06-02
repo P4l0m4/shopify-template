@@ -10,7 +10,6 @@ const props = defineProps({ blok: Object })
 .sections-sous-produit {
   gap: 4rem;
   padding: 1rem;
-  max-width: 2000px;
   width: 100vw;
   display: flex;
   flex-direction: column;
