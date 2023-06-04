@@ -7,12 +7,10 @@ import { register } from 'swiper/element/bundle'
 register()
 
 const cartStore = useCartStore()
-await cartStore.initCheckout()
+cartStore.initCheckout()
 
 const productStore = useProductStore()
-await productStore.getCollectionsAndProducts()
-
-const story = await useAsyncStoryblok('promotion', { version: 'draft' })
+productStore.getCollectionsAndProducts()
 
 useJsonld(() => ({
   '@context': 'https://schema.org/',
@@ -24,10 +22,7 @@ useJsonld(() => ({
 
 <template>
   <div class="container">
-    <header class="container__header">
-      <StoryblokComponent v-if="story" :blok="story.content" />
-      <NavigationComponent />
-    </header>
+    <HeaderComponent />
     <main><slot /></main>
     <FooterComponent />
   </div>
@@ -53,16 +48,6 @@ useJsonld(() => ({
 
   @media (min-width: $laptop-screen) {
     padding: 6.4rem 0 0 0;
-  }
-
-  &__header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    z-index: 2;
   }
 
   & main {
