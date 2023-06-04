@@ -9,14 +9,14 @@ const breadcrumbs = [
   },
 ]
 //STORYBLOK
-// const story = await useAsyncStoryblok('baseline', { version: 'draft' })
+const story = await useAsyncStoryblok('baseline', { version: 'draft' })
 </script>
 
 <template>
   <section class="index-section">
     <JsonldBreadcrumb :links="breadcrumbs" />
-    <!-- <HomeCarousel />
-    <StoryblokComponent v-if="story" :blok="story.content" /> -->
+    <HomeCarousel />
+    <StoryblokComponent v-if="story" :blok="story.content" />
     <div class="index-section__wrapper">
       <!-- <p class="index-section__wrapper__title">Nos collections exclusives</p> -->
       <CollectionsGallery :collections="productStore.collections" />
