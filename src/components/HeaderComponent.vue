@@ -3,7 +3,7 @@ const story = await useAsyncStoryblok('promotion', { version: 'draft' })
 </script>
 
 <template>
-  <header class="container__header">
+  <header>
     <StoryblokComponent v-if="story !== undefined" :blok="story.content" />
     <NavigationComponent />
   </header>

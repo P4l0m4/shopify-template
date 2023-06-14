@@ -105,7 +105,7 @@ Object.values(props.product).forEach(element => {
       display: flex;
       justify-content: space-between;
       flex-direction: column;
-      font-weight: 300;
+      font-weight: 400;
     }
     &__price {
       display: flex;
@@ -114,7 +114,7 @@ Object.values(props.product).forEach(element => {
 
       &__amount {
         font-size: 1rem;
-        font-weight: 800;
+        font-weight: 700;
       }
       &__button {
         display: flex;

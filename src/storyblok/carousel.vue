@@ -30,14 +30,5 @@ defineProps({ blok: Object })
   --swiper-pagination-color: #{$primary-color};
   width: clamp(100px, 100vw, 2000px) !important;
   animation: fade 0.2s ease;
-
-  @keyframes fade {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
 }
 </style>

@@ -319,6 +319,7 @@ useHead({
           width: 50px;
           height: 50px;
           object-fit: contain;
+          animation: fade 0.2s ease;
         }
 
         &--selected {

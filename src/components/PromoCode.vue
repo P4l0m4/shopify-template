@@ -58,13 +58,14 @@ const cartStore = useCartStore()
       gap: 0.5rem;
 
       &__input {
-        padding: 8px;
+        padding: 0.5rem 1rem;
         background-color: $primary-color;
         box-shadow: $shadow;
         outline: none;
         border: $primary-color 2px solid;
         width: clamp(100px, 100%, 400px);
         color: $text-color;
+        font-size: 0.75rem;
 
         &:focus {
           border: 2px solid $primary-color;

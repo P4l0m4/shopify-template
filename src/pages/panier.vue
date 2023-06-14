@@ -205,6 +205,7 @@ const breadcrumbs = [
               height: 70px;
               object-fit: contain;
               border-radius: calc($radius/ 2);
+              animation: fade 0.2s ease;
             }
           }
 
@@ -220,7 +221,7 @@ const breadcrumbs = [
               gap: 0.25rem;
 
               &__title {
-                font-weight: 600;
+                font-weight: 500;
                 font-size: 0.9rem;
                 text-overflow: ellipsis;
               }
@@ -235,7 +236,7 @@ const breadcrumbs = [
               }
               &__price {
                 font-size: 1.5rem;
-                font-weight: 800;
+                font-weight: 700;
               }
               &__details {
                 display: none;
@@ -325,7 +326,7 @@ const breadcrumbs = [
             display: flex;
             justify-content: space-between;
             width: 100%;
-            font-weight: 600;
+            font-weight: 500;
             font-size: 0.75rem;
             &:nth-last-of-type(1) {
               font-size: 1rem;

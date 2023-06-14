@@ -125,6 +125,7 @@ function selectCollection(collection) {
           border: 1px solid transparent;
           box-shadow: $shadow;
           background-color: $primary-color;
+          font-weight: 200;
         }
       }
 
@@ -142,12 +143,13 @@ function selectCollection(collection) {
           background-size: cover;
           background-position: center;
           box-shadow: $shadow;
-          font-weight: 100;
+          font-weight: 200;
           font-size: 1rem;
           border: $primary-color 4px solid;
           color: $primary-color;
           cursor: pointer;
           width: 100%;
+          opacity: 0.8;
 
           @media (min-width: $tablet-screen) {
             min-height: 100px;
@@ -155,6 +157,7 @@ function selectCollection(collection) {
 
           &--selected {
             border: $selected-background-color-darker 4px solid;
+            opacity: 1;
           }
 
           // &__img {

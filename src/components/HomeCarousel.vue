@@ -18,7 +18,5 @@ useHead({
 </script>
 
 <template>
-  <header>
-    <StoryblokComponent v-if="story" :blok="story.content" />
-  </header>
+  <StoryblokComponent v-if="story" :blok="story.content" />
 </template>
