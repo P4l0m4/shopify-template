@@ -429,7 +429,7 @@ useHead({
         &__numbers {
           display: flex;
           font-size: 1.5rem;
-          font-weight: 800;
+          font-weight: 700;
           gap: 1rem;
           align-items: flex-end;
 
