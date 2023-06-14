@@ -377,6 +377,7 @@ useHead({
           display: flex;
           align-items: center;
           margin-top: 0.5rem;
+          justify-content: space-between;
 
           .yotpo-offset-button {
             display: flex;
@@ -387,7 +388,7 @@ useHead({
             background-color: transparent;
             border: transparent solid 2px;
             cursor: pointer;
-            width: 100%;
+            // width: 100%;
             display: flex;
             justify-content: flex-end;
             padding: 0.25rem 0;
