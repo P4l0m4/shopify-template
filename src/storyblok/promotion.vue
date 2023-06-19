@@ -24,26 +24,31 @@ onMounted(() => {
 </script>
 
 <template>
-  <infinite-slide-bar :barStyle="{ background: blok.color }" :duration="'128s'" class="infinite-slide-bar">
-    <div class="infinite-slide-bar__component">
-      <button
-        :style="{ 'background-color': blok.color }"
-        style="padding-left: 168px !important"
-        @click="copy()"
-        aria-label="copier le code promo"
-      >
-        {{ message }} <span v-if="code">{{ code }}</span></button
-      ><button :style="{ 'background-color': blok.color }" @click="copy()" aria-label="copier le code promo">
-        {{ message }} <span v-if="code">{{ code }}</span></button
-      ><button :style="{ 'background-color': blok.color }" @click="copy()" aria-label="copier le code promo">
-        {{ message }} <span v-if="code">{{ code }}</span></button
-      ><button :style="{ 'background-color': blok.color }" @click="copy()" aria-label="copier le code promo">
-        {{ message }} <span v-if="code">{{ code }}</span>
-      </button>
-    </div>
-  </infinite-slide-bar>
+  <div class="wrapper" :style="{ 'background-color': blok.color }">
+    <infinite-slide-bar :barStyle="{ background: blok.color }" :duration="'128s'" class="infinite-slide-bar">
+      <div class="infinite-slide-bar__component">
+        <button
+          :style="{ 'background-color': blok.color }"
+          style="padding-left: 168px !important"
+          @click="copy()"
+          aria-label="copier le code promo"
+        >
+          {{ message }} <span v-if="code">{{ code }}</span></button
+        ><button :style="{ 'background-color': blok.color }" @click="copy()" aria-label="copier le code promo">
+          {{ message }} <span v-if="code">{{ code }}</span></button
+        ><button :style="{ 'background-color': blok.color }" @click="copy()" aria-label="copier le code promo">
+          {{ message }} <span v-if="code">{{ code }}</span></button
+        ><button :style="{ 'background-color': blok.color }" @click="copy()" aria-label="copier le code promo">
+          {{ message }} <span v-if="code">{{ code }}</span>
+        </button>
+      </div>
+    </infinite-slide-bar>
+  </div>
 </template>
 <style lang="scss" scoped>
+.wrapper {
+  width: 100vw;
+}
 .infinite-slide-bar {
   &__component {
     display: flex;
