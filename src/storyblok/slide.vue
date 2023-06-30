@@ -43,6 +43,7 @@ const props = defineProps({ blok: Object })
     background-position: left;
     background-size: 100vw 340px;
     height: 340px;
+    animation: fade 0.2s ease;
 
     @media (min-width: $tablet-screen) {
       background-position: right;
