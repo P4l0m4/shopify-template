@@ -93,6 +93,18 @@ const breadcrumbs = [
   },
 ]
 
+useJsonld(() => ({
+  '@context': 'https://schema.org/',
+  '@type': 'Product',
+  name: productStore.product.title,
+  image: productStore.product.images[0].src,
+  description: productStore.product.description,
+  brand: {
+    '@type': 'Brand',
+    name: 'SampleShop',
+  },
+}))
+
 //STORYBLOK
 const story = await useAsyncStoryblok('product', { version: 'draft' })
 
