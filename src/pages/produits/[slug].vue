@@ -106,7 +106,7 @@ useJsonld(() => ({
 }))
 
 //STORYBLOK
-const story = await useAsyncStoryblok('product', { version: 'draft' })
+const story = await useAsyncStoryblok('product', { version: 'published' })
 
 useHead({
   script: [

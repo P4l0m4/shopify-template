@@ -1,5 +1,5 @@
 <script setup>
-const story = await useAsyncStoryblok('carousel', { version: 'draft' })
+const story = await useAsyncStoryblok('carousel', { version: 'published' })
 // META TAGS
 const metaTitle = ref('Sample Shop, cosmétique naturelle et équitable')
 const metaDescription = ref(

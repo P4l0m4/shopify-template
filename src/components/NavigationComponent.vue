@@ -6,7 +6,7 @@ const cartStore = useCartStore()
 
 const isMenuOpen = ref(false)
 
-const story = await useAsyncStoryblok('logo', { version: 'draft' })
+const story = await useAsyncStoryblok('logo', { version: 'published' })
 </script>
 
 <template>

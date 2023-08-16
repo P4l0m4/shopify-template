@@ -10,9 +10,9 @@ defineProps({ blok: Object })
       clickable: true,
     }"
     loop="true"
-    speed="600"
+    speed="800"
     :autoplay="{
-      delay: 2500,
+      delay: 6000,
       pauseOnMouseEnter: true,
     }"
     class="swiper"

@@ -10,7 +10,7 @@ let info = infoStore.info
 //IN PROGRESS
 let year = new Date().getFullYear()
 
-const story = await useAsyncStoryblok('documents', { version: 'draft' })
+const story = await useAsyncStoryblok('documents', { version: 'published' })
 
 const showCookieModal = ref(false)
 setTimeout(() => {
