@@ -1,9 +1,22 @@
 <script setup>
+import { onMounted, ref } from 'vue'
 defineProps({ blok: Object })
+let isPaused = ref(false)
+
+onMounted(() => {
+  document.getElementById('swiper').addEventListener('touchstart', function (event) {
+    isPaused.value = true
+
+    setTimeout(() => {
+      isPaused.value = false
+    }, 4000)
+  })
+})
 </script>
 
 <template>
   <swiper-container
+    id="swiper"
     v-editable="blok"
     :grabCursor="true"
     :pagination="{
@@ -13,7 +26,7 @@ defineProps({ blok: Object })
     speed="800"
     :autoplay="{
       delay: 6000,
-      pauseOnMouseEnter: true,
+      pauseOnMouseEnter: isPaused,
     }"
     class="swiper"
     keyboard="true"
