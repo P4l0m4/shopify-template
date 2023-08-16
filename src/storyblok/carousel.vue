@@ -18,7 +18,6 @@ onMounted(() => {
   <swiper-container
     id="swiper"
     v-editable="blok"
-    :grabCursor="true"
     :pagination="{
       clickable: true,
     }"
