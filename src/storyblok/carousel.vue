@@ -27,6 +27,7 @@ onMounted(() => {
     :autoplay="{
       delay: 6000,
       pauseOnMouseEnter: isPaused,
+      disableOnInteraction: isPaused,
     }"
     class="swiper"
     keyboard="true"
