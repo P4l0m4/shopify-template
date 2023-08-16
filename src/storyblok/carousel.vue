@@ -1,17 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
 defineProps({ blok: Object })
-let isPaused = ref(false)
-
-onMounted(() => {
-  document.getElementById('swiper').addEventListener('touchstart', function (event) {
-    isPaused.value = true
-
-    setTimeout(() => {
-      isPaused.value = false
-    }, 4000)
-  })
-})
 </script>
 
 <template>
@@ -25,8 +14,7 @@ onMounted(() => {
     speed="800"
     :autoplay="{
       delay: 6000,
-      pauseOnMouseEnter: isPaused,
-      disableOnInteraction: isPaused,
+      pauseOnMouseEnter: true,
     }"
     class="swiper"
     keyboard="true"
